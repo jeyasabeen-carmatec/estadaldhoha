@@ -7,7 +7,8 @@
 //
 
 #import "ContactUS_VC.h"
-#import "HomeController.h"
+//#import "HomeController.h"
+#import "New_Home_VC.h"
 #import "News_CELL.h"
 #import "articles_CELL.h"
 #import "media_CELL.h"
@@ -15,7 +16,8 @@
 #import "Article_VC.h"
 #import "photos_VC.h"
 #import "Videos_VC.h"
-#import "HomeController.h"
+//#import "HomeController.h"
+#import "New_Home_VC.h"
 #import "Cell_CONTACT_US_F.h"
 #import "cell_CON_US_SE.h"
 #import "About_US_VC.h"
@@ -381,7 +383,8 @@
         _overlayView.hidden = YES;
         [UIView commitAnimations];
         
-        HomeController *controller = [[HomeController alloc] initWithNibName:@"HomeController" bundle:nil];
+//        HomeController *controller = [[HomeController alloc] initWithNibName:@"HomeController" bundle:nil];
+        New_Home_VC *controller = [[New_Home_VC alloc] initWithNibName:@"New_Home_VC" bundle:nil];
         [self.navigationController pushViewController:controller animated:YES];
     }
     else if (index == 1)

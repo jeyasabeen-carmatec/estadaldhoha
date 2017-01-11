@@ -143,7 +143,6 @@
     {
         NSMutableDictionary *push = (NSMutableDictionary *)[NSJSONSerialization JSONObjectWithData:aData options:NSASCIIStringEncoding error:&error];
         NSLog(@"OUT Json Push register %@",push);
-        
     }
 }
 

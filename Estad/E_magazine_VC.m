@@ -7,7 +7,8 @@
 //
 
 #import "E_magazine_VC.h"
-#import "HomeController.h"
+//#import "HomeController.h"
+#import "New_Home_VC.h"
 #import "About_US_VC.h"
 #import "ContactUS_VC.h"
 #import "News_CELL.h"
@@ -417,7 +418,8 @@
         _overlayView.hidden = YES;
         [UIView commitAnimations];
         
-        HomeController *controller = [[HomeController alloc] initWithNibName:@"HomeController" bundle:nil];
+//        HomeController *controller = [[HomeController alloc] initWithNibName:@"HomeController" bundle:nil];
+        New_Home_VC *controller = [[New_Home_VC alloc] initWithNibName:@"New_Home_VC" bundle:nil];
         [self.navigationController pushViewController:controller animated:YES];
     }
     else if (index == 1)

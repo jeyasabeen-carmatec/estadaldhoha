@@ -13,7 +13,8 @@
 #import "media_CELL.h"
 #import "Article_VC.h"
 #import "News_local.h"
-#import "HomeController.h"
+//#import "HomeController.h"
+#import "New_Home_VC.h"
 #import "Videos_VC.h"
 //#import "UIView+Shake.h"
 #import "ContactUS_VC.h"
@@ -739,7 +740,8 @@
         _overlayView.hidden = YES;
         [UIView commitAnimations];
         
-        HomeController *controller = [[HomeController alloc] initWithNibName:@"HomeController" bundle:nil];
+//        HomeController *controller = [[HomeController alloc] initWithNibName:@"HomeController" bundle:nil];
+        New_Home_VC *controller = [[New_Home_VC alloc] initWithNibName:@"New_Home_VC" bundle:nil];
         [self.navigationController pushViewController:controller animated:YES];
     }
     else if (index == 1)

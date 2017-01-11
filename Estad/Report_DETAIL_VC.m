@@ -8,7 +8,7 @@
 
 #import "Report_DETAIL_VC.h"
 #import "Comments_VC.h"
-#import "HomeController.h"
+//#import "HomeController.h"
 #import "E_magazine_VC.h"
 #import "Editorial_board_VC.h"
 #import "ContactUS_VC.h"

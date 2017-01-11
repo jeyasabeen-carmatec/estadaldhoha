@@ -10,7 +10,8 @@
 #import "News_CELL.h"
 #import "articles_CELL.h"
 #import "media_CELL.h"
-#import "HomeController.h"
+//#import "HomeController.h"
+#import "New_Home_VC.h"
 #import "NEWS_BIG_CELL.h"
 #import "NEWS_SMALL_CELL.h"
 #import "News_ADS_cell.h"
@@ -401,7 +402,8 @@
         _overlayView.hidden = YES;
         [UIView commitAnimations];
         
-        HomeController *controller = [[HomeController alloc] initWithNibName:@"HomeController" bundle:nil];
+//        HomeController *controller = [[HomeController alloc] initWithNibName:@"HomeController" bundle:nil];
+        New_Home_VC *controller = [[New_Home_VC alloc] initWithNibName:@"New_Home_VC" bundle:nil];
         [self.navigationController pushViewController:controller animated:YES];
     }
     else if (index == 1)

@@ -7,7 +7,7 @@
 //
 
 #import "Interview_DETAIL.h"
-#import "HomeController.h"
+//#import "HomeController.h"
 #import "Comments_VC.h"
 #import "Add_comment_VC.h"
 #import "E_magazine_VC.h"
