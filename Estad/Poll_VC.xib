@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10109" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10083"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Poll_VC">
+            <connections>
+                <outlet property="VW_NO" destination="NeG-SQ-33Z" id="udh-cZ-6tc"/>
+                <outlet property="VW_NO_SUB" destination="QQT-P7-FkC" id="ONm-v5-SyJ"/>
+                <outlet property="VW_PER_N" destination="Myg-BL-Yfp" id="rKX-Bv-z1Y"/>
+                <outlet property="VW_PER_S" destination="RHp-DL-cTh" id="tBZ-FD-Our"/>
+                <outlet property="VW_YES" destination="e22-Sm-3w0" id="Med-sC-nBJ"/>
+                <outlet property="VW_YES_SUB" destination="BCE-ho-gRR" id="IRC-3l-l9n"/>
+                <outlet property="btn_SUBMIT" destination="yzH-YG-jxc" id="jU0-cz-ITJ"/>
+                <outlet property="lbl_NO" destination="all-V8-zI0" id="Krh-cS-VuL"/>
+                <outlet property="lbl_OPTN_NO" destination="FLv-3q-41F" id="vRS-j8-EME"/>
+                <outlet property="lbl_OPTN_YS" destination="acJ-8b-yuY" id="tZf-mM-qCN"/>
+                <outlet property="lbl_OPTN_til" destination="fEs-Bm-9QY" id="PQY-vA-0aI"/>
+                <outlet property="lbl_QSTN" destination="Wcn-0i-Nnv" id="3QN-Du-b5h"/>
+                <outlet property="lbl_Yes" destination="Si5-cm-UFT" id="Ide-Wf-UkJ"/>
+                <outlet property="lbl_side_N" destination="P1A-vH-ebV" id="fMa-VZ-r8S"/>
+                <outlet property="lbl_side_Y" destination="Ghj-KN-s7K" id="BQ5-Ou-e3C"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="سؤال" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BdZ-l1-7ka">
+                    <rect key="frame" x="200" y="8" width="112" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                    <color key="textColor" red="0.35686274509803922" green="0.0" blue="0.18823529411764706" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Wcn-0i-Nnv">
+                    <rect key="frame" x="8" y="51" width="304" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="13"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="إجابة" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fEs-Bm-9QY">
+                    <rect key="frame" x="200" y="147" width="112" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                    <color key="textColor" red="0.35686274509999999" green="0.0" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="نعم " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="acJ-8b-yuY">
+                    <rect key="frame" x="275" y="176" width="37" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" id="e22-Sm-3w0" userLabel="step2">
+                    <rect key="frame" x="250" y="180" width="17" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" id="BCE-ho-gRR" userLabel="step2_sub">
+                            <rect key="frame" x="2" y="2" width="13" height="13"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <color key="backgroundColor" red="0.95294123890000004" green="0.81568634510000004" blue="0.91764712329999998" alpha="1" colorSpace="deviceRGB"/>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0pm-fy-clB">
+                    <rect key="frame" x="250" y="180" width="17" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <action selector="BTN_NO:" destination="-1" eventType="touchUpInside" id="C5d-0u-F0S"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="لا " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FLv-3q-41F">
+                    <rect key="frame" x="218" y="176" width="20" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" id="NeG-SQ-33Z" userLabel="step1">
+                    <rect key="frame" x="191" y="180" width="17" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" id="QQT-P7-FkC" userLabel="step1_sub">
+                            <rect key="frame" x="2" y="2" width="13" height="13"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <color key="backgroundColor" red="0.95294123890000004" green="0.81568634510000004" blue="0.91764712329999998" alpha="1" colorSpace="deviceRGB"/>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="KOt-V4-lbp">
+                    <rect key="frame" x="191" y="180" width="17" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <action selector="BTN_YES:" destination="-1" eventType="touchUpInside" id="Yk2-ct-woU"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="yzH-YG-jxc">
+                    <rect key="frame" x="191" y="239" width="121" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.47450980390000003" green="0.0039215686269999999" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
+                    <state key="normal" title="SUBMIT">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <view contentMode="scaleToFill" id="Ycc-ql-EvM">
+                    <rect key="frame" x="0.0" y="308" width="320" height="1"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" id="RHp-DL-cTh">
+                    <rect key="frame" x="50" y="317" width="250" height="14"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES"/>
+                    <color key="backgroundColor" red="0.2443623996789423" green="0.70838730569948183" blue="0.22280437564892944" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <view contentMode="scaleToFill" id="Myg-BL-Yfp">
+                    <rect key="frame" x="50" y="350" width="250" height="14"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES"/>
+                    <color key="backgroundColor" red="0.90347716968911918" green="0.34875399889040765" blue="0.29507127342953043" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100.00%" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Si5-cm-UFT">
+                    <rect key="frame" x="0.0" y="314" width="47" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="11"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100.00%" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="all-V8-zI0">
+                    <rect key="frame" x="0.0" y="347" width="47" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="11"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="نعم " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ghj-KN-s7K">
+                    <rect key="frame" x="303" y="313" width="15" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="10"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="لا " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="P1A-vH-ebV">
+                    <rect key="frame" x="305" y="346" width="10" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="10"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <point key="canvasLocation" x="281" y="154"/>
+        </view>
+    </objects>
+</document>
