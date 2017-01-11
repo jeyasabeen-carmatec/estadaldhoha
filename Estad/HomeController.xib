@@ -31,6 +31,7 @@
                 <outlet property="VW_Home" destination="da1-Hj-deo" id="bZB-dw-ngm"/>
                 <outlet property="VW_Media" destination="Lbj-4V-pJs" id="Lfq-jz-GXJ"/>
                 <outlet property="VW_News" destination="Ihp-2T-fc3" id="emi-9u-okZ"/>
+                <outlet property="VW_POLL" destination="OQN-Sg-2dx" id="9x2-O0-nA0"/>
                 <outlet property="VW_Serch" destination="vVz-CV-ylQ" id="6iZ-mB-Lkh"/>
                 <outlet property="VW_Serch_BAR" destination="Yic-3k-k6g" id="0a0-XN-XlC"/>
                 <outlet property="VW_Settings" destination="MyR-mB-ij5" id="wIw-hv-g0B"/>
@@ -699,7 +700,7 @@
             <point key="canvasLocation" x="735" y="4463"/>
         </view>
         <view contentMode="scaleToFill" misplaced="YES" id="VR4-CE-oHC">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="1188"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="1074"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
             <subviews>
                 <webView contentMode="scaleToFill" misplaced="YES" id="x2w-tW-EZw">
@@ -738,10 +739,37 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="none" id="Lzf-lv-pSg">
+                    <rect key="frame" x="0.0" y="893" width="375" height="181"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="qOY-VA-1Hl">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-1209.5" y="2491"/>
+            <point key="canvasLocation" x="-1209.5" y="2434"/>
+        </view>
+        <view contentMode="scaleToFill" id="OQN-Sg-2dx">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="224"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Poll" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sbK-jJ-99S">
+                    <rect key="frame" x="50" y="128" width="92" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.47450980390000003" green="0.0039215686269999999" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="699" y="1466"/>
         </view>
     </objects>
     <resources>

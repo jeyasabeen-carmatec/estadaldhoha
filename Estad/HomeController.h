@@ -29,6 +29,7 @@
     IBOutlet UIView *VW_Editorial;
     IBOutlet UIView *VW_Emagazine;
     IBOutlet UIView *VW_Settings;
+    IBOutlet UIView *VW_POLL;
     IBOutlet CollapseClick *myCollapseClick;
 }
 
@@ -110,5 +111,8 @@
 #pragma mark - Poll
 -(IBAction)BTN_Poll:(id)sender;
 
-// IDE Integration Test
+#pragma mark - home page NEW
+
+@property (strong, nonatomic) IBOutlet UIView *VW_home_NEW;
+
 @end

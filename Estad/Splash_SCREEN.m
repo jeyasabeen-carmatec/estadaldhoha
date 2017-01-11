@@ -7,7 +7,8 @@
 //
 
 #import "Splash_SCREEN.h"
-#import "HomeController.h"
+//#import "HomeController.h"
+#import "New_Home_VC.h"
 
 @interface Splash_SCREEN ()
 
@@ -100,7 +101,8 @@
 {
     self.navigationController.navigationBar.hidden = NO;
     
-    HomeController *controller = [[HomeController alloc] initWithNibName:@"HomeController" bundle:nil];
+//    HomeController *controller = [[HomeController alloc] initWithNibName:@"HomeController" bundle:nil];
+    New_Home_VC *controller = [[New_Home_VC alloc] initWithNibName:@"New_Home_VC" bundle:nil];
     [self.navigationController pushViewController:controller animated:NO];
     
     [_activityindicator stopAnimating];

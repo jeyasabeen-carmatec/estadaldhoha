@@ -1,15 +1,15 @@
 //
-//  Article_VC.h
+//  New_Home_VC.h
 //  Estad
 //
-//  Created by Apple on 17/11/16.
-//  Copyright © 2016 carmatec. All rights reserved.
+//  Created by Apple on 11/01/17.
+//  Copyright © 2017 carmatec. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 #import "CollapseClick.h"
 
-@interface Article_VC : UIViewController <UICollectionViewDataSource,UICollectionViewDelegate,CollapseClickDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface New_Home_VC : UIViewController <CollapseClickDelegate, UITableViewDataSource, UITableViewDelegate>
 {
     IBOutlet UIView *VW_Home;
     IBOutlet UIView *VW_News;
@@ -26,10 +26,6 @@
     IBOutlet CollapseClick *myCollapseClick;
 }
 
-@property (strong, nonatomic) IBOutlet UICollectionView *content_Collection;
-
-@property (nonatomic, strong) NSString *get_NAV_TITL;
-
 @property (nonatomic, strong) IBOutlet UIView *VW_swipe;
 @property (readonly, nonatomic) int menyDraw_X,menuDraw_width;
 
@@ -39,11 +35,22 @@
 @property (nonatomic, strong) IBOutlet UITableView *tbl_ARTICLES;
 @property (nonatomic, strong) IBOutlet UITableView *tbl_MEDIA;
 
+@property (nonatomic, strong) IBOutlet UILabel *lbl_disp_contents;
+@property (nonatomic, strong) IBOutlet UIScrollView *scroll_lbl;
+
 #pragma mark - Search
 @property (nonatomic, strong) IBOutlet UIView *VW_Serch;
 @property (nonatomic, strong) IBOutlet UIView *VW_Serch_BAR;
 @property (nonatomic, strong) IBOutlet UISearchBar *serch_BAR;
 -(IBAction)BTN_close_SRCHT:(id)sender;
 @property (nonatomic, strong) IBOutlet UITableView *list_DATA;
+
+
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityindicator;
+@property (strong, nonatomic) IBOutlet UIView *VW_activity;
+
+@property (nonatomic, strong) IBOutlet UIWebView *widget_VW;
+@property (nonatomic, strong) IBOutlet UIScrollView *scroll_contNT;
+@property (nonatomic, strong) IBOutlet UIView *VW_Contents;
 
 @end

@@ -20,6 +20,7 @@
     IBOutlet UIView *VW_Editorial;
     IBOutlet UIView *VW_Emagazine;
     IBOutlet UIView *VW_Settings;
+    IBOutlet UIView *VW_POLL;
     IBOutlet CollapseClick *myCollapseClick;
 }
 
