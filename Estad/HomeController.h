@@ -109,4 +109,6 @@
 
 #pragma mark - Poll
 -(IBAction)BTN_Poll:(id)sender;
+
+// IDE Integration Test
 @end
