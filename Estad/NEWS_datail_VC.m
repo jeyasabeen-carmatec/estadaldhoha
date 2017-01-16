@@ -126,19 +126,11 @@
     NSString *tag = [NSString stringWithFormat:@"Tag : %@",[news valueForKey:@"tags"]];
     NSString *data = [NSString stringWithFormat:@"%@",[news valueForKey:@"content"]];
     
-    
-//    NSAttributedString *new_str = [[NSAttributedString alloc] initWithData:[data dataUsingEncoding:NSUTF8StringEncoding]
-//                                                                   options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType,
-//                                                                             NSCharacterEncodingDocumentAttribute: @(NSUTF8StringEncoding)}
-//                                                        documentAttributes:nil error:nil];
-    
-//    NSString* string = new_str.string;
+    NSString *HTM_DATA = [self convertHTML:data];
     
     
     NSString *dtail = [NSString stringWithFormat:@"%@\n\n %@\n\n %@\n\n",date_STR,title_STR,tag];
-    
     dtail = [dtail stringByReplacingOccurrencesOfString:@"<null>" withString:@""];
-    
     NSString *test = [dtail stringByAppendingString:@"\t\n"];
     
     NSDictionary *attribs = @{
@@ -164,25 +156,32 @@
                             range:typ];
     
     
-    
-    
-    
     self.lbl_date_E.numberOfLines = 0;
     self.lbl_date_E.attributedText = attributedText;
     //self.lbl_CNTNT.adjustsFontSizeToFitWidth = YES;
 //    _lbl_CNTNT.textAlignment = NSTextAlignmentRight;
     [self.lbl_date_E sizeToFit];
     
-    [_lbl_date_E setFrame:CGRectMake(8,_lbl_date_E.frame.origin.y,self.view.frame.size.width - 16,_lbl_comnt_STAT.frame.size.height)];
+    [_lbl_date_E setFrame:CGRectMake(8,_lbl_date_E.frame.origin.y,self.view.frame.size.width - 16,_lbl_date_E.frame.size.height )];
     
     //_lbl_CNTNT.scrollEnabled = NO;
     
 //    [_lbl_CNTNT loadHTMLString:data baseURL:nil];
-    [_lbl_CNTNT loadHTMLString:[NSString stringWithFormat:@"<div style='text-align:right'>%@<div>",data] baseURL:nil];
-
+    [_lbl_CNTNT loadHTMLString:[NSString stringWithFormat:@"<div style='text-align:right'>%@<div>",HTM_DATA] baseURL:nil];
     
 }
-
+-(NSString *)convertHTML:(NSString *)html {
+    NSScanner *myScanner;
+    NSString *text = nil;
+    myScanner = [NSScanner scannerWithString:html];
+    while ([myScanner isAtEnd] == NO) {
+        [myScanner scanUpToString:@"<" intoString:NULL] ;
+        [myScanner scanUpToString:@">" intoString:&text] ;
+        html = [html stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@>", text] withString:@""];
+    }
+    html = [html stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    return html;
+}
 
 #pragma mark - button Actions
 -(void) add_COMMENT_VC
@@ -386,7 +385,7 @@
     [_view_COMMENT addTarget:self action:@selector(read_ALL_comnt) forControlEvents:UIControlEventTouchUpInside];
     [_hold_BTN addSubview:_view_COMMENT];
     
-    float exp_height = _lbl_date_E.frame.origin.y + _lbl_date_E.frame.size.height;
+    float exp_height = _lbl_date_E.frame.origin.y + _lbl_date_E.frame.size.height - 30;
     
     CGRect g_frame = _lbl_CNTNT.frame;
     g_frame.origin.y = exp_height;
@@ -411,7 +410,10 @@
     
     
     if ([NewsComment count]== 0) {
-        _lbl_comnt_STAT.text = @"لم يذكر";
+//        _lbl_comnt_STAT.text = @"لم يذكر";
+        _lbl_CMNT_date.hidden = YES;
+        _lbl_CMNT_head.hidden = YES;
+        _lbl_comnt_STAT.hidden = YES;
     }
     else
     {

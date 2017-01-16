@@ -20,16 +20,16 @@
 
     // Configure the view for the selected state
     if (selected) {
-        _lbl_content.textColor = [UIColor colorWithRed:0.47 green:0.00 blue:0.25 alpha:1.0];
+        _lbl_content.textColor = [UIColor colorWithRed:0.31 green:0.20 blue:0.44 alpha:0.6];
     }
     else
     {
-        _lbl_content.textColor = [UIColor colorWithRed:0.87 green:0.56 blue:0.64 alpha:1.0];
+        _lbl_content.textColor = [UIColor colorWithRed:0.31 green:0.20 blue:0.44 alpha:1.0];
     }
     
     // Configure the view for the selected state
     UIView * selectedBackgroundView = [[UIView alloc] init];
-    [selectedBackgroundView setBackgroundColor:[UIColor colorWithRed:1.00 green:1.00 blue:1.00 alpha:1.0]];
+    [selectedBackgroundView setBackgroundColor:[UIColor colorWithRed:0.89 green:0.88 blue:0.92 alpha:1.0]];
     [self setSelectedBackgroundView:selectedBackgroundView];
 }
 

@@ -24,6 +24,7 @@
 #import "Report_DETAIL_VC.h"
 #import "Interview_DETAIL.h"
 #import "Article_DETAIL_VC.h"
+#import "sEttings_VC.h"
 
 @interface About_US_VC ()
 
@@ -291,7 +292,7 @@
             return @"المركز الاعلامي";
             break;
         case 5:
-            return @"معلومات عنا";
+            return @"من نحن";
             break;
         case 6:
             return @"اتصل بنا";
@@ -300,9 +301,6 @@
             return @"مجلس التحرير";
             break;
         case 8:
-            return @"الأحكام والشروط";
-            break;
-        case 9:
             return @"إعدادات";
             break;
             
@@ -352,11 +350,11 @@
 // Optional Methods
 
 -(UIColor *)colorForCollapseClickTitleViewAtIndex:(int)index {
-    return [UIColor colorWithRed:0.47 green:0.00 blue:0.25 alpha:1.0];
+    return [UIColor colorWithRed:0.91 green:0.90 blue:0.93 alpha:1.0];
 }
 
 -(UIColor *)colorForTitleLabelAtIndex:(int)index {
-    return [UIColor colorWithWhite:1.0 alpha:0.85];
+    return [UIColor colorWithRed:0.27 green:0.21 blue:0.36 alpha:1.0];
 }
 
 -(UIColor *)colorForTitleArrowAtIndex:(int)index {
@@ -464,8 +462,41 @@
         Editorial_board_VC *controller = [[Editorial_board_VC alloc] initWithNibName:@"Editorial_board_VC" bundle:nil];
         [self.navigationController pushViewController:controller animated:YES];
     }
+    else if (index == 8)
+    {
+        //        Editorial_board_VC
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationDelegate:self];
+        [UIView setAnimationDuration:-5];
+        
+        int statusbar_HEIGHT = [UIApplication sharedApplication].statusBarFrame.size.height;
+        statusbar_HEIGHT = [UIApplication sharedApplication].statusBarFrame.size.height;
+        VW_swipe.frame = CGRectMake(self.navigationController.view.frame.size.width, self.navigationController.view.frame.origin.y + statusbar_HEIGHT, menuDraw_width, self.navigationController.view.frame.size.height);
+        
+        [UIView commitAnimations];
+        
+        
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationDelegate:self];
+        [UIView setAnimationDuration:-5];
+        _overlayView.hidden = YES;
+        [UIView commitAnimations];
+        
+        //        _VW_activity.hidden = NO;
+        //        [_activityindicator startAnimating];
+        //        [self performSelector:@selector(load_Settings) withObject:_activityindicator afterDelay:0.01];
+        
+        [self load_Settings];
+    }
 }
-
+-(void) load_Settings
+{
+    sEttings_VC *controller = [[sEttings_VC alloc] initWithNibName:@"sEttings_VC" bundle:nil];
+    [self.navigationController pushViewController:controller animated:YES];
+    
+    //    _VW_activity.hidden = YES;
+    //    [_activityindicator stopAnimating];
+}
 
 #pragma mark - Tableview
 
@@ -740,9 +771,15 @@
 - (void)searchTableList {
     NSString *searchString = _serch_BAR.text;
     for (NSString *tempStr in ID_nmae) {
-        NSComparisonResult result = [tempStr compare:searchString options:(NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch) range:NSMakeRange(0, [searchString length])];
-        if (result == NSOrderedSame) {
-            [searchResults addObject:tempStr];
+        NSComparisonResult result;
+        @try {
+            result = [tempStr compare:searchString options:(NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch) range:NSMakeRange(0, [searchString length])];
+            if (result == NSOrderedSame) {
+                [searchResults addObject:tempStr];
+            }
+        } @catch (NSException *exception) {
+            [searchResults removeAllObjects];
+            [_list_DATA reloadData];
         }
     }
 }

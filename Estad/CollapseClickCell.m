@@ -48,11 +48,8 @@
     if (index == 0 || index == 1 || index > 4) {
         cell.TitleArrow.hidden = YES;
     }
-    
-    cell.Arrow.textColor = [UIColor whiteColor];
-    
+    cell.Arrow.textColor = [UIColor colorWithRed:0.31 green:0.20 blue:0.44 alpha:1.0];
     [cell.ContentView addSubview:content];
-    
     return cell;
 }
 

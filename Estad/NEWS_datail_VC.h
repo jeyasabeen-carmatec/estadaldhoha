@@ -58,4 +58,7 @@
 -(IBAction)Tweet_BTN:(id)sender;
 -(IBAction)GooglPLS:(id)sender;
 
+@property (nonatomic, strong) IBOutlet UILabel *lbl_CMNT_head;
+@property (nonatomic, strong) IBOutlet UILabel *lbl_CMNT_date;
+
 @end

@@ -23,6 +23,15 @@
 #import "Interview_DETAIL.h"
 #import "Article_DETAIL_VC.h"
 #import "About_US_VC.h"
+#import "sEttings_VC.h"
+
+#pragma mark - NEWS Cells
+#import "BIG_CELL_NEWS.h"
+#import "Small_CEL_NWS.h"
+#import "LCL_NWS_2.h"
+
+#pragma mark - Image Cache
+#import "SDWebImage/UIImageView+WebCache.h"
 
 @interface New_Home_VC ()
 
@@ -30,7 +39,7 @@
 
 @implementation New_Home_VC
 {
-    NSArray *list_NEWS;
+    NSArray *list_NEWS1;
     NSArray *list_ARTICLES;
     NSArray *list_MEDIA;
     NSString *send_news_TITL;
@@ -41,6 +50,8 @@
     
     NSMutableArray *searchResults;
     BOOL isSerching;
+    
+    NSArray *homeNewsSlider,*arabnews,*localNews,*interview,*reports;
 }
 
 @synthesize menuDraw_width,menyDraw_X,VW_swipe;
@@ -57,7 +68,7 @@
     // Do any additional setup after loading the view from its nib.
     
 
-    list_NEWS = [[NSArray alloc]initWithObjects:@"أخبار الدوريات المحلية",@"الدوريات الأخبار العربية",@"أخبار الدوريات العالمية",@"كل الأخبار", @"قطر 2022", @"أسباير زون", nil];
+    list_NEWS1 = [[NSArray alloc]initWithObjects:@"أخبار الدوريات المحلية",@"الدوريات الأخبار العربية",@"أخبار الدوريات العالمية",@"كل الأخبار", @"قطر 2022", @"أسباير زون", nil];
     list_ARTICLES = [[NSArray alloc]initWithObjects:@"محرر بلوق",@"مقالات استاد الدوحة", nil];
     list_MEDIA = [[NSArray alloc]initWithObjects:@"صور" ,@"فيديوهات", nil];
     
@@ -99,13 +110,12 @@
     }
     
     NSError *error;
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@homePage",MAIN_URL]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@homePage_new",MAIN_URL]];
     NSData *aData = [NSData dataWithContentsOfURL:url];
     
     if (aData) {
         contents = [NSJSONSerialization JSONObjectWithData:aData options:NSASCIIStringEncoding error:&error];
-        NSLog(@"Contecnts %@",contents);
-       
+        NSLog(@"Home page NEw %@",contents);
         [self setup_VIEW];
     }
     else
@@ -177,7 +187,7 @@
     }
 }
 
-#pragma mark - View Customisation
+
 #pragma mark - View Customisation
 -(void) setup_VIEW
 {
@@ -304,14 +314,80 @@
 {
     [_widget_VW loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://widgets.datasportsgroup.com/carmatec/today_carmatec.php"]]];
     _widget_VW.scalesPageToFit = YES;
-    
+//    _widget_VW.contentMode = UIViewContentModeScaleAspectFit;
     
     if (contents) {
+        homeNewsSlider = [contents valueForKey:@"homeNewsSlider"];
+        arabnews = [contents valueForKey:@"arabnews"];
+        localNews = [contents valueForKey:@"localNews"];
+        interview = [contents valueForKey:@"interview"];
+        reports = [contents valueForKey:@"reports"];
         
+        [_list_NEWS reloadData];
+        [_list_arbNWS reloadData];
+        [_list_localNWS reloadData];
+        [_list_intrVW reloadData];
+        [_list_reports reloadData];
     }
+    CGRect main_FRAME = _VW_Contents.frame;
+//    CGRect buffer_FRAME = _widget_VW.frame;
+    CGRect temp_FRAME = _list_NEWS.frame;
+    temp_FRAME.size.height = [self tableViewHeight];
+    _list_NEWS.frame = temp_FRAME;
+    
+    temp_FRAME = _list_arbNWS.frame;
+    temp_FRAME.origin.y = _list_NEWS.frame.origin.y + [self tableViewHeight] + 5;
+    temp_FRAME.size.height = [self tableViewHeight1];
+    _list_arbNWS.frame = temp_FRAME;
+    
+    temp_FRAME = _list_localNWS.frame;
+    temp_FRAME.origin.y = _list_arbNWS.frame.origin.y + [self tableViewHeight1] + 5;
+    temp_FRAME.size.height = [self tableViewHeight2];
+    _list_localNWS.frame = temp_FRAME;
+    
+    temp_FRAME = _list_intrVW.frame;
+    temp_FRAME.origin.y = _list_localNWS.frame.origin.y + [self tableViewHeight2] + 5;
+    temp_FRAME.size.height = [self tableViewHeight3];
+    _list_intrVW.frame = temp_FRAME;
+    
+    temp_FRAME = _list_reports.frame;
+    temp_FRAME.origin.y = _list_intrVW.frame.origin.y + [self tableViewHeight3] + 5;
+    temp_FRAME.size.height = [self tableViewHeight4];
+    _list_reports.frame = temp_FRAME;
+    
+    main_FRAME.size.height = _list_reports.frame.origin.y + [self tableViewHeight4];
+    _VW_Contents.frame = main_FRAME;
+//    _scroll_contNT.frame = _VW_Contents.frame;
+    _scroll_contNT.contentSize = _VW_Contents.frame.size;
     
     [_activityindicator stopAnimating];
     _VW_activity.hidden = YES;
+}
+
+- (CGFloat)tableViewHeight
+{
+    [_list_NEWS layoutIfNeeded];
+    return [_list_NEWS contentSize].height;
+}
+- (CGFloat)tableViewHeight1
+{
+    [_list_arbNWS layoutIfNeeded];
+    return [_list_arbNWS contentSize].height;
+}
+- (CGFloat)tableViewHeight2
+{
+    [_list_localNWS layoutIfNeeded];
+    return [_list_localNWS contentSize].height;
+}
+- (CGFloat)tableViewHeight3
+{
+    [_list_intrVW layoutIfNeeded];
+    return [_list_intrVW contentSize].height;
+}
+- (CGFloat)tableViewHeight4
+{
+    [_list_reports layoutIfNeeded];
+    return [_list_reports contentSize].height;
 }
 
 #pragma mark - MOre action
@@ -383,9 +459,15 @@
 - (void)searchTableList {
     NSString *searchString = _serch_BAR.text;
     for (NSString *tempStr in ID_nmae) {
-        NSComparisonResult result = [tempStr compare:searchString options:(NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch) range:NSMakeRange(0, [searchString length])];
-        if (result == NSOrderedSame) {
-            [searchResults addObject:tempStr];
+        NSComparisonResult result;
+        @try {
+            result = [tempStr compare:searchString options:(NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch) range:NSMakeRange(0, [searchString length])];
+            if (result == NSOrderedSame) {
+                [searchResults addObject:tempStr];
+            }
+        } @catch (NSException *exception) {
+            [searchResults removeAllObjects];
+            [_list_DATA reloadData];
         }
     }
 }
@@ -448,7 +530,7 @@
             return @"المركز الاعلامي";
             break;
         case 5:
-            return @"معلومات عنا";
+            return @"من نحن";
             break;
         case 6:
             return @"اتصل بنا";
@@ -457,9 +539,6 @@
             return @"مجلس التحرير";
             break;
         case 8:
-            return @"الأحكام والشروط";
-            break;
-        case 9:
             return @"إعدادات";
             break;
             
@@ -509,11 +588,11 @@
 // Optional Methods
 
 -(UIColor *)colorForCollapseClickTitleViewAtIndex:(int)index {
-    return [UIColor colorWithRed:0.47 green:0.00 blue:0.25 alpha:1.0];
+    return [UIColor colorWithRed:0.91 green:0.90 blue:0.93 alpha:1.0];
 }
 
 -(UIColor *)colorForTitleLabelAtIndex:(int)index {
-    return [UIColor colorWithWhite:1.0 alpha:0.85];
+    return [UIColor colorWithRed:0.27 green:0.21 blue:0.36 alpha:1.0];
 }
 
 -(UIColor *)colorForTitleArrowAtIndex:(int)index {
@@ -644,6 +723,41 @@
         
         
     }
+    else if (index == 8)
+    {
+        //        Editorial_board_VC
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationDelegate:self];
+        [UIView setAnimationDuration:-5];
+        
+        int statusbar_HEIGHT = [UIApplication sharedApplication].statusBarFrame.size.height;
+        statusbar_HEIGHT = [UIApplication sharedApplication].statusBarFrame.size.height;
+        VW_swipe.frame = CGRectMake(self.navigationController.view.frame.size.width, self.navigationController.view.frame.origin.y + statusbar_HEIGHT, menuDraw_width, self.navigationController.view.frame.size.height);
+        
+        [UIView commitAnimations];
+        
+        
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationDelegate:self];
+        [UIView setAnimationDuration:-5];
+        _overlayView.hidden = YES;
+        [UIView commitAnimations];
+        
+        _VW_activity.hidden = NO;
+        [_activityindicator startAnimating];
+        [self performSelector:@selector(load_Settings) withObject:_activityindicator afterDelay:0.01];
+        
+        
+    }
+}
+
+-(void) load_Settings
+{
+    sEttings_VC *controller = [[sEttings_VC alloc] initWithNibName:@"sEttings_VC" bundle:nil];
+    [self.navigationController pushViewController:controller animated:YES];
+    
+    _VW_activity.hidden = YES;
+    [_activityindicator stopAnimating];
 }
 
 -(void) E_magazene_VC
@@ -687,7 +801,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (tableView == _tbl_NEWS) {
-        return [list_NEWS count];
+        return [list_NEWS1 count];
     }
     else if (tableView == _tbl_ARTICLES)
     {
@@ -700,6 +814,33 @@
     else if (tableView == _list_DATA)
     {
         return [searchResults count];
+    }
+    else if (tableView == _list_NEWS)
+    {
+        return [homeNewsSlider count];
+    }
+    else if (tableView == _list_arbNWS)
+    {
+        return [arabnews count];
+    }
+    else if (tableView == _list_localNWS)
+    {
+        return 1;
+    }
+    else if (tableView == _list_intrVW)
+    {
+        return [interview count];
+    }
+    else if (tableView == _list_reports)
+    {
+        if ([reports count] > 5)
+        {
+            return 5;
+        }
+        else
+        {
+            return [reports count];
+        }
     }
     return 0;
 }
@@ -715,7 +856,7 @@
             NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"News_CELL" owner:self options:nil];
             cell = [nib objectAtIndex:0];
         }
-        cell.lbl_content.text = [list_NEWS objectAtIndex:indexPath.row];
+        cell.lbl_content.text = [list_NEWS1 objectAtIndex:indexPath.row];
         return cell;
     }
     else if (tableView == _tbl_ARTICLES)
@@ -755,6 +896,284 @@
         cell.lbl_NME.numberOfLines = 2;
         return cell;
     }
+    else if (tableView == _list_NEWS)
+    {
+        if (indexPath.row == 0)
+        {
+            static NSString *simpleTableIdentifier = @"SimpleTableCell";
+            BIG_CELL_NEWS *cell = (BIG_CELL_NEWS *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+            if (cell == nil)
+            {
+                NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"BIG_CELL_NEWS" owner:self options:nil];
+                cell = [nib objectAtIndex:0];
+            }
+            
+            NSDictionary *temp_DICTN = [homeNewsSlider objectAtIndex:indexPath.row];
+            NSDictionary *dict_VAL = [temp_DICTN valueForKey:@"News"];
+            //        cell.lbl_NME.text = [searchResults objectAtIndex:indexPath.row];
+            //        cell.lbl_NME.numberOfLines = 2;
+            
+            NSString *url_STR = [NSString stringWithFormat:@"%@news/%@",IMAGE_URL,[dict_VAL valueForKey:@"image"]];
+            
+            [cell.image_CNT sd_setImageWithURL:[NSURL URLWithString:url_STR]
+                            placeholderImage:[UIImage imageNamed:@"Default.jpg"]];
+            cell.lbl_TITL.text = [dict_VAL valueForKey:@"title"];
+            cell.lbl_CNT.text = [dict_VAL valueForKey:@"summary"];
+            cell.lbl_CNT.numberOfLines = 2;
+            
+            return cell;
+        }
+        else
+        {
+            static NSString *simpleTableIdentifier = @"SimpleTableCell";
+            Small_CEL_NWS *cell = (Small_CEL_NWS *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+            if (cell == nil)
+            {
+                NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"Small_CEL_NWS" owner:self options:nil];
+                cell = [nib objectAtIndex:0];
+            }
+            NSDictionary *temp_DICTN = [homeNewsSlider objectAtIndex:indexPath.row];
+            NSDictionary *dict_VAL = [temp_DICTN valueForKey:@"News"];
+            //        cell.lbl_NME.text = [searchResults objectAtIndex:indexPath.row];
+            //        cell.lbl_NME.numberOfLines = 2;
+            
+            NSString *url_STR = [NSString stringWithFormat:@"%@news/%@",IMAGE_URL,[dict_VAL valueForKey:@"image"]];
+            
+            [cell.image_CNT sd_setImageWithURL:[NSURL URLWithString:url_STR]
+                              placeholderImage:[UIImage imageNamed:@"Default.jpg"]];
+            cell.lbl_TITL.text = [dict_VAL valueForKey:@"title"];
+            cell.lbl_CNT.text = [dict_VAL valueForKey:@"summary"];
+            cell.lbl_CNT.numberOfLines = 4;
+            return cell;
+        }
+        
+    }
+    else if (tableView == _list_arbNWS)
+    {
+        static NSString *simpleTableIdentifier = @"SimpleTableCell";
+        BIG_CELL_NEWS *cell = (BIG_CELL_NEWS *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+        if (cell == nil)
+        {
+            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"BIG_CELL_NEWS" owner:self options:nil];
+            cell = [nib objectAtIndex:0];
+        }
+        //        cell.lbl_NME.text = [searchResults objectAtIndex:indexPath.row];
+        //        cell.lbl_NME.numberOfLines = 2;
+//        NSDictionary *temp_DICTN = [arabnews objectAtIndex:indexPath.row];
+        NSDictionary *dict_VAL = [arabnews valueForKey:@"News"];
+        //        cell.lbl_NME.text = [searchResults objectAtIndex:indexPath.row];
+        //        cell.lbl_NME.numberOfLines = 2;
+        
+        NSString *url_STR = [NSString stringWithFormat:@"%@news/%@",IMAGE_URL,[dict_VAL valueForKey:@"image"]];
+        
+        [cell.image_CNT sd_setImageWithURL:[NSURL URLWithString:url_STR]
+                          placeholderImage:[UIImage imageNamed:@"Default.jpg"]];
+        cell.lbl_TITL.text = [dict_VAL valueForKey:@"title"];
+        cell.lbl_CNT.text = [dict_VAL valueForKey:@"summary"];
+        cell.lbl_CNT.numberOfLines = 2;
+        
+        return cell;
+    }
+    else if (tableView == _list_localNWS)
+    {
+        if ([localNews count] == 1)
+        {
+            static NSString *simpleTableIdentifier = @"SimpleTableCell";
+            BIG_CELL_NEWS *cell = (BIG_CELL_NEWS *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+            if (cell == nil)
+            {
+                NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"BIG_CELL_NEWS" owner:self options:nil];
+                cell = [nib objectAtIndex:0];
+            }
+            //        cell.lbl_NME.text = [searchResults objectAtIndex:indexPath.row];
+            //        cell.lbl_NME.numberOfLines = 2;
+            NSDictionary *temp_DICTN = [localNews objectAtIndex:indexPath.row];
+            NSDictionary *dict_VAL = [temp_DICTN valueForKey:@"News"];
+            //        cell.lbl_NME.text = [searchResults objectAtIndex:indexPath.row];
+            //        cell.lbl_NME.numberOfLines = 2;
+            
+            NSString *url_STR = [NSString stringWithFormat:@"%@news/%@",IMAGE_URL,[dict_VAL valueForKey:@"image"]];
+            
+            [cell.image_CNT sd_setImageWithURL:[NSURL URLWithString:url_STR]
+                              placeholderImage:[UIImage imageNamed:@"Default.jpg"]];
+            cell.lbl_TITL.text = [dict_VAL valueForKey:@"title"];
+            cell.lbl_CNT.text = [dict_VAL valueForKey:@"summary"];
+            cell.lbl_CNT.numberOfLines = 2;
+            
+            return cell;
+        }
+        else
+        {
+            static NSString *simpleTableIdentifier = @"SimpleTableCell";
+            LCL_NWS_2 *cell = (LCL_NWS_2 *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+            if (cell == nil)
+            {
+                NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"LCL_NWS_2" owner:self options:nil];
+                cell = [nib objectAtIndex:0];
+            }
+            NSDictionary *temp_DICTN = [localNews objectAtIndex:indexPath.row];
+            NSDictionary *dict_VAL = [temp_DICTN valueForKey:@"News"];
+            //        cell.lbl_NME.text = [searchResults objectAtIndex:indexPath.row];
+            //        cell.lbl_NME.numberOfLines = 2;
+            
+            NSString *url_STR = [NSString stringWithFormat:@"%@news/%@",IMAGE_URL,[dict_VAL valueForKey:@"image"]];
+            
+            [cell.image_CNT1 sd_setImageWithURL:[NSURL URLWithString:url_STR]
+                              placeholderImage:[UIImage imageNamed:@"Default.jpg"]];
+            cell.lbl_TITL1.text = [dict_VAL valueForKey:@"title"];
+            cell.lbl_CNT1.text = [dict_VAL valueForKey:@"summary"];
+            cell.lbl_CNT1.numberOfLines = 4;
+            [cell.btn1 addTarget:self action:@selector(local_news0) forControlEvents:UIControlEventTouchUpInside];
+            
+            
+            NSDictionary *temp_DICTN1 = [localNews objectAtIndex:indexPath.row + 1];
+            NSDictionary *dict_VAL1 = [temp_DICTN1 valueForKey:@"News"];
+            //        cell.lbl_NME.text = [searchResults objectAtIndex:indexPath.row];
+            //        cell.lbl_NME.numberOfLines = 2;
+            
+            NSString *url_STR1 = [NSString stringWithFormat:@"%@news/%@",IMAGE_URL,[dict_VAL1 valueForKey:@"image"]];
+            
+            [cell.image_CNT2 sd_setImageWithURL:[NSURL URLWithString:url_STR1]
+                               placeholderImage:[UIImage imageNamed:@"Default.jpg"]];
+            cell.lbl_TITL2.text = [dict_VAL valueForKey:@"title"];
+            cell.lbl_CNT2.text = [dict_VAL valueForKey:@"summary"];
+            cell.lbl_CNT2.numberOfLines = 4;
+            [cell.btn2 addTarget:self action:@selector(local_news1) forControlEvents:UIControlEventTouchUpInside];
+            
+            return cell;
+        }
+    }
+    else if (tableView == _list_intrVW)
+    {
+        if (indexPath.row == 0)
+        {
+            static NSString *simpleTableIdentifier = @"SimpleTableCell";
+            BIG_CELL_NEWS *cell = (BIG_CELL_NEWS *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+            if (cell == nil)
+            {
+                NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"BIG_CELL_NEWS" owner:self options:nil];
+                cell = [nib objectAtIndex:0];
+            }
+            NSDictionary *temp_DICTN = [interview objectAtIndex:indexPath.row];
+            NSDictionary *dict_VAL = [temp_DICTN valueForKey:@"Interview"];
+            
+            NSString *url_STR = [NSString stringWithFormat:@"%@interview/%@",IMAGE_URL,[dict_VAL valueForKey:@"image"]];
+            
+            [cell.image_CNT sd_setImageWithURL:[NSURL URLWithString:url_STR]
+                              placeholderImage:[UIImage imageNamed:@"Default.jpg"]];
+            cell.lbl_TITL.text = [dict_VAL valueForKey:@"title"];
+            cell.lbl_CNT.text = [dict_VAL valueForKey:@"summary"];
+            cell.lbl_CNT.numberOfLines = 2;
+            return cell;
+        }
+        else
+        {
+            static NSString *simpleTableIdentifier = @"SimpleTableCell";
+            Small_CEL_NWS *cell = (Small_CEL_NWS *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+            if (cell == nil)
+            {
+                NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"Small_CEL_NWS" owner:self options:nil];
+                cell = [nib objectAtIndex:0];
+            }
+            NSDictionary *temp_DICTN = [interview objectAtIndex:indexPath.row];
+            NSDictionary *dict_VAL = [temp_DICTN valueForKey:@"Interview"];
+            //        cell.lbl_NME.text = [searchResults objectAtIndex:indexPath.row];
+            //        cell.lbl_NME.numberOfLines = 2;
+            
+            NSString *url_STR = [NSString stringWithFormat:@"%@interview/%@",IMAGE_URL,[dict_VAL valueForKey:@"image"]];
+            
+            [cell.image_CNT sd_setImageWithURL:[NSURL URLWithString:url_STR]
+                              placeholderImage:[UIImage imageNamed:@"Default.jpg"]];
+            cell.lbl_TITL.text = [dict_VAL valueForKey:@"title"];
+            cell.lbl_CNT.text = [dict_VAL valueForKey:@"summary"];
+            cell.lbl_CNT.numberOfLines = 4;
+            return cell;
+        }
+    }
+    else if (tableView == _list_reports)
+    {
+        if (indexPath.row == 0)
+        {
+            static NSString *simpleTableIdentifier = @"SimpleTableCell";
+            BIG_CELL_NEWS *cell = (BIG_CELL_NEWS *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+            if (cell == nil)
+            {
+                NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"BIG_CELL_NEWS" owner:self options:nil];
+                cell = [nib objectAtIndex:0];
+            }
+            NSDictionary *temp_DICTN = [reports objectAtIndex:indexPath.row];
+            NSDictionary *dict_VAL = [temp_DICTN valueForKey:@"Report"];
+            
+            NSString *url_STR = [NSString stringWithFormat:@"%@report/%@",IMAGE_URL,[dict_VAL valueForKey:@"image"]];
+            
+            [cell.image_CNT sd_setImageWithURL:[NSURL URLWithString:url_STR]
+                              placeholderImage:[UIImage imageNamed:@"Default.jpg"]];
+            cell.lbl_TITL.text = [dict_VAL valueForKey:@"title"];
+            cell.lbl_CNT.text = [dict_VAL valueForKey:@"summary"];
+            cell.lbl_CNT.numberOfLines = 2;
+            return cell;
+        }
+        else if (indexPath.row == 4 && [reports count] > 5)
+        {
+            static NSString *simpleTableIdentifier = @"SimpleTableCell";
+            LCL_NWS_2 *cell = (LCL_NWS_2 *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+            if (cell == nil)
+            {
+                NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"LCL_NWS_2" owner:self options:nil];
+                cell = [nib objectAtIndex:0];
+            }
+            NSDictionary *temp_DICTN = [reports objectAtIndex:indexPath.row];
+            NSDictionary *dict_VAL = [temp_DICTN valueForKey:@"Report"];
+            //        cell.lbl_NME.text = [searchResults objectAtIndex:indexPath.row];
+            //        cell.lbl_NME.numberOfLines = 2;
+            
+            NSString *url_STR = [NSString stringWithFormat:@"%@report/%@",IMAGE_URL,[dict_VAL valueForKey:@"image"]];
+            
+            [cell.image_CNT1 sd_setImageWithURL:[NSURL URLWithString:url_STR]
+                               placeholderImage:[UIImage imageNamed:@"Default.jpg"]];
+            cell.lbl_TITL1.text = [dict_VAL valueForKey:@"title"];
+            cell.lbl_CNT1.text = [dict_VAL valueForKey:@"summary"];
+            cell.lbl_CNT1.numberOfLines = 4;
+            [cell.btn1 addTarget:self action:@selector(local_reports0) forControlEvents:UIControlEventTouchUpInside];
+            
+            
+            NSDictionary *temp_DICTN1 = [reports objectAtIndex:indexPath.row + 1];
+            NSDictionary *dict_VAL1 = [temp_DICTN1 valueForKey:@"Report"];
+            //        cell.lbl_NME.text = [searchResults objectAtIndex:indexPath.row];
+            //        cell.lbl_NME.numberOfLines = 2;
+            
+            NSString *url_STR1 = [NSString stringWithFormat:@"%@report/%@",IMAGE_URL,[dict_VAL1 valueForKey:@"image"]];
+            
+            [cell.image_CNT2 sd_setImageWithURL:[NSURL URLWithString:url_STR1]
+                               placeholderImage:[UIImage imageNamed:@"Default.jpg"]];
+            cell.lbl_TITL2.text = [dict_VAL valueForKey:@"title"];
+            cell.lbl_CNT2.text = [dict_VAL valueForKey:@"summary"];
+            cell.lbl_CNT2.numberOfLines = 4;
+            [cell.btn2 addTarget:self action:@selector(local_reports1) forControlEvents:UIControlEventTouchUpInside];
+            return cell;
+        }
+        else
+        {
+            static NSString *simpleTableIdentifier = @"SimpleTableCell";
+            Small_CEL_NWS *cell = (Small_CEL_NWS *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+            if (cell == nil)
+            {
+                NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"Small_CEL_NWS" owner:self options:nil];
+                cell = [nib objectAtIndex:0];
+            }
+            NSDictionary *temp_DICTN = [reports objectAtIndex:indexPath.row];
+            NSDictionary *dict_VAL = [temp_DICTN valueForKey:@"Report"];
+            
+            NSString *url_STR = [NSString stringWithFormat:@"%@report/%@",IMAGE_URL,[dict_VAL valueForKey:@"image"]];
+            
+            [cell.image_CNT sd_setImageWithURL:[NSURL URLWithString:url_STR]
+                              placeholderImage:[UIImage imageNamed:@"Default.jpg"]];
+            cell.lbl_TITL.text = [dict_VAL valueForKey:@"title"];
+            cell.lbl_CNT.text = [dict_VAL valueForKey:@"summary"];
+            cell.lbl_CNT.numberOfLines = 4;
+            return cell;
+        }
+    }
     static NSString *simpleTableIdentifier = @"SimpleTableItem";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     if (cell == nil)
@@ -770,6 +1189,56 @@
     if (tableView == _list_DATA)
     {
         return 53;
+    }
+    else if (tableView == _list_NEWS)
+    {
+        if (indexPath.row == 0) {
+            return 264;
+        }
+        else
+        {
+            return 106;
+        }
+    }
+    else if (tableView == _list_arbNWS)
+    {
+        return 264;
+    }
+    else if (tableView == _list_localNWS)
+    {
+        if ([localNews count] == 1)
+        {
+            return 264;
+        }
+        else
+        {
+            return 169;
+        }
+    }
+    else if (tableView == _list_intrVW)
+    {
+        if (indexPath.row == 0) {
+            return 264;
+        }
+        else
+        {
+            return 106;
+        }
+    }
+    else if (tableView == _list_reports)
+    {
+        if (indexPath.row == 0)
+        {
+            return 264;
+        }
+        else if (indexPath.row == 4 && [reports count] > 5)
+        {
+            return 169;
+        }
+        else
+        {
+            return 106;
+        }
     }
     return 50;
 }
@@ -801,7 +1270,7 @@
         //        [VW_swipe release];
         //        [myCollapseClick release];
         //        [self.navigationController.view release];
-        send_news_TITL = [list_NEWS objectAtIndex:indexPath.row];
+        send_news_TITL = [list_NEWS1 objectAtIndex:indexPath.row];
         [self load_NEWS_VC];
     }
     else if (tableView == _tbl_ARTICLES)
@@ -874,6 +1343,63 @@
             [self.navigationController pushViewController:controller animated:YES];
         }
     }
+    else if (tableView == _list_NEWS)
+    {
+        NSDictionary *temp_DICTN = [homeNewsSlider objectAtIndex:indexPath.row];
+        NSDictionary *dict_VAL = [temp_DICTN valueForKey:@"News"];
+        
+        NEWS_datail_VC *controller = [[NEWS_datail_VC alloc] initWithNibName:@"NEWS_datail_VC" bundle:nil];
+        controller.get_home = @"Home";
+        controller.get_ID = [dict_VAL valueForKey:@"id"];
+        [self.navigationController pushViewController:controller animated:YES];
+    }
+    else if (tableView == _list_arbNWS)
+    {
+        NSDictionary *temp_DICTN = [arabnews objectAtIndex:indexPath.row];
+        NSDictionary *dict_VAL = [temp_DICTN valueForKey:@"News"];
+        
+        NEWS_datail_VC *controller = [[NEWS_datail_VC alloc] initWithNibName:@"NEWS_datail_VC" bundle:nil];
+        controller.get_home = @"Home";
+        controller.get_ID = [dict_VAL valueForKey:@"id"];
+        [self.navigationController pushViewController:controller animated:YES];
+    }
+    else if (tableView == _list_localNWS)
+    {
+        if ([localNews count] == 1) {
+            NSDictionary *temp_DICTN = [localNews objectAtIndex:0];
+            NSDictionary *dict_VAL = [temp_DICTN valueForKey:@"News"];
+            
+            NEWS_datail_VC *controller = [[NEWS_datail_VC alloc] initWithNibName:@"NEWS_datail_VC" bundle:nil];
+            controller.get_home = @"Home";
+            controller.get_ID = [dict_VAL valueForKey:@"id"];
+            [self.navigationController pushViewController:controller animated:YES];
+        }
+    }
+    else if (tableView == _list_intrVW)
+    {
+        NSDictionary *temp_DICTN = [interview objectAtIndex:indexPath.row];
+        NSDictionary *dict_VAL = [temp_DICTN valueForKey:@"Interview"];
+        
+        Interview_DETAIL *controller = [[Interview_DETAIL alloc] initWithNibName:@"Interview_DETAIL" bundle:nil];
+        controller.get_ID = [dict_VAL valueForKey:@"id"];
+        [self.navigationController pushViewController:controller animated:YES];
+    }
+    else if (tableView == _list_reports)
+    {
+        if (indexPath.row == 4 && [reports count] > 5)
+        {
+            
+        }
+        else
+        {
+            NSDictionary *temp_DICTN = [reports objectAtIndex:indexPath.row];
+            NSDictionary *dict_VAL = [temp_DICTN valueForKey:@"Report"];
+            
+            Report_DETAIL_VC *controller = [[Report_DETAIL_VC alloc] initWithNibName:@"Report_DETAIL_VC" bundle:nil];
+            controller.get_ID = [dict_VAL valueForKey:@"id"];
+            [self.navigationController pushViewController:controller animated:YES];
+        }
+    }
 }
 
 #pragma mark - Next VC Load
@@ -902,8 +1428,6 @@
         else
         {
             new_X = VW_swipe.frame.origin.x - menuDraw_width;
-            
-            //            NSLog(@"origin x = %f",VW_swipe.frame.origin.x);
         }
         VW_swipe.frame = CGRectMake(new_X, VW_swipe.frame.origin.y, menuDraw_width, self.view.frame.size.height + self.navigationController.navigationBar.frame.size.height);
         [UIView commitAnimations];
@@ -939,5 +1463,47 @@
     _scroll_contNT.contentSize = _VW_Contents.frame.size;
 }
 
+
+#pragma mark - Custom Cell Button Actions
+-(void)local_news0
+{
+    NSDictionary *temp_DICTN = [localNews objectAtIndex:0];
+    NSDictionary *dict_VAL = [temp_DICTN valueForKey:@"News"];
+    
+    NEWS_datail_VC *controller = [[NEWS_datail_VC alloc] initWithNibName:@"NEWS_datail_VC" bundle:nil];
+    controller.get_home = @"Home";
+    controller.get_ID = [dict_VAL valueForKey:@"id"];
+    [self.navigationController pushViewController:controller animated:YES];
+}
+-(void)local_news1
+{
+    NSDictionary *temp_DICTN = [localNews objectAtIndex:1];
+    NSDictionary *dict_VAL = [temp_DICTN valueForKey:@"News"];
+    
+    NEWS_datail_VC *controller = [[NEWS_datail_VC alloc] initWithNibName:@"NEWS_datail_VC" bundle:nil];
+    controller.get_home = @"Home";
+    controller.get_ID = [dict_VAL valueForKey:@"id"];
+    [self.navigationController pushViewController:controller animated:YES];
+}
+-(void)local_reports0
+{
+    NSLog(@"Tapped reports 0");
+    NSDictionary *temp_DICTN = [reports objectAtIndex:4];
+    NSDictionary *dict_VAL = [temp_DICTN valueForKey:@"Report"];
+    
+    Report_DETAIL_VC *controller = [[Report_DETAIL_VC alloc] initWithNibName:@"Report_DETAIL_VC" bundle:nil];
+    controller.get_ID = [dict_VAL valueForKey:@"id"];
+    [self.navigationController pushViewController:controller animated:YES];
+}
+-(void)local_reports1
+{
+    NSLog(@"Tapped reports 1");
+    NSDictionary *temp_DICTN = [reports objectAtIndex:5];
+    NSDictionary *dict_VAL = [temp_DICTN valueForKey:@"Report"];
+    
+    Report_DETAIL_VC *controller = [[Report_DETAIL_VC alloc] initWithNibName:@"Report_DETAIL_VC" bundle:nil];
+    controller.get_ID = [dict_VAL valueForKey:@"id"];
+    [self.navigationController pushViewController:controller animated:YES];
+}
 
 @end

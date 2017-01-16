@@ -90,7 +90,7 @@
             cell.TitleLabel.textColor = [CollapseClickDelegate colorForTitleLabelAtIndex:xx];
         }
         else {
-            cell.TitleLabel.textColor = [UIColor whiteColor];
+            cell.TitleLabel.textColor = [UIColor colorWithRed:0.27 green:0.21 blue:0.36 alpha:1.0];
         }
         
         
@@ -195,10 +195,10 @@
             cell.frame = CGRectMake(cell.frame.origin.x, cell.frame.origin.y, cell.frame.size.width, cell.ContentView.frame.origin.y + cell.ContentView.frame.size.height + kCCPad);
             
             
-            cell.TitleView.backgroundColor = [UIColor whiteColor];
-            cell.TitleLabel.textColor = [UIColor colorWithRed:0.47 green:0.00 blue:0.25 alpha:1.0];
+            cell.TitleView.backgroundColor = [UIColor colorWithRed:0.89 green:0.88 blue:0.92 alpha:1.0];
+            cell.TitleLabel.textColor = [UIColor colorWithRed:0.27 green:0.21 blue:0.36 alpha:1.0];
 //            cell.TitleArrow.backgroundColor = [UIColor colorWithRed:0.47 green:0.00 blue:0.25 alpha:1.0];
-            cell.Arrow.textColor = [UIColor colorWithRed:0.47 green:0.00 blue:0.25 alpha:1.0];
+            cell.Arrow.textColor = [UIColor colorWithRed:0.31 green:0.20 blue:0.44 alpha:1.0];
             
             // Change Arrow orientation
 //            CGAffineTransform transform = CGAffineTransformMakeRotation(M_PI/2);
@@ -242,10 +242,10 @@
             CollapseClickCell *cell = [self.dataArray objectAtIndex:index];
             cell.frame = CGRectMake(cell.frame.origin.x, cell.frame.origin.y, cell.frame.size.width, kCCHeaderHeight);
             
-            cell.TitleView.backgroundColor = [UIColor colorWithRed:0.47 green:0.00 blue:0.25 alpha:1.0];
-            cell.TitleLabel.textColor = [UIColor whiteColor];
+            cell.TitleView.backgroundColor = [UIColor colorWithRed:0.91 green:0.90 blue:0.93 alpha:1.0];
+            cell.TitleLabel.textColor = [UIColor colorWithRed:0.27 green:0.21 blue:0.36 alpha:1.0];
 //            cell.TitleArrow.backgroundColor = [UIColor whiteColor];
-            cell.Arrow.textColor = [UIColor whiteColor];
+            cell.Arrow.textColor = [UIColor colorWithRed:0.31 green:0.20 blue:0.44 alpha:1.0];
             
             // Change Arrow orientation
             CGAffineTransform transform = CGAffineTransformMakeRotation(0);
