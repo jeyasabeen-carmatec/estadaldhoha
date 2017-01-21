@@ -46,4 +46,11 @@
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityindicator;
 @property (strong, nonatomic) IBOutlet UIView *VW_activity;
 
+#pragma mark - Switch Fuctionality
+@property (strong, nonatomic) IBOutlet UISwitch *swtch_Notification;
+@property (strong, nonatomic) IBOutlet UISwitch *swtch_Notification_sound;
+
+@property (strong, nonatomic) IBOutlet UILabel *lbl_notification;
+@property (strong, nonatomic) IBOutlet UILabel *lbl_notification_sound;
+
 @end

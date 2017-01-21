@@ -33,10 +33,6 @@
     // Override point for customization after application launch.
     
    [GADMobileAds configureWithApplicationID:@"ca-app-pub-8762774270996921~1852871497"];
-//    [[FBSDKApplicationDelegate sharedInstance] application:application
-//                             didFinishLaunchingWithOptions:launchOptions];
-    
-    // Make this interesting.
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     self.window.backgroundColor = [UIColor whiteColor];
@@ -57,23 +53,52 @@
         view.backgroundColor = [UIColor colorWithRed:0.35 green:0.01 blue:0.19 alpha:1.0];
         [self.window.rootViewController.view addSubview:view];
     }
-    
-//    if([[UIDevice currentDevice] systemVersion].floatValue >= 8.0)
-//    {
+   
+    /* Check and update Push notification settings*/
+    NSString *notification_STAT = [[NSUserDefaults standardUserDefaults] valueForKey:@"NOTIFICATOION_STAT"];
+    if (notification_STAT)
+    {
+        NSString *sound_not = [[NSUserDefaults standardUserDefaults] valueForKey:@"SOUND_STAT"];
+        if ([notification_STAT isEqualToString:@"NOTIFICATION_ON"])
+        {
+            if (sound_not)
+            {
+                if ([sound_not isEqualToString:@"SOUND_ON"]) {
+                    UIUserNotificationSettings* notificationSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil];
+                    [[UIApplication sharedApplication] registerUserNotificationSettings:notificationSettings];
+                }
+                else
+                {
+                    UIUserNotificationSettings* notificationSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge categories:nil];
+                    [[UIApplication sharedApplication] registerUserNotificationSettings:notificationSettings];
+                }
+            }
+            else
+            {
+                [[NSUserDefaults standardUserDefaults] setObject:@"SOUND_ON" forKey:@"SOUND_STAT"];
+                [[NSUserDefaults standardUserDefaults] synchronize];
+                UIUserNotificationSettings* notificationSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil];
+                [[UIApplication sharedApplication] registerUserNotificationSettings:notificationSettings];
+            }
+        }
+    }
+    else
+    {
+        [[NSUserDefaults standardUserDefaults] setObject:@"NOTIFICATION_ON" forKey:@"NOTIFICATOION_STAT"];
+        [[NSUserDefaults standardUserDefaults] setObject:@"SOUND_ON" forKey:@"SOUND_STAT"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
         UIUserNotificationSettings* notificationSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil];
         [[UIApplication sharedApplication] registerUserNotificationSettings:notificationSettings];
-//    }
-//    else
-//    {
-//        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound|UIRemoteNotificationTypeBadge)];
-//    }
+    }
+    /* Check and update Push notification settings*/
+
 
     return YES;
 }
 
 
 #ifdef __IPHONE_8_0
-- (void)application:(UIApplication *)application didRegisterUserNotificationSettings:   (UIUserNotificationSettings *)notificationSettings
+- (void)application:(UIApplication *)application didRegisterUserNotificationSettings: (UIUserNotificationSettings *)notificationSettings
 {
     //register to receive notifications
     [application registerForRemoteNotifications];
@@ -98,9 +123,6 @@
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     NSLog(@"Did Register for Remote Notifications with Device Token (%@)", deviceToken);
     
-    //    NSString *tmp = [NSString stringWithFormat:@"%@",deviceToken]
-    //    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"APNS ID 0 o O" message:tmp delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    //    [alert show];
     
     NSString *token = [[deviceToken description] stringByTrimmingCharactersInSet: [NSCharacterSet characterSetWithCharactersInString:@"<>"]];
     token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
@@ -121,9 +143,6 @@
 }
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
     
-    //    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"APNS ID 1" message:@"Test1 Fail" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    //    [alert show];
-    //
     NSLog(@"Did Fail to Register for Remote Notifications");
     NSLog(@"%@, %@", error, error.localizedDescription);
     

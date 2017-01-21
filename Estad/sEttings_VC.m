@@ -25,6 +25,7 @@
 #import "Article_DETAIL_VC.h"
 #import "About_US_VC.h"
 
+
 @interface sEttings_VC ()
 
 @end
@@ -193,10 +194,38 @@
     
     _VW_activity.hidden = YES;
     
+//    NSString *notific_STAT = [[NSUserDefaults standardUserDefaults] valueForKey:@"NOTIFICATOION_STAT"];
     
-//    _VW_activity.hidden = NO;
-//    [_activityindicator startAnimating];
-//    [self performSelector:@selector(setup_DATA) withObject:_activityindicator afterDelay:0.01];
+    if ([[UIApplication sharedApplication] isRegisteredForRemoteNotifications])
+    {
+        [_swtch_Notification setOn:YES animated:YES];
+        _lbl_notification.text = @"Pushnotification يتم تمكين";
+        NSString *sound_STAT = [[NSUserDefaults standardUserDefaults] valueForKey:@"SOUND_STAT"];
+        if (sound_STAT)
+        {
+            if ([sound_STAT isEqualToString:@"SOUND_ON"]) {
+                [_swtch_Notification_sound setOn:YES animated:YES];
+                _lbl_notification_sound.text = @"Notificationsound على";
+            }
+            else
+            {
+                [_swtch_Notification_sound setOn:NO animated:YES];
+                _lbl_notification_sound.text = @"Notificationsound قبالة";
+            }
+        }
+        else
+        {
+            [_swtch_Notification_sound setOn:NO animated:YES];
+            _lbl_notification_sound.text = @"Notificationsound قبالة";
+        }
+    }
+    else
+    {
+        _lbl_notification.text = @"Pushnotification تعطيل";
+        _lbl_notification_sound.text = @"Notificationsound قبالة";
+        [_swtch_Notification setOn:NO animated:YES];
+        [_swtch_Notification_sound setOn:NO animated:YES];
+    }
     
 }
 
@@ -481,6 +510,10 @@
         [UIView setAnimationDuration:-5];
         _overlayView.hidden = YES;
         [UIView commitAnimations];
+        
+        _VW_activity.hidden = NO;
+        [_activityindicator startAnimating];
+        [self performSelector:@selector(Home_VC) withObject:_activityindicator afterDelay:0.01];
     }
     else if (index == 1)
     {
@@ -607,6 +640,15 @@
         
 //        [self load_Settings];
     }
+}
+
+-(void) Home_VC
+{
+    New_Home_VC *controller = [[New_Home_VC alloc] initWithNibName:@"New_Home_VC" bundle:nil];
+    [self.navigationController pushViewController:controller animated:YES];
+    
+    _VW_activity.hidden = YES;
+    [_activityindicator stopAnimating];
 }
 
 -(void) E_magazene_VC
@@ -847,5 +889,94 @@
     controller.get_News_titl = send_news_TITL;
     [self.navigationController pushViewController:controller animated:YES];
 }
+
+- (IBAction)Notification_STAT:(id)sender
+{
+    if ([_swtch_Notification isOn]) {
+        [[NSUserDefaults standardUserDefaults] setObject:@"NOTIFICATION_ON" forKey:@"NOTIFICATOION_STAT"];
+        [[NSUserDefaults standardUserDefaults] setObject:@"SOUND_ON" forKey:@"SOUND_STAT"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        UIUserNotificationSettings* notificationSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil];
+        [[UIApplication sharedApplication] registerUserNotificationSettings:notificationSettings];
+        
+        BOOL canOpenSettings = (UIApplicationOpenSettingsURLString != NULL);
+        if (canOpenSettings) {
+            NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+            [[UIApplication sharedApplication] openURL:url];
+        }
+        
+        [_swtch_Notification_sound setOn:YES animated:YES];
+        
+        _lbl_notification.text = @"Pushnotification يتم تمكين";
+        _lbl_notification_sound.text = @"Notificationsound على";
+    }
+    else
+    {
+        [[NSUserDefaults standardUserDefaults] setObject:@"NOTIFICATION_OFF" forKey:@"NOTIFICATOION_STAT"];
+        [[NSUserDefaults standardUserDefaults] setObject:@"SOUND_OFF" forKey:@"SOUND_STAT"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        [[UIApplication sharedApplication] unregisterForRemoteNotifications];
+        
+        [_swtch_Notification_sound setOn:NO animated:YES];
+        
+        _lbl_notification.text = @"Pushnotification تعطيل";
+        _lbl_notification_sound.text = @"Notificationsound قبالة";
+    }
+}
+
+- (IBAction)SOUND_STAT:(id)sender
+{
+    if ([[UIApplication sharedApplication] isRegisteredForRemoteNotifications])
+    {
+        if ([_swtch_Notification_sound isOn])
+        {
+            [[UIApplication sharedApplication] unregisterForRemoteNotifications];
+            
+            [[NSUserDefaults standardUserDefaults] setObject:@"SOUND_ON" forKey:@"SOUND_STAT"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            
+            UIUserNotificationSettings* notificationSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil];
+            [[UIApplication sharedApplication] registerUserNotificationSettings:notificationSettings];
+            
+            BOOL canOpenSettings = (UIApplicationOpenSettingsURLString != NULL);
+            if (canOpenSettings) {
+                NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+                [[UIApplication sharedApplication] openURL:url];
+            }
+            
+            _lbl_notification_sound.text = @"Notificationsound على";
+        }
+        else
+        {
+            [[UIApplication sharedApplication] unregisterForRemoteNotifications];
+            
+            [[NSUserDefaults standardUserDefaults] setObject:@"SOUND_OFF" forKey:@"SOUND_STAT"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            
+            UIUserNotificationSettings* notificationSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge categories:nil];
+            [[UIApplication sharedApplication] registerUserNotificationSettings:notificationSettings];
+            
+            BOOL canOpenSettings = (UIApplicationOpenSettingsURLString != NULL);
+            if (canOpenSettings) {
+                NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+                [[UIApplication sharedApplication] openURL:url];
+            }
+            
+            _lbl_notification_sound.text = @"Notificationsound قبالة";
+        }
+    }
+    else
+    {
+        BOOL canOpenSettings = (UIApplicationOpenSettingsURLString != NULL);
+        if (canOpenSettings) {
+            NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+            [[UIApplication sharedApplication] openURL:url];
+        }
+        
+    }
+}
+
 
 @end
