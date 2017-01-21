@@ -1076,4 +1076,21 @@
     }
 }
 
+#pragma mark - Pagination Functionality
+- (void)scrollViewDidEndDragging:(UIScrollView *)aScrollView
+                  willDecelerate:(BOOL)decelerate
+{
+    CGPoint loffset = self.COL_contnt.contentOffset;
+    CGRect bounds = aScrollView.bounds;
+    CGSize size = aScrollView.contentSize;
+    UIEdgeInsets inset = aScrollView.contentInset;
+    float y = loffset.y + bounds.size.height - inset.bottom;
+    float h = size.height;
+    
+    float reload_distance = 50;
+    if(y > h + reload_distance)
+    {
+                NSLog(@"load more rows");
+    }
+}
 @end
