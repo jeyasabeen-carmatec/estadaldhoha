@@ -313,8 +313,10 @@
 -(void) setup_DATA
 {
     [_widget_VW loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://widgets.datasportsgroup.com/carmatec/today_carmatec.php"]]];
-    _widget_VW.scalesPageToFit = YES;
+//    _widget_VW.scalesPageToFit = YES;
 //    _widget_VW.contentMode = UIViewContentModeScaleAspectFit;
+    [_widget_VW sizeToFit];
+//    _widget_VW.frame=self.view.bounds;
     
     if (contents) {
         homeNewsSlider = [contents valueForKey:@"homeNewsSlider"];
