@@ -41,6 +41,9 @@
     
     NSMutableArray *searchResults;
     BOOL isSerching;
+    
+    int count_VAL;
+    NSArray *main_ARR;
 }
 
 @end
@@ -803,7 +806,9 @@
 #pragma mark -Api INtegration
 -(void) Decide_API
 {
-    str_URL = [NSString stringWithFormat:@"%@videolist/20/%@",MAIN_URL,[self getUTCFormateDate:[NSDate date]]];
+    count_VAL = 0;
+    json_RESULT = [[NSMutableArray alloc]init];
+    str_URL = [NSString stringWithFormat:@"%@videolist/0/%@",MAIN_URL,[self getUTCFormateDate:[NSDate date]]];
     [self get_DATA];
 }
 -(void) get_DATA
@@ -819,8 +824,8 @@
 //    NSDictionary *result = [json_DICTIN valueForKey:@"result"];
     
     
-    json_RESULT = [[NSMutableArray alloc]init];
-    json_RESULT = [json_DICTIN valueForKey:@"result"];
+    main_ARR = [json_DICTIN valueForKey:@"result"];
+    [json_RESULT addObjectsFromArray:main_ARR];
     
     NSLog(@"Result youtube = %@",json_RESULT);
 }
@@ -924,6 +929,29 @@
         } @catch (NSException *exception) {
             [searchResults removeAllObjects];
             [_list_DATA reloadData];
+        }
+    }
+}
+
+#pragma mark - Pagination Functionality
+- (void)scrollViewDidEndDragging:(UIScrollView *)aScrollView
+                  willDecelerate:(BOOL)decelerate
+{
+    CGPoint loffset = self.content_Collection.contentOffset;
+    CGRect bounds = aScrollView.bounds;
+    CGSize size = aScrollView.contentSize;
+    UIEdgeInsets inset = aScrollView.contentInset;
+    float y = loffset.y + bounds.size.height - inset.bottom;
+    float h = size.height;
+    
+    float reload_distance = 50;
+    if(y > h + reload_distance)
+    {
+        count_VAL = count_VAL + 10;
+        if ([main_ARR count] == 10)
+        {
+            str_URL = [NSString stringWithFormat:@"%@videolist/%d/%@",MAIN_URL,count_VAL,[self getUTCFormateDate:[NSDate date]]];
+            [self get_DATA];
         }
     }
 }
