@@ -1107,7 +1107,11 @@
     else
     {
         main_ARR = [result valueForKey:@"media_pict"];
-        [json_RESULT addObjectsFromArray:main_ARR];
+        @try {
+            [json_RESULT addObjectsFromArray:main_ARR];
+        } @catch (NSException *exception) {
+            NSLog(@"Exception %@",exception);
+        }         
     }
     
 //    json_RESULT = [result valueForKey:@"media_pict"];
@@ -1237,11 +1241,15 @@
     float reload_distance = 50;
     if(y > h + reload_distance)
     {
-        count_VAL = count_VAL + 10;
-        if ([main_ARR count] == 10)
-        {
-            str_URL = [NSString stringWithFormat:@"%@pictureList/%d/%@",MAIN_URL,count_VAL,[self getUTCFormateDate:[NSDate date]]];
-            [self get_DATA];
+        @try {
+            if ([main_ARR count] != 0)
+            {
+                count_VAL = count_VAL + 10;
+                str_URL = [NSString stringWithFormat:@"%@pictureList/%d/%@",MAIN_URL,count_VAL,[self getUTCFormateDate:[NSDate date]]];
+                [self get_DATA];
+            }
+        } @catch (NSException *exception) {
+            NSLog(@"Exception 1 = %@",exception);
         }
     }
 }
