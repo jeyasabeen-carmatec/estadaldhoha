@@ -55,6 +55,8 @@
     
     NSMutableArray *searchResults;
     BOOL isSerching;
+    
+    int count_VAL;
 }
 
 @synthesize menuDraw_width,menyDraw_X,VW_swipe;
@@ -929,7 +931,10 @@
         str_TICKT = @"null";
     }
     
+    count_VAL = 0;
+    
     NSLog(@"Coading Status \nMontn = %@\nYear = %@\nTicket = %@",str_MONTH,str_YEAR,str_TICKT);
+    
     
     NSString *url = [NSString stringWithFormat:@"%@emagazinesList/%@/%@/%@",MAIN_URL,str_TICKT,str_MONTH,str_YEAR];
     [self parse_API:url];
@@ -954,6 +959,19 @@
                                             }];
     [dataTask resume];*/
     
+    if (count_VAL == 0)
+    {
+        [IMG_S removeAllObjects];
+        [DATE_S removeAllObjects];
+        [tickt_ID removeAllObjects];
+        [PDF_file removeAllObjects];
+        
+        IMG_S = [[NSMutableArray alloc] init];
+        DATE_S = [[NSMutableArray alloc] init];
+        tickt_ID = [[NSMutableArray alloc]init];
+        PDF_file = [[NSMutableArray alloc] init];
+    }
+    
     NSData *data = [NSData dataWithContentsOfURL:url];
     NSMutableDictionary *json_DATA  = (NSMutableDictionary *)[NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
     
@@ -966,10 +984,6 @@
     {
         serch_CONTENT = [json_DATA valueForKey:@"result"];
         emagazine_date = [json_DATA valueForKey:@"emagazine_date"];
-        IMG_S = [[NSMutableArray alloc] init];
-        DATE_S = [[NSMutableArray alloc] init];
-        tickt_ID = [[NSMutableArray alloc]init];
-        PDF_file = [[NSMutableArray alloc] init];
             for (int i = 0; i < [serch_CONTENT count]; i++)
             {
                 NSDictionary *temp_DICTN = [[serch_CONTENT objectAtIndex:i]valueForKey:@"Emagazine"];
@@ -1090,7 +1104,13 @@
     float reload_distance = 50;
     if(y > h + reload_distance)
     {
-                NSLog(@"load more rows");
+        count_VAL = count_VAL + 10;
+        if ([serch_CONTENT count] == 10)
+        {
+            NSString *url = [NSString stringWithFormat:@"%@emagazinesList/%d/",MAIN_URL,count_VAL];
+            [self parse_API:url];
+        }
+        
     }
 }
 @end
