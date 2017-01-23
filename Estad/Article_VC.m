@@ -45,6 +45,9 @@
     
     NSMutableArray *searchResults;
     BOOL isSerching;
+    
+    NSArray *main_ARR;
+    int count_VAL;
 }
 
 @end
@@ -874,15 +877,17 @@
 #pragma mark -Api INtegration
 -(void) Decide_API
 {
+    count_VAL = 0;
+    json_RESULT = [[NSMutableArray alloc]init];
     if ([get_NAV_TITL isEqualToString:@"محرر بلوق"]) {
 //        NSLog(@"Call News local patrols API");
-        str_URL = [NSString stringWithFormat:@"%@articleList/1/20/%@",MAIN_URL,[self getUTCFormateDate:[NSDate date]]];
+        str_URL = [NSString stringWithFormat:@"%@articleList/1/0/%@",MAIN_URL,[self getUTCFormateDate:[NSDate date]]];
         [self get_DATA];
     }
     else if ([get_NAV_TITL isEqualToString:@"مقالات استاد الدوحة"])
     {
 //        NSLog(@"Call News Arabic periodicals API");
-        str_URL = [NSString stringWithFormat:@"%@articleList/2/20/%@",MAIN_URL,[self getUTCFormateDate:[NSDate date]]];
+        str_URL = [NSString stringWithFormat:@"%@articleList/2/0/%@",MAIN_URL,[self getUTCFormateDate:[NSDate date]]];
         [self get_DATA];
     }
 }
@@ -899,12 +904,13 @@
     NSString *str = [NSString stringWithFormat:@"%@",[json_DICTIN valueForKey:@"result"]];
     
     if ([str isEqualToString:@"0"]) {
-        json_RESULT = [[NSMutableArray alloc]init];
+//        json_RESULT = [[NSMutableArray alloc]init];
+        [json_RESULT removeAllObjects];
     }
     else
     {
-        json_RESULT = [[NSMutableArray alloc]init];
-        json_RESULT = [json_DICTIN valueForKey:@"result"];
+        main_ARR = [json_DICTIN valueForKey:@"result"];
+        [json_RESULT addObjectsFromArray:main_ARR];
     }
 }
 
@@ -1005,6 +1011,39 @@
         } @catch (NSException *exception) {
             [searchResults removeAllObjects];
             [_list_DATA reloadData];
+        }
+    }
+}
+
+
+#pragma mark - Pagination Functionality
+- (void)scrollViewDidEndDragging:(UIScrollView *)aScrollView
+                  willDecelerate:(BOOL)decelerate
+{
+    CGPoint loffset = self.content_Collection.contentOffset;
+    CGRect bounds = aScrollView.bounds;
+    CGSize size = aScrollView.contentSize;
+    UIEdgeInsets inset = aScrollView.contentInset;
+    float y = loffset.y + bounds.size.height - inset.bottom;
+    float h = size.height;
+    
+    float reload_distance = 50;
+    if(y > h + reload_distance)
+    {
+        count_VAL = count_VAL + 10;
+        if ([main_ARR count] == 10)
+        {
+            if ([get_NAV_TITL isEqualToString:@"محرر بلوق"]) {
+                //        NSLog(@"Call News local patrols API");
+                str_URL = [NSString stringWithFormat:@"%@articleList/1/%d/%@",MAIN_URL,count_VAL,[self getUTCFormateDate:[NSDate date]]];
+                [self get_DATA];
+            }
+            else if ([get_NAV_TITL isEqualToString:@"مقالات استاد الدوحة"])
+            {
+                //        NSLog(@"Call News Arabic periodicals API");
+                str_URL = [NSString stringWithFormat:@"%@articleList/2/%d/%@",MAIN_URL,count_VAL,[self getUTCFormateDate:[NSDate date]]];
+                [self get_DATA];
+            }
         }
     }
 }
