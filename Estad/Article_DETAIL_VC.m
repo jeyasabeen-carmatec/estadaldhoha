@@ -151,21 +151,18 @@
     [attributedText setAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"HelveticaNeue" size:14.0]}
                             range:typ];
     
-    
-    
-    
-    
+ 
     self.lbl_date_E.numberOfLines = 0;
     self.lbl_date_E.attributedText = attributedText;
     //self.lbl_CNTNT.adjustsFontSizeToFitWidth = YES;
     //    _lbl_CNTNT.textAlignment = NSTextAlignmentRight;
     [self.lbl_date_E sizeToFit];
     
-    //_lbl_CNTNT.scrollEnabled = NO;
+    [_lbl_date_E setFrame:CGRectMake(8,_lbl_date_E.frame.origin.y,self.view.frame.size.width - 16,_lbl_date_E.frame.size.height )];
     
     [_lbl_CNTNT loadHTMLString:[NSString stringWithFormat:@"<div style='text-align:right'>%@<div>",data] baseURL:nil];
     
-    [_lbl_date_E setFrame:CGRectMake(8,_lbl_date_E.frame.origin.y,self.view.frame.size.width - 16,_lbl_comnt_STAT.frame.size.height)];
+//    [_lbl_date_E setFrame:CGRectMake(8,_lbl_date_E.frame.origin.y,self.view.frame.size.width - 16,_lbl_comnt_STAT.frame.size.height)];
     
 }
 
@@ -332,11 +329,25 @@
     
     
     if ([ArticleComment count]== 0) {
-        _lbl_comnt_STAT.text = @"لم يذكر";
+        //        _lbl_comnt_STAT.text = @"لم يذكر";
+        _lbl_CMNT_date.hidden = YES;
+        _lbl_CMNT_head.hidden = YES;
+        _lbl_comnt_STAT.hidden = YES;
     }
     else
     {
-        _lbl_comnt_STAT.text = [[ArticleComment objectAtIndex:0]valueForKey:@"comment"];
+        NSString *cmt_STAT = [NSString stringWithFormat:@"%@",[[ArticleComment objectAtIndex:0]valueForKey:@"is_approved"]];
+        if ([cmt_STAT isEqualToString:@"yes"]) {
+            _lbl_comnt_STAT.text = [[ArticleComment objectAtIndex:0]valueForKey:@"comment"];
+            _lbl_CMNT_date.text = [NSString stringWithFormat:@"%@ | %@",[[ArticleComment objectAtIndex:0]valueForKey:@"name"],[[ArticleComment objectAtIndex:0]valueForKey:@"modified"]];
+            
+        }
+        else
+        {
+            _lbl_CMNT_date.hidden = YES;
+            _lbl_CMNT_head.hidden = YES;
+            _lbl_comnt_STAT.hidden = YES;
+        }
     }
     
     

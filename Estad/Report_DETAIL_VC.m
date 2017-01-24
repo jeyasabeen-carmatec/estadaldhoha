@@ -398,11 +398,25 @@
     
     
     if ([NewsComment count]== 0) {
-        _lbl_comnt_STAT.text = @"لم يذكر";
+        //        _lbl_comnt_STAT.text = @"لم يذكر";
+        _lbl_CMNT_date.hidden = YES;
+        _lbl_CMNT_head.hidden = YES;
+        _lbl_comnt_STAT.hidden = YES;
     }
     else
     {
-        _lbl_comnt_STAT.text = [[NewsComment objectAtIndex:0]valueForKey:@"comment"];
+        NSString *cmt_STAT = [NSString stringWithFormat:@"%@",[[NewsComment objectAtIndex:0]valueForKey:@"is_approved"]];
+        if ([cmt_STAT isEqualToString:@"yes"]) {
+            _lbl_comnt_STAT.text = [[NewsComment objectAtIndex:0]valueForKey:@"comment"];
+            _lbl_CMNT_date.text = [NSString stringWithFormat:@"%@ | %@",[[NewsComment objectAtIndex:0]valueForKey:@"name"],[[NewsComment objectAtIndex:0]valueForKey:@"modified"]];
+            
+        }
+        else
+        {
+            _lbl_CMNT_date.hidden = YES;
+            _lbl_CMNT_head.hidden = YES;
+            _lbl_comnt_STAT.hidden = YES;
+        }
     }
     
     

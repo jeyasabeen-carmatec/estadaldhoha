@@ -304,23 +304,13 @@
     
     _widget_VW.delegate = self;
     _widget_VW.scrollView.delegate = self;
+    
     //    [_widget_VW loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://widgets.datasportsgroup.com/carmatec/today_carmatec.php"]]];
     [_widget_VW loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://widgets.datasportsgroup.com/carmatec/today_carmatec_mobile.php"]]];
-    _widget_VW.scalesPageToFit = YES;
-    _widget_VW.opaque = NO;
-    
-    _widget_VW.contentMode = UIViewContentModeScaleAspectFit;
-    _widget_VW.backgroundColor = [UIColor clearColor];
-    
-//    [_widget_VW sizeToFit];
 //    _widget_VW.scalesPageToFit = YES;
-    //    _widget_VW.frame=self.view.bounds;
-    
-    
-    _VW_activity.hidden = NO;
-    [_activityindicator startAnimating];
-    [self performSelector:@selector(setup_DATA) withObject:_activityindicator afterDelay:0.01];
-    
+    _widget_VW.opaque = NO;
+    _widget_VW.contentMode = UIViewContentModeScaleAspectFit;
+    _widget_VW.backgroundColor = [UIColor colorWithRed:0.11 green:0.24 blue:0.50 alpha:1.0];
 }
 
 #pragma mark - LOAD DATA
@@ -349,7 +339,6 @@
     CGRect temp_FRAME = _widget_VW.frame;
     temp_FRAME.size.height = _widget_VW.frame.size.height;
     _widget_VW.frame = temp_FRAME;
-    
     
     temp_FRAME = _list_NEWS.frame;
     temp_FRAME.origin.y = _widget_VW.frame.origin.y + _widget_VW.frame.size.height + 5;
@@ -1550,13 +1539,15 @@ shouldStartLoadWithRequest:(NSURLRequest*)request
 
 - (void)webViewDidFinishLoad:(UIWebView *)aWebView
 {
+    NSString *fontSize=@"50";
+    NSString *jsString = [[NSString alloc]      initWithFormat:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '%d%%'",[fontSize intValue]];
+    [_widget_VW stringByEvaluatingJavaScriptFromString:jsString];
+
     
     CGRect frame1 = _widget_VW.frame;
     frame1.size.height = 60;
     _widget_VW.frame = frame1;
-    
     [_widget_VW sizeToFit];
-    
     CGRect frame = _widget_VW.frame;
     frame.size.height = 1;
     _widget_VW.frame = frame;
@@ -1564,14 +1555,17 @@ shouldStartLoadWithRequest:(NSURLRequest*)request
     frame.size = fittingSize;
     _widget_VW.frame = frame;
     NSLog(@"size: %f, %f", fittingSize.width, fittingSize.height);
-    
+
     [self setup_DATA];
 }
 
 
 -(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
-
+    NSString *fontSize=@"50";
+    NSString *jsString = [[NSString alloc]      initWithFormat:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '%d%%'",[fontSize intValue]];
+    [_widget_VW stringByEvaluatingJavaScriptFromString:jsString];
+    
 //    CGRect frame1 = _widget_VW.frame;
 //    frame1.size.height = 60;
 //    _widget_VW.frame = frame1;
@@ -1581,17 +1575,18 @@ shouldStartLoadWithRequest:(NSURLRequest*)request
         NSLog(@"User tapped a link.");
 //        [_widget_VW sizeToFit];
         
+//        NSString *height = [_widget_VW stringByEvaluatingJavaScriptFromString:@"document.getElementById('content').offsetHeight;"];
+//        NSLog(@"Height :: %@",height);
+        
 //        [_widget_VW setSuppressesIncrementalRendering:YES];
         
 //        CGRect frame = _widget_VW.frame;
-//        frame.size.height = 1;
+//        _widget_VW.setNeedsUpdateConstraints;
 //        _widget_VW.frame = frame;
-//        CGSize fittingSize = [_widget_VW sizeThatFits:CGSizeZero];
-//        frame.size = fittingSize;
-//        _widget_VW.frame = frame;
-    
         
-//        [self setup_DATA];
+        
+        
+        [self setup_DATA];
         
 //        [self scrollViewDidScroll:_widget_VW.scrollView];
         

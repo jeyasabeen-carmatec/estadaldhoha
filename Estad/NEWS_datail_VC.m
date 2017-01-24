@@ -126,7 +126,7 @@
     NSString *tag = [NSString stringWithFormat:@"Tag : %@",[news valueForKey:@"tags"]];
     NSString *data = [NSString stringWithFormat:@"%@",[news valueForKey:@"content"]];
     
-    NSString *HTM_DATA = [self convertHTML:data];
+//    NSString *HTM_DATA = [self convertHTML:data];
     
     
     NSString *dtail = [NSString stringWithFormat:@"%@\n\n %@\n\n %@\n\n",date_STR,title_STR,tag];
@@ -167,7 +167,7 @@
     //_lbl_CNTNT.scrollEnabled = NO;
     
 //    [_lbl_CNTNT loadHTMLString:data baseURL:nil];
-    [_lbl_CNTNT loadHTMLString:[NSString stringWithFormat:@"<div style='text-align:right'>%@<div>",HTM_DATA] baseURL:nil];
+    [_lbl_CNTNT loadHTMLString:[NSString stringWithFormat:@"<div style='text-align:right'>%@<div>",data] baseURL:nil];
     
 }
 -(NSString *)convertHTML:(NSString *)html {
@@ -417,7 +417,18 @@
     }
     else
     {
-        _lbl_comnt_STAT.text = [[NewsComment objectAtIndex:0]valueForKey:@"comment"];
+        NSString *cmt_STAT = [NSString stringWithFormat:@"%@",[[NewsComment objectAtIndex:0]valueForKey:@"is_approved"]];
+        if ([cmt_STAT isEqualToString:@"yes"]) {
+            _lbl_comnt_STAT.text = [[NewsComment objectAtIndex:0]valueForKey:@"comment"];
+            _lbl_CMNT_date.text = [NSString stringWithFormat:@"%@ | %@",[[NewsComment objectAtIndex:0]valueForKey:@"name"],[[NewsComment objectAtIndex:0]valueForKey:@"modified"]];
+            
+        }
+        else
+        {
+            _lbl_CMNT_date.hidden = YES;
+            _lbl_CMNT_head.hidden = YES;
+            _lbl_comnt_STAT.hidden = YES;
+        }
     }
     
     

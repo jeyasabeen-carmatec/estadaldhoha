@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "CollapseClick.h"
 
-@interface New_Home_VC : UIViewController <CollapseClickDelegate, UITableViewDataSource, UITableViewDelegate, UIWebViewDelegate, UIScrollViewDelegate>
+@interface New_Home_VC : UIViewController <CollapseClickDelegate, UITableViewDataSource, UITableViewDelegate, UIWebViewDelegate>
 {
     IBOutlet UIView *VW_Home;
     IBOutlet UIView *VW_News;
