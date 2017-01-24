@@ -302,6 +302,20 @@
     
     //    _VW_activity.hidden = YES;
     
+    _widget_VW.delegate = self;
+    _widget_VW.scrollView.delegate = self;
+    //    [_widget_VW loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://widgets.datasportsgroup.com/carmatec/today_carmatec.php"]]];
+    [_widget_VW loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://widgets.datasportsgroup.com/carmatec/today_carmatec_mobile.php"]]];
+    _widget_VW.scalesPageToFit = YES;
+    _widget_VW.opaque = NO;
+    
+    _widget_VW.contentMode = UIViewContentModeScaleAspectFit;
+    _widget_VW.backgroundColor = [UIColor clearColor];
+    
+//    [_widget_VW sizeToFit];
+//    _widget_VW.scalesPageToFit = YES;
+    //    _widget_VW.frame=self.view.bounds;
+    
     
     _VW_activity.hidden = NO;
     [_activityindicator startAnimating];
@@ -312,11 +326,7 @@
 #pragma mark - LOAD DATA
 -(void) setup_DATA
 {
-    [_widget_VW loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://widgets.datasportsgroup.com/carmatec/today_carmatec.php"]]];
-//    _widget_VW.scalesPageToFit = YES;
-//    _widget_VW.contentMode = UIViewContentModeScaleAspectFit;
-    [_widget_VW sizeToFit];
-//    _widget_VW.frame=self.view.bounds;
+
     
     if (contents) {
         homeNewsSlider = [contents valueForKey:@"homeNewsSlider"];
@@ -331,9 +341,18 @@
         [_list_intrVW reloadData];
         [_list_reports reloadData];
     }
+    
+    
+    
     CGRect main_FRAME = _VW_Contents.frame;
 //    CGRect buffer_FRAME = _widget_VW.frame;
-    CGRect temp_FRAME = _list_NEWS.frame;
+    CGRect temp_FRAME = _widget_VW.frame;
+    temp_FRAME.size.height = _widget_VW.frame.size.height;
+    _widget_VW.frame = temp_FRAME;
+    
+    
+    temp_FRAME = _list_NEWS.frame;
+    temp_FRAME.origin.y = _widget_VW.frame.origin.y + _widget_VW.frame.size.height + 5;
     temp_FRAME.size.height = [self tableViewHeight];
     _list_NEWS.frame = temp_FRAME;
     
@@ -1463,6 +1482,9 @@
 -(void)viewDidLayoutSubviews
 {
     _scroll_contNT.contentSize = _VW_Contents.frame.size;
+//    CGRect frame = _widget_VW.frame;
+//    frame.size.height = _widget_VW.scrollView.contentSize.height;
+//    _widget_VW.frame = frame;
 }
 
 
@@ -1507,5 +1529,87 @@
     controller.get_ID = [dict_VAL valueForKey:@"id"];
     [self.navigationController pushViewController:controller animated:YES];
 }
+
+
+/*- (BOOL)webView:(UIWebView*)webView
+shouldStartLoadWithRequest:(NSURLRequest*)request
+ navigationType:(UIWebViewNavigationType)navigationType {
+    NSURL *url = [request URL];
+    if (navigationType == UIWebViewNavigationTypeOther) {
+        if ([[url scheme] isEqualToString:@"ready"]) {
+            float contentHeight = [[url host] floatValue];
+            CGRect fr = _widget_VW.frame;
+            fr.size = CGSizeMake(_widget_VW.frame.size.width, contentHeight);
+            _widget_VW.frame = fr;
+            return NO;
+        } 
+    }
+ 
+    return YES; 
+}*/
+
+- (void)webViewDidFinishLoad:(UIWebView *)aWebView
+{
+    
+    CGRect frame1 = _widget_VW.frame;
+    frame1.size.height = 60;
+    _widget_VW.frame = frame1;
+    
+    [_widget_VW sizeToFit];
+    
+    CGRect frame = _widget_VW.frame;
+    frame.size.height = 1;
+    _widget_VW.frame = frame;
+    CGSize fittingSize = [_widget_VW sizeThatFits:CGSizeZero];
+    frame.size = fittingSize;
+    _widget_VW.frame = frame;
+    NSLog(@"size: %f, %f", fittingSize.width, fittingSize.height);
+    
+    [self setup_DATA];
+}
+
+
+-(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
+{
+
+//    CGRect frame1 = _widget_VW.frame;
+//    frame1.size.height = 60;
+//    _widget_VW.frame = frame1;
+//    [_widget_VW sizeToFit];
+
+    if (navigationType == UIWebViewNavigationTypeLinkClicked) {
+        NSLog(@"User tapped a link.");
+//        [_widget_VW sizeToFit];
+        
+//        [_widget_VW setSuppressesIncrementalRendering:YES];
+        
+//        CGRect frame = _widget_VW.frame;
+//        frame.size.height = 1;
+//        _widget_VW.frame = frame;
+//        CGSize fittingSize = [_widget_VW sizeThatFits:CGSizeZero];
+//        frame.size = fittingSize;
+//        _widget_VW.frame = frame;
+    
+        
+//        [self setup_DATA];
+        
+//        [self scrollViewDidScroll:_widget_VW.scrollView];
+        
+        return YES;
+    }
+
+    return YES;
+}
+
+//- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+//{
+    // Whatever scroll detection you need to do
+//    NSLog(@"Scroll height = %f",_widget_VW.scrollView.contentSize.height);
+//    _VW_activity.hidden = NO;
+//    [_activityindicator startAnimating];
+//    [self performSelector:@selector(setup_DATA) withObject:_activityindicator afterDelay:0.01];
+    
+//    [self setup_DATA];
+//}
 
 @end

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "CollapseClick.h"
 
-@interface New_Home_VC : UIViewController <CollapseClickDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface New_Home_VC : UIViewController <CollapseClickDelegate, UITableViewDataSource, UITableViewDelegate, UIWebViewDelegate, UIScrollViewDelegate>
 {
     IBOutlet UIView *VW_Home;
     IBOutlet UIView *VW_News;
@@ -25,6 +25,7 @@
     IBOutlet UIView *VW_POLL;
     IBOutlet CollapseClick *myCollapseClick;
 }
+
 
 @property (nonatomic, strong) IBOutlet UIView *VW_swipe;
 @property (readonly, nonatomic) int menyDraw_X,menuDraw_width;
