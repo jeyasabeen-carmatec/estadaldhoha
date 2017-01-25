@@ -292,7 +292,7 @@
             break;
             
         case 1:
-            return @"مجلة E";
+            return @"الجريدة PDF";
             break;
             
         case 2:

@@ -527,7 +527,7 @@
             break;
             
         case 1:
-            return @"مجلة E";
+            return @"الجريدة PDF";
             break;
             
         case 2:
@@ -1583,6 +1583,14 @@ shouldStartLoadWithRequest:(NSURLRequest*)request
 //        CGRect frame = _widget_VW.frame;
 //        _widget_VW.setNeedsUpdateConstraints;
 //        _widget_VW.frame = frame;
+        
+//        CGRect frame = _widget_VW.frame;
+//        frame.size.height = 1;
+//        _widget_VW.frame = frame;
+//        CGSize fittingSize = [_widget_VW sizeThatFits:CGSizeZero];
+//        frame.size = fittingSize;
+//        _widget_VW.frame = frame;
+//        NSLog(@"size: %f, %f", fittingSize.width, fittingSize.height);
         
         
         
