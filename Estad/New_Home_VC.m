@@ -52,6 +52,10 @@
     BOOL isSerching;
     
     NSArray *homeNewsSlider,*arabnews,*localNews,*interview,*reports;
+    
+    NSTimer *timer;
+    NSInteger count;
+    NSInteger seconds;
 }
 
 @synthesize menuDraw_width,menyDraw_X,VW_swipe;
@@ -311,12 +315,18 @@
     _widget_VW.opaque = NO;
     _widget_VW.contentMode = UIViewContentModeScaleAspectFit;
     _widget_VW.backgroundColor = [UIColor colorWithRed:0.11 green:0.24 blue:0.50 alpha:1.0];
+    
+    GADRequest *request = [GADRequest request];
+    //                    request.testDevices = @[@"b53627777feeb4f1d2d61a350a80514f"];
+    _Ads_banner.adUnitID = @"ca-app-pub-8762774270996921/9236537494";
+    _Ads_banner.rootViewController = self;
+    [_Ads_banner loadRequest:request];
 }
 
 #pragma mark - LOAD DATA
 -(void) setup_DATA
 {
-
+    [self viewDidLayoutSubviews];
     
     if (contents) {
         homeNewsSlider = [contents valueForKey:@"homeNewsSlider"];
@@ -365,7 +375,12 @@
     temp_FRAME.size.height = [self tableViewHeight4];
     _list_reports.frame = temp_FRAME;
     
-    main_FRAME.size.height = _list_reports.frame.origin.y + [self tableViewHeight4];
+    temp_FRAME = _Ads_banner.frame;
+    temp_FRAME.origin.y = _list_reports.frame.origin.y + [self tableViewHeight4] + 5;
+    temp_FRAME.size.height = _Ads_banner.frame.size.height;
+    _Ads_banner.frame = temp_FRAME;
+    
+    main_FRAME.size.height = _Ads_banner.frame.origin.y + _Ads_banner.frame.size.height + 5;
     _VW_Contents.frame = main_FRAME;
 //    _scroll_contNT.frame = _VW_Contents.frame;
     _scroll_contNT.contentSize = _VW_Contents.frame.size;
@@ -1471,9 +1486,11 @@
 -(void)viewDidLayoutSubviews
 {
     _scroll_contNT.contentSize = _VW_Contents.frame.size;
-//    CGRect frame = _widget_VW.frame;
-//    frame.size.height = _widget_VW.scrollView.contentSize.height;
-//    _widget_VW.frame = frame;
+    CGRect frame = _widget_VW.frame;
+    frame.size.height = _widget_VW.scrollView.contentSize.height;
+    _widget_VW.frame = frame;
+    
+//    [self setup_DATA];
 }
 
 
@@ -1584,17 +1601,24 @@ shouldStartLoadWithRequest:(NSURLRequest*)request
 //        _widget_VW.setNeedsUpdateConstraints;
 //        _widget_VW.frame = frame;
         
-//        CGRect frame = _widget_VW.frame;
-//        frame.size.height = 1;
-//        _widget_VW.frame = frame;
-//        CGSize fittingSize = [_widget_VW sizeThatFits:CGSizeZero];
-//        frame.size = fittingSize;
-//        _widget_VW.frame = frame;
-//        NSLog(@"size: %f, %f", fittingSize.width, fittingSize.height);
         
         
         
-        [self setup_DATA];
+        seconds = 1;
+        count = 0;
+        
+        
+        
+        // 3
+        timer = [NSTimer scheduledTimerWithTimeInterval:1.0f
+                                                 target:self
+                                               selector:@selector(subtractTime)
+                                               userInfo:nil
+                                                repeats:YES];
+        
+        
+        
+        
         
 //        [self scrollViewDidScroll:_widget_VW.scrollView];
         
@@ -1603,16 +1627,31 @@ shouldStartLoadWithRequest:(NSURLRequest*)request
 
     return YES;
 }
-
-//- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-//{
-    // Whatever scroll detection you need to do
-//    NSLog(@"Scroll height = %f",_widget_VW.scrollView.contentSize.height);
-//    _VW_activity.hidden = NO;
-//    [_activityindicator startAnimating];
-//    [self performSelector:@selector(setup_DATA) withObject:_activityindicator afterDelay:0.01];
+- (void)subtractTime {
+    // 1
+    seconds--;
     
-//    [self setup_DATA];
-//}
+    // 2
+    if (seconds == 0) {
+        [timer invalidate];
+        
+        CGRect frame = _widget_VW.frame;
+        frame.size.height = 1;
+        _widget_VW.frame = frame;
+        CGSize fittingSize = [_widget_VW sizeThatFits:CGSizeZero];
+        frame.size = fittingSize;
+        _widget_VW.frame = frame;
+        NSLog(@"size: %f, %f", fittingSize.width, fittingSize.height);
+
+        
+        [self setup_DATA];
+    }
+}
+
+-(void)webViewDidStartLoad:(UIWebView *)webView
+{
+    NSLog(@"teetet ");
+}
+
 
 @end

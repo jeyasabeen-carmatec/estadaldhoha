@@ -16,6 +16,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="New_Home_VC">
             <connections>
+                <outlet property="Ads_banner" destination="bfZ-bp-fAF" id="aCg-qw-mg0"/>
                 <outlet property="VW_About_US" destination="JZr-1v-KT9" id="KDh-gS-Qsq"/>
                 <outlet property="VW_Articles" destination="WnP-Z1-c53" id="ncb-ne-tV6"/>
                 <outlet property="VW_Contact_US" destination="Be6-mB-YEw" id="SdF-Ag-BV3"/>
@@ -252,6 +253,9 @@
                     <rect key="frame" x="8" y="6" width="359" height="205"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="H4K-q6-Ley"/>
+                    </connections>
                 </webView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2rL-6A-d2u">
                     <rect key="frame" x="8" y="219" width="359" height="128"/>
@@ -298,6 +302,11 @@
                         <outlet property="delegate" destination="-1" id="far-Dl-nfY"/>
                     </connections>
                 </tableView>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bfZ-bp-fAF" customClass="DFPBannerView">
+                    <rect key="frame" x="8" y="899" width="359" height="50"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "CollapseClick.h"
 
+@import GoogleMobileAds;
+
 @interface New_Home_VC : UIViewController <CollapseClickDelegate, UITableViewDataSource, UITableViewDelegate, UIWebViewDelegate>
 {
     IBOutlet UIView *VW_Home;
@@ -60,5 +62,7 @@
 @property (nonatomic, strong) IBOutlet UITableView *list_localNWS;
 @property (nonatomic, strong) IBOutlet UITableView *list_intrVW;
 @property (nonatomic, strong) IBOutlet UITableView *list_reports;
+
+@property (strong, nonatomic) IBOutlet DFPBannerView *Ads_banner;
 
 @end
