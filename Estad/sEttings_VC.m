@@ -151,6 +151,17 @@
     [_overlayView addSubview:VW_swipe];
     _overlayView.hidden = YES;
     
+    _VW_activity = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    CGRect new_FRAME12 = _VW_activity.frame;
+    new_FRAME12.size.width = self.navigationController.navigationBar.frame.size.width;
+    _VW_activity.frame = new_FRAME12;
+    _VW_activity.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.1];
+    _activityindicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    _activityindicator.center = _VW_activity.center;
+    [_VW_activity addSubview:_activityindicator];
+    [self.navigationController.view addSubview:_VW_activity];
+    _VW_activity.hidden = YES;
+    
     UISwipeGestureRecognizer *SwipeLEFT = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(SwipeRecognizer:)];
     SwipeLEFT.direction = UISwipeGestureRecognizerDirectionLeft;
     [self.view addGestureRecognizer:SwipeLEFT];
@@ -404,29 +415,34 @@
             break;
             
         case 1:
-            return @"الجريدة PDF";
+            return @"الاخبار";
             break;
             
         case 2:
-            return @"أخبار";
+            return @"المقالات";
             break;
+            
         case 3:
-            return @"مقالات";
+            return @"المركز الاعلمي";
             break;
+            
         case 4:
-            return @"المركز الاعلامي";
+            return @"الجريدة PDF";
             break;
         case 5:
             return @"من نحن";
             break;
+            
         case 6:
+            return @"هيئة التحرير";
+            break;
+            
+        case 7:
             return @"اتصل بنا";
             break;
-        case 7:
-            return @"مجلس التحرير";
-            break;
+            
         case 8:
-            return @"إعدادات";
+            return @"اعدادات";
             break;
             
         default:
@@ -434,6 +450,7 @@
             break;
     }
 }
+
 //test8View
 -(UIView *)viewForCollapseClickContentViewAtIndex:(int)index {
     switch (index) {
@@ -441,25 +458,25 @@
             return VW_Home;
             break;
         case 1:
-            return VW_Emagazine;
-            break;
-        case 2:
             return VW_News;
             break;
-        case 3:
+        case 2:
             return VW_Articles;
             break;
-        case 4:
+        case 3:
             return VW_Media;
+            break;
+        case 4:
+            return VW_Emagazine;
             break;
         case 5:
             return VW_About_US;
             break;
         case 6:
-            return VW_Contact_US;
+            return VW_Editorial;
             break;
         case 7:
-            return VW_Editorial;
+            return VW_Contact_US;
             break;
         case 8:
             return VW_Settings;
@@ -515,7 +532,7 @@
         [_activityindicator startAnimating];
         [self performSelector:@selector(Home_VC) withObject:_activityindicator afterDelay:0.01];
     }
-    else if (index == 1)
+    else if (index == 4)
     {
         [UIView beginAnimations:nil context:nil];
         [UIView setAnimationDelegate:self];
@@ -585,7 +602,7 @@
         
         _VW_activity.hidden = NO;
         [_activityindicator startAnimating];
-        [self performSelector:@selector(Contact_US_PG) withObject:_activityindicator afterDelay:0.01];
+        [self performSelector:@selector(Editorial_FFF) withObject:_activityindicator afterDelay:0.01];
         
     }
     else if (index == 7)
@@ -610,7 +627,7 @@
         
         _VW_activity.hidden = NO;
         [_activityindicator startAnimating];
-        [self performSelector:@selector(Editorial_FFF) withObject:_activityindicator afterDelay:0.01];
+        [self performSelector:@selector(Contact_US_PG) withObject:_activityindicator afterDelay:0.01];
         
         
     }

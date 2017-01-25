@@ -153,7 +153,7 @@
     BOOL isOpen = NO;
     int i = @(titleButton.tag).intValue;
     
-    if (i >= 2 && i <= 4)
+    if (i >= 1 && i <= 3)
     {
         // Cell is OPEN -> CLOSED
         if ([[self.isClickedArray objectAtIndex:titleButton.tag] boolValue] == YES) {

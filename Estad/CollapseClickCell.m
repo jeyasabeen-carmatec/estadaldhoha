@@ -45,7 +45,7 @@
 //        cell.line2.hidden = YES;
 //    }
     
-    if (index == 0 || index == 1 || index > 4) {
+    if (index == 0 || index > 3) {
         cell.TitleArrow.hidden = YES;
     }
     cell.Arrow.textColor = [UIColor colorWithRed:0.31 green:0.20 blue:0.44 alpha:1.0];
