@@ -28,11 +28,11 @@
                 <outlet property="VW_Serch" destination="KLO-fD-i4O" id="NOy-3R-FT2"/>
                 <outlet property="VW_Serch_BAR" destination="Lzr-iI-evb" id="uuv-NF-j9G"/>
                 <outlet property="VW_Settings" destination="q7A-Fz-JGi" id="Hc1-a4-ktv"/>
-                <outlet property="VW_swipe" destination="PlT-zI-bie" id="NV8-qB-0Wb"/>
+                <outlet property="VW_swipe" destination="brI-dq-Zqg" id="uLC-BD-fgx"/>
                 <outlet property="lbl_notification" destination="5tc-ft-B3m" id="Ntz-iA-PFD"/>
                 <outlet property="lbl_notification_sound" destination="lEU-3K-g5x" id="F0x-k3-EIh"/>
                 <outlet property="list_DATA" destination="OI8-Go-UVn" id="Nzj-AY-mkd"/>
-                <outlet property="myCollapseClick" destination="IBm-0M-Mhj" id="llS-hp-J65"/>
+                <outlet property="myCollapseClick" destination="hbm-AL-u8A" id="hhJ-xa-9xG"/>
                 <outlet property="serch_BAR" destination="A9e-wC-9GW" id="u7v-Dy-9SL"/>
                 <outlet property="swtch_Notification" destination="HNk-zo-yfE" id="Leg-Bj-hTC"/>
                 <outlet property="swtch_Notification_sound" destination="DNL-3v-7Ax" id="Exs-xY-1A0"/>
@@ -122,39 +122,6 @@
             <color key="backgroundColor" red="0.47450980390000003" green="0.0039215686269999999" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="323" y="1744"/>
-        </view>
-        <view contentMode="scaleToFill" id="PlT-zI-bie">
-            <rect key="frame" x="0.0" y="0.0" width="226" height="568"/>
-            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_logo.png" id="aDH-QM-aqf">
-                    <rect key="frame" x="8" y="27" width="210" height="55"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.47450980390000003" green="0.0039215686269999999" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                </imageView>
-                <view contentMode="scaleToFill" id="08U-hJ-NsF">
-                    <rect key="frame" x="0.0" y="99" width="218" height="1"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.34901960780000002" green="0.01176470588" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                </view>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="IBm-0M-Mhj" customClass="CollapseClick">
-                    <rect key="frame" x="0.0" y="99" width="226" height="469"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                </scrollView>
-                <view alpha="0.34999999403953552" contentMode="scaleToFill" id="7Ru-qA-AHR" userLabel="darkBorder">
-                    <rect key="frame" x="0.0" y="84" width="215" height="1"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                </view>
-                <view alpha="0.25" contentMode="scaleToFill" id="ZgD-uV-bCm" userLabel="lightBorder">
-                    <rect key="frame" x="0.0" y="85" width="215" height="1"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                </view>
-            </subviews>
-            <color key="backgroundColor" red="0.90588235289999997" green="0.90196078430000004" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="652" y="170"/>
         </view>
         <view contentMode="scaleToFill" id="kef-ja-MkV">
             <rect key="frame" x="0.0" y="0.0" width="320" height="224"/>
@@ -369,6 +336,39 @@
             <color key="backgroundColor" red="0.90588235289999997" green="0.90196078430000004" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="694" y="892"/>
+        </view>
+        <view contentMode="scaleToFill" id="brI-dq-Zqg">
+            <rect key="frame" x="0.0" y="0.0" width="226" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_logo.png" id="t4n-S7-bp0">
+                    <rect key="frame" x="39" y="58" width="147" height="55"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.47450980390000003" green="0.0039215686269999999" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </imageView>
+                <view contentMode="scaleToFill" id="npK-sn-dkd">
+                    <rect key="frame" x="0.0" y="140" width="218" height="1"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.34901960780000002" green="0.01176470588" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="hbm-AL-u8A" customClass="CollapseClick">
+                    <rect key="frame" x="0.0" y="140" width="226" height="428"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                </scrollView>
+                <view alpha="0.34999999403953552" contentMode="scaleToFill" id="KCP-ZK-bbF" userLabel="darkBorder">
+                    <rect key="frame" x="0.0" y="123" width="215" height="1"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <view alpha="0.25" contentMode="scaleToFill" id="DXc-71-BII" userLabel="lightBorder">
+                    <rect key="frame" x="0.0" y="124" width="215" height="1"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.90588235289999997" green="0.90196078430000004" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="652" y="170"/>
         </view>
     </objects>
     <resources>

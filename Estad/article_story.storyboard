@@ -35,50 +35,50 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="cell_article" reuseIdentifier="cell_article" id="6dD-XO-Gfy" customClass="article_CELL">
-                                        <rect key="frame" x="3.5" y="0.0" width="313" height="247"/>
+                                        <rect key="frame" x="3" y="0.0" width="314" height="247"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="313" height="247"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="314" height="247"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="ll4-Dz-oWr">
-                                                    <rect key="frame" x="0.0" y="0.0" width="313" height="166"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="314" height="166"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" id="XII-kO-sY8">
-                                                    <rect key="frame" x="0.0" y="174" width="313" height="73"/>
+                                                    <rect key="frame" x="0.0" y="174" width="314" height="73"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZaR-gx-rda">
-                                                            <rect key="frame" x="8" y="0.0" width="297" height="45"/>
+                                                            <rect key="frame" x="8" y="0.0" width="298" height="45"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                             <color key="textColor" red="0.47450980390000003" green="0.0039215686269999999" blue="0.24313725489999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cLU-Ey-gJA">
-                                                            <rect key="frame" x="284" y="52" width="21" height="21"/>
+                                                            <rect key="frame" x="285" y="52" width="21" height="21"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                                             <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="15"/>
                                                             <color key="textColor" red="0.32256311178207397" green="0.32928544282913208" blue="0.35269683599472046" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5:21 AM" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8UF-53-agi">
-                                                            <rect key="frame" x="217" y="52" width="65" height="21"/>
+                                                            <rect key="frame" x="218" y="52" width="65" height="21"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
                                                             <color key="textColor" red="0.32256311178207397" green="0.32928544282913208" blue="0.35269683599472046" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xNu-yT-H1B">
-                                                            <rect key="frame" x="188" y="52" width="21" height="21"/>
+                                                            <rect key="frame" x="189" y="52" width="21" height="21"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                                             <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="17"/>
                                                             <color key="textColor" red="0.32256311178207397" green="0.32928544282913208" blue="0.35269683599472046" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="99o-Bu-c3b">
-                                                            <rect key="frame" x="143" y="52" width="37" height="21"/>
+                                                            <rect key="frame" x="144" y="52" width="37" height="21"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
                                                             <color key="textColor" red="0.32256311178207397" green="0.32928544282913208" blue="0.35269683599472046" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -99,7 +99,7 @@
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell2" id="WVh-MO-CLI" customClass="article_cell2">
-                                        <rect key="frame" x="73.5" y="257" width="173" height="233"/>
+                                        <rect key="frame" x="74" y="257" width="173" height="233"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="173" height="233"/>
@@ -185,9 +185,9 @@
                         <outlet property="VW_Serch" destination="Ubb-P9-6nK" id="yhV-uB-zpF"/>
                         <outlet property="VW_Serch_BAR" destination="9xO-p7-4PS" id="Mve-iv-NQU"/>
                         <outlet property="VW_Settings" destination="k7H-Xp-Qeq" id="ggU-fn-lmM"/>
-                        <outlet property="VW_swipe" destination="Bxm-Y5-1Jp" id="1b8-gs-gqJ"/>
+                        <outlet property="VW_swipe" destination="3vH-xl-yTT" id="fuQ-gQ-bAo"/>
                         <outlet property="list_DATA" destination="jvX-L5-nY0" id="N5T-YT-Hl7"/>
-                        <outlet property="myCollapseClick" destination="79I-Dj-weQ" id="Uum-IN-jZz"/>
+                        <outlet property="myCollapseClick" destination="wO2-Eg-zZD" id="fDm-gG-frK"/>
                         <outlet property="serch_BAR" destination="qfq-dV-eX9" id="Fr1-kK-fk8"/>
                         <outlet property="tbl_ARTICLES" destination="Wtx-yD-pzm" id="5Go-a5-f9H"/>
                         <outlet property="tbl_MEDIA" destination="bMF-m0-ef4" id="Ld6-qq-Duc"/>
@@ -331,37 +331,6 @@
                     </subviews>
                     <color key="backgroundColor" red="0.90588235294117647" green="0.90196078431372551" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
-                <view contentMode="scaleToFill" id="Bxm-Y5-1Jp">
-                    <rect key="frame" x="0.0" y="0.0" width="226" height="568"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_logo.png" id="jtp-lI-DnQ">
-                            <rect key="frame" x="8" y="27" width="210" height="55"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" red="0.47450980390000003" green="0.0039215686269999999" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </imageView>
-                        <view contentMode="scaleToFill" id="Yc4-fK-Pkk">
-                            <rect key="frame" x="0.0" y="99" width="218" height="1"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" red="0.34901960780000002" green="0.01176470588" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </view>
-                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="79I-Dj-weQ" customClass="CollapseClick">
-                            <rect key="frame" x="0.0" y="99" width="226" height="469"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        </scrollView>
-                        <view alpha="0.34999999403953552" contentMode="scaleToFill" id="PfJ-1y-Sqm" userLabel="darkBorder">
-                            <rect key="frame" x="0.0" y="84" width="215" height="1"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </view>
-                        <view alpha="0.25" contentMode="scaleToFill" id="1UA-l3-SFt" userLabel="lightBorder">
-                            <rect key="frame" x="0.0" y="85" width="215" height="1"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </view>
-                    </subviews>
-                    <color key="backgroundColor" red="0.90588235294117647" green="0.90196078431372551" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                </view>
                 <view contentMode="scaleToFill" id="6gA-OZ-dH8">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="224"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -449,6 +418,37 @@
                         </label>
                     </subviews>
                     <color key="backgroundColor" red="0.47450980390000003" green="0.0039215686269999999" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <view contentMode="scaleToFill" id="3vH-xl-yTT">
+                    <rect key="frame" x="0.0" y="0.0" width="226" height="568"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_logo.png" id="gfW-Me-NpR">
+                            <rect key="frame" x="39" y="58" width="147" height="55"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="0.47450980390000003" green="0.0039215686269999999" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </imageView>
+                        <view contentMode="scaleToFill" id="kWK-6w-6xX">
+                            <rect key="frame" x="0.0" y="140" width="218" height="1"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="0.34901960780000002" green="0.01176470588" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </view>
+                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="wO2-Eg-zZD" customClass="CollapseClick">
+                            <rect key="frame" x="0.0" y="140" width="226" height="428"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        </scrollView>
+                        <view alpha="0.34999999403953552" contentMode="scaleToFill" id="zJ6-Fp-wRh" userLabel="darkBorder">
+                            <rect key="frame" x="0.0" y="123" width="215" height="1"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </view>
+                        <view alpha="0.25" contentMode="scaleToFill" id="En3-5L-VOh" userLabel="lightBorder">
+                            <rect key="frame" x="0.0" y="124" width="215" height="1"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" red="0.90588235289999997" green="0.90196078430000004" blue="0.92941176469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
             </objects>
             <point key="canvasLocation" x="124" y="206"/>

@@ -1060,8 +1060,8 @@
             
             [cell.image_CNT2 sd_setImageWithURL:[NSURL URLWithString:url_STR1]
                                placeholderImage:[UIImage imageNamed:@"Default.jpg"]];
-            cell.lbl_TITL2.text = [dict_VAL valueForKey:@"title"];
-            cell.lbl_CNT2.text = [dict_VAL valueForKey:@"summary"];
+            cell.lbl_TITL2.text = [dict_VAL1 valueForKey:@"title"];
+            cell.lbl_CNT2.text = [dict_VAL1 valueForKey:@"summary"];
             cell.lbl_CNT2.numberOfLines = 4;
             [cell.btn2 addTarget:self action:@selector(local_news1) forControlEvents:UIControlEventTouchUpInside];
             
@@ -1171,8 +1171,8 @@
             
             [cell.image_CNT2 sd_setImageWithURL:[NSURL URLWithString:url_STR1]
                                placeholderImage:[UIImage imageNamed:@"Default.jpg"]];
-            cell.lbl_TITL2.text = [dict_VAL valueForKey:@"title"];
-            cell.lbl_CNT2.text = [dict_VAL valueForKey:@"summary"];
+            cell.lbl_TITL2.text = [dict_VAL1 valueForKey:@"title"];
+            cell.lbl_CNT2.text = [dict_VAL1 valueForKey:@"summary"];
             cell.lbl_CNT2.numberOfLines = 4;
             [cell.btn2 addTarget:self action:@selector(local_reports1) forControlEvents:UIControlEventTouchUpInside];
             return cell;
