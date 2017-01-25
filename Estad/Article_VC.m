@@ -105,26 +105,26 @@
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
+//    
+//    if (indexPath.row == 0)
+//    {
+//        static NSString *identifier = @"cell_article";
+//        
+//        article_CELL *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
+//        
+//        NSDictionary *temp_article,*temp_writer;
+//        @try {
+//            temp_article = [[json_RESULT objectAtIndex:indexPath.row] valueForKey:@"Article"];
+//        } @catch (NSException *exception) {
+//            NSLog(@"Exception1 = %@",exception);
+//        }
+//        
+//        @try {
+//            temp_writer = [[json_RESULT objectAtIndex:indexPath.row] valueForKey:@"Writer"];
+//        } @catch (NSException *exception) {
+//            NSLog(@"Exception2 = %@",exception);
+//        }
     
-    if (indexPath.row == 0)
-    {
-        static NSString *identifier = @"cell_article";
-        
-        article_CELL *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
-        
-        NSDictionary *temp_article,*temp_writer;
-        @try {
-            temp_article = [[json_RESULT objectAtIndex:indexPath.row] valueForKey:@"Article"];
-        } @catch (NSException *exception) {
-            NSLog(@"Exception1 = %@",exception);
-        }
-        
-        @try {
-            temp_writer = [[json_RESULT objectAtIndex:indexPath.row] valueForKey:@"Writer"];
-        } @catch (NSException *exception) {
-            NSLog(@"Exception2 = %@",exception);
-        }
-        
         
         
 //        UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
@@ -132,24 +132,24 @@
 //        [indicator setCenter:cell.bg_IMG.center];
 //        [cell.contentView addSubview:indicator];
         
-        NSString *url_STR = [NSString stringWithFormat:@"%@writer/%@",IMAGE_URL,[temp_writer valueForKey:@"photo"]];
-        
-        [cell.bg_IMG sd_setImageWithURL:[NSURL URLWithString:url_STR]
-                       placeholderImage:[UIImage imageNamed:@"Default.jpg"]];
-        
-        cell.text_LBL.text = [NSString stringWithFormat:@"%@",[temp_article valueForKey:@"title"]];
-        cell.text_LBL.numberOfLines = 2;
-        
-        cell.text_time.text = [NSString stringWithFormat:@"%@",[temp_article valueForKey:@"release_time"]];
-        cell.text_viewers.text = [NSString stringWithFormat:@"%@",[temp_article valueForKey:@"visitor"]];
+//        NSString *url_STR = [NSString stringWithFormat:@"%@writer/%@",IMAGE_URL,[temp_writer valueForKey:@"photo"]];
+//        
+//        [cell.bg_IMG sd_setImageWithURL:[NSURL URLWithString:url_STR]
+//                       placeholderImage:[UIImage imageNamed:@"Default.jpg"]];
+//        
+//        cell.text_LBL.text = [NSString stringWithFormat:@"%@",[temp_article valueForKey:@"title"]];
+//        cell.text_LBL.numberOfLines = 2;
+//        
+//        cell.text_time.text = [NSString stringWithFormat:@"%@",[temp_article valueForKey:@"release_time"]];
+//        cell.text_viewers.text = [NSString stringWithFormat:@"%@",[temp_article valueForKey:@"visitor"]];
 //        [cell.text_LBL sizeToFit]; release_time
         
         
         
-        return cell;
-    }
-    else
-    {
+//        return cell;
+//    }
+//    else
+//    {
         static NSString *identifier = @"cell2";
         
         article_cell2 *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
@@ -189,7 +189,7 @@
         cell.text_viewers.text = [NSString stringWithFormat:@"%@",[temp_article valueForKey:@"visitor"]];
         
         return cell;
-    }
+//    }
 }
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -210,16 +210,16 @@
 //    UIEdgeInsets sectionInset = [(UICollectionViewFlowLayout *)collectionView.collectionViewLayout sectionInset];
     int fixedWidth = collectionView.layer.frame.size.width;//currentWidth - (sectionInset.left + sectionInset.right);
     
-    if (indexPath.row == 0) {
-        return CGSizeMake(fixedWidth - 15, 300);
-    }
-    else
-    {
+//    if (indexPath.row == 0) {
+//        return CGSizeMake(fixedWidth - 15, 300);
+//    }
+//    else
+//    {
         CGSize calCulateSizze;
         calCulateSizze.width = fixedWidth/2.0f - 12.0f;
         calCulateSizze.height = 250.0f;
         return calCulateSizze;
-    }
+//    }
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
