@@ -459,7 +459,9 @@
 
 -(IBAction)whatsAPP_Action:(id)sender
 {
-    NSString *str_URL = [NSString stringWithFormat:@"%@reportsDetail/%@",MAIN_URL,get_ID];
+//    NSString *str_URL = [NSString stringWithFormat:@"%@reportsDetail/%@",MAIN_URL,get_ID];
+    NSString *str_URL = [NSString stringWithFormat:@"%@news/details/%@",FILE_URL,get_ID];
+    
     if ([WhatsAppKit isWhatsAppInstalled]) {
         [WhatsAppKit launchWhatsAppWithMessage:str_URL];
     }
@@ -472,7 +474,8 @@
 }
 -(IBAction)FB_SHARE:(id)sender
 {
-    NSString *str_URL = [NSString stringWithFormat:@"%@reportsDetail/%@",MAIN_URL,get_ID];
+//    NSString *str_URL = [NSString stringWithFormat:@"%@reportsDetail/%@",MAIN_URL,get_ID];
+    NSString *str_URL = [NSString stringWithFormat:@"%@news/details/%@",FILE_URL,get_ID];
     
     SLComposeViewController *controller = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
     [controller setInitialText:str_URL];
@@ -482,7 +485,8 @@
 }
 -(IBAction)Tweet_BTN:(id)sender
 {
-    NSString *str_URL = [NSString stringWithFormat:@"%@reportsDetail/%@",MAIN_URL,get_ID];
+//    NSString *str_URL = [NSString stringWithFormat:@"%@reportsDetail/%@",MAIN_URL,get_ID];
+    NSString *str_URL = [NSString stringWithFormat:@"%@news/details/%@",FILE_URL,get_ID];
     
     SLComposeViewController *controller = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
     [controller setInitialText:str_URL];
@@ -493,7 +497,8 @@
 -(IBAction)GooglPLS:(id)sender
 {
     // Construct the Google+ share URL
-    NSString *str_URL = [NSString stringWithFormat:@"%@reportsDetail/%@",MAIN_URL,get_ID];
+//    NSString *str_URL = [NSString stringWithFormat:@"%@reportsDetail/%@",MAIN_URL,get_ID];
+    NSString *str_URL = [NSString stringWithFormat:@"%@news/details/%@",FILE_URL,get_ID];
     NSURL *share = [NSURL URLWithString:str_URL];
     NSURLComponents* urlComponents = [[NSURLComponents alloc]
                                       initWithString:@"https://plus.google.com/share"];

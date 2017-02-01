@@ -395,7 +395,8 @@
 }
 -(IBAction)whatsAPP_Action:(id)sender
 {
-    NSString *str_URL = [NSString stringWithFormat:@"%@articleContent/%@",MAIN_URL,get_ID];
+//    NSString *str_URL = [NSString stringWithFormat:@"%@articleContent/%@",MAIN_URL,get_ID];
+    NSString *str_URL = [NSString stringWithFormat:@"%@news/details/%@",FILE_URL,get_ID];
     if ([WhatsAppKit isWhatsAppInstalled]) {
         [WhatsAppKit launchWhatsAppWithMessage:str_URL];
     }
@@ -408,29 +409,68 @@
 }
 -(IBAction)FB_SHARE:(id)sender
 {
-    NSString *str_URL = [NSString stringWithFormat:@"%@articleContent/%@",MAIN_URL,get_ID];
+//    NSString *str_URL = [NSString stringWithFormat:@"%@articleContent/%@",MAIN_URL,get_ID];
+//    NSLog(@"Api Url = %@",str_URL);
+    
+//    NSString *str_URL = [NSString stringWithFormat:@"%@news/details/%@",FILE_URL,get_ID];
+//    
+//    SLComposeViewController *controller = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+//    [controller setInitialText:str_URL];
+//    [self presentViewController:controller animated:YES completion:nil];
+//    
+//    _overlay_VIW.hidden = YES;
+    
+    NSString *str_URL = [NSString stringWithFormat:@"%@news/details/%@",FILE_URL,get_ID];
+    NSDictionary *temp_dictin = [json_DATA valueForKey:@"result"];
+    NSDictionary *news = [temp_dictin valueForKey:@"News"];
+    NSString *title = [news valueForKey:@"title"];
+    NSString *description = [news valueForKey:@"meta_description"];
+    
+    if (!title) {
+        title = @"Not Mentioned";
+    }
+    
+    if (!description) {
+        description = @"Not Mentioned";
+    }
     
     SLComposeViewController *controller = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
-    [controller setInitialText:str_URL];
+    [controller setInitialText:[NSString stringWithFormat:@"%@ %@",title,description]];
+    [controller addImage:_big_IMAGE.image];
+    [controller addURL:[NSURL URLWithString:str_URL]];
     [self presentViewController:controller animated:YES completion:nil];
-    
     _overlay_VIW.hidden = YES;
 }
 
 -(IBAction)Tweet_BTN:(id)sender
 {
-    NSString *str_URL = [NSString stringWithFormat:@"%@articleContent/%@",MAIN_URL,get_ID];
+//    NSString *str_URL = [NSString stringWithFormat:@"%@articleContent/%@",MAIN_URL,get_ID];
+    NSString *str_URL = [NSString stringWithFormat:@"%@news/details/%@",FILE_URL,get_ID];
+    NSDictionary *temp_dictin = [json_DATA valueForKey:@"result"];
+    NSDictionary *news = [temp_dictin valueForKey:@"News"];
+    NSString *title = [news valueForKey:@"title"];
+    NSString *description = [news valueForKey:@"meta_description"];
+    
+    if (!title) {
+        title = @"Not Mentioned";
+    }
+    
+    if (!description) {
+        description = @"Not Mentioned";
+    }
     
     SLComposeViewController *controller = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
-    [controller setInitialText:str_URL];
+    [controller setInitialText:[NSString stringWithFormat:@"%@ %@",title,description]];
+    [controller addImage:_big_IMAGE.image];
+    [controller addURL:[NSURL URLWithString:str_URL]];
     [self presentViewController:controller animated:YES completion:nil];
-    
     _overlay_VIW.hidden = YES;
 }
 
 -(IBAction)GooglPLS:(id)sender
 {
-    NSString *str_URL = [NSString stringWithFormat:@"%@articleContent/%@",MAIN_URL,get_ID];
+//    NSString *str_URL = [NSString stringWithFormat:@"%@articleContent/%@",MAIN_URL,get_ID];
+    NSString *str_URL = [NSString stringWithFormat:@"%@news/details/%@",FILE_URL,get_ID];
     NSURL *share = [NSURL URLWithString:str_URL];
     NSURLComponents* urlComponents = [[NSURLComponents alloc]
                                       initWithString:@"https://plus.google.com/share"];

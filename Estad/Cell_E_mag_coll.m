@@ -13,6 +13,11 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    _Img_PIC.image = [UIImage imageNamed:@"Default.jpg"];
 }
 
+-(void)prepareForReuse
+{
+    _Img_PIC.image = [UIImage imageNamed:@"Default.jpg"];
+}
 @end

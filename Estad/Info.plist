@@ -46,6 +46,7 @@
 		<string>fb-messenger-api</string>
 		<string>fbauth2</string>
 		<string>fbshareextension</string>
+        <string>whatsapp</string>
 	</array>
 	<key>NSExtensionAttributes</key>
 	<dict>
