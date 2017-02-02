@@ -379,6 +379,7 @@
 		9AEAACD51DDAD4D70075EAF2 /* News_CELL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = News_CELL.h; sourceTree = "<group>"; };
 		9AEAACD61DDAD4D70075EAF2 /* News_CELL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = News_CELL.m; sourceTree = "<group>"; };
 		9AEAACD71DDAD4D70075EAF2 /* News_CELL.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = News_CELL.xib; sourceTree = "<group>"; };
+		BE548C4D1E435B420094B256 /* Estad.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Estad.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -872,6 +873,7 @@
 		772F97091DC31ADE001BCF7E /* Estad */ = {
 			isa = PBXGroup;
 			children = (
+				BE548C4D1E435B420094B256 /* Estad.entitlements */,
 				18F17D251E0BABB4005180DC /* Default.jpg */,
 				18F17D271E0BACFE005180DC /* FLAnimatedImage */,
 				18F17CE61E0BA955005180DC /* SDWebImage */,
@@ -992,6 +994,11 @@
 					772F97061DC31ADE001BCF7E = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = 4MCGAH3G26;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -1204,6 +1211,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Aromal P. Rajagopal (CPRZV94W5U)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 4MCGAH3G26;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1223,6 +1231,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "58defcb7-df11-48e3-8361-026d9a906a5a";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1252,6 +1261,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Aromal P. Rajagopal (CPRZV94W5U)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 4MCGAH3G26;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1264,6 +1274,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "58defcb7-df11-48e3-8361-026d9a906a5a";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -1274,6 +1285,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Estad/Estad.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Aromal P. Rajagopal (CPRZV94W5U)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Aromal P. Rajagopal (CPRZV94W5U)";
 				DEVELOPMENT_TEAM = 4MCGAH3G26;
@@ -1289,8 +1301,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.carmatec.Estad;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e14410b2-612a-40df-8c4b-3577ed14b75e";
-				PROVISIONING_PROFILE_SPECIFIER = Estad_dev_f1;
+				PROVISIONING_PROFILE = "58defcb7-df11-48e3-8361-026d9a906a5a";
+				PROVISIONING_PROFILE_SPECIFIER = new_ESTAD_dev;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1299,6 +1311,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Estad/Estad.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Aromal P. Rajagopal (CPRZV94W5U)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Aromal P. Rajagopal (CPRZV94W5U)";
 				DEVELOPMENT_TEAM = 4MCGAH3G26;
@@ -1314,8 +1327,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.carmatec.Estad;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e14410b2-612a-40df-8c4b-3577ed14b75e";
-				PROVISIONING_PROFILE_SPECIFIER = Estad_dev_f1;
+				PROVISIONING_PROFILE = "58defcb7-df11-48e3-8361-026d9a906a5a";
+				PROVISIONING_PROFILE_SPECIFIER = new_ESTAD_dev;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
