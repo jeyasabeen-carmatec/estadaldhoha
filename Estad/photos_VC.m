@@ -70,7 +70,8 @@
     myCollapseClick.CollapseClickDelegate = self;
     [myCollapseClick reloadCollapseClick];
     
-    list_NEWS = [[NSArray alloc]initWithObjects:@"أخبار الدوريات المحلية",@"الدوريات الأخبار العربية",@"أخبار الدوريات العالمية",@"كل الأخبار", @"قطر 2022", @"أسباير زون", nil];
+//    list_NEWS = [[NSArray alloc]initWithObjects:@"أخبار الدوريات المحلية",@"الدوريات الأخبار العربية",@"أخبار الدوريات العالمية",@"كل الأخبار", @"قطر 2022", @"أسباير زون", nil];
+    list_NEWS = [[NSArray alloc]initWithObjects:@"اخبار الدوريات المحلية",@"اخبار الدوريات العربية",@"اخبار الدوريات العالمية",@"اخبار رياضية اخرى",@"قطر2022",@"أسباير زون", nil];
     list_ARTICLES = [[NSArray alloc]initWithObjects:@"محرر بلوق",@"مقالات استاد الدوحة", nil];
     list_MEDIA = [[NSArray alloc]initWithObjects:@"صور" ,@"فيديوهات", nil];
     
@@ -1146,7 +1147,10 @@
     str_URL = [NSString stringWithFormat:@"%@pictureList/0/%@",MAIN_URL,[self getUTCFormateDate:[NSDate date]]];
     NSLog(@"Post Url = %@",str_URL);
     json_RESULT = [[NSMutableArray alloc]init];
-    [self get_DATA];
+//    [self get_DATA];
+    _VW_activity.hidden = NO;
+    [_activityindicator startAnimating];
+    [self performSelector:@selector(get_DATA) withObject:_activityindicator afterDelay:0.01];
 }
 -(void) get_DATA
 {
@@ -1177,6 +1181,9 @@
     }
     
 //    json_RESULT = [result valueForKey:@"media_pict"];
+    [_content_Collection reloadData];
+    _VW_activity.hidden = YES;
+    [_activityindicator stopAnimating];
    
 }
 
@@ -1304,11 +1311,14 @@
     if(y > h + reload_distance)
     {
         @try {
-            if ([main_ARR count] != 0)
+            if ([main_ARR count] >= 10)
             {
                 count_VAL = count_VAL + 10;
                 str_URL = [NSString stringWithFormat:@"%@pictureList/%d/%@",MAIN_URL,count_VAL,[self getUTCFormateDate:[NSDate date]]];
-                [self get_DATA];
+//                [self get_DATA];
+                _VW_activity.hidden = NO;
+                [_activityindicator startAnimating];
+                [self performSelector:@selector(get_DATA) withObject:_activityindicator afterDelay:0.01];
             }
         } @catch (NSException *exception) {
             NSLog(@"Exception 1 = %@",exception);

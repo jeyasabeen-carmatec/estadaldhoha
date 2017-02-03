@@ -76,7 +76,8 @@
     
     //    [myCollapseClick openCollapseClickCellAtIndex:1 animated:NO];
     
-    list_NEWS = [[NSArray alloc]initWithObjects:@"أخبار الدوريات المحلية",@"الدوريات الأخبار العربية",@"أخبار الدوريات العالمية",@"كل الأخبار", @"قطر 2022", @"أسباير زون", nil];
+//    list_NEWS = [[NSArray alloc]initWithObjects:@"أخبار الدوريات المحلية",@"الدوريات الأخبار العربية",@"أخبار الدوريات العالمية",@"كل الأخبار", @"قطر 2022", @"أسباير زون", nil];
+    list_NEWS = [[NSArray alloc]initWithObjects:@"اخبار الدوريات المحلية",@"اخبار الدوريات العربية",@"اخبار الدوريات العالمية",@"اخبار رياضية اخرى",@"قطر2022",@"أسباير زون", nil];
     list_ARTICLES = [[NSArray alloc]initWithObjects:@"محرر بلوق",@"مقالات استاد الدوحة", nil];
     list_MEDIA = [[NSArray alloc]initWithObjects:@"صور" ,@"فيديوهات", nil];
     
@@ -988,30 +989,30 @@
 #pragma mark - API Integration
 -(void) Decide_API
 {
-    if ([get_NAV_TITL isEqualToString:@"أخبار الدوريات المحلية"]) {
+    if ([get_NAV_TITL isEqualToString:@"اخبار الدوريات المحلية"]) {
 //        NSLog(@"Call News local patrols API");
         str_URL = [NSString stringWithFormat:@"%@newsList/1/0/%@",MAIN_URL,[self getUTCFormateDate:[NSDate date]]];
         [self get_DATA];
     }
-    else if ([get_NAV_TITL isEqualToString:@"الدوريات الأخبار العربية"])
+    else if ([get_NAV_TITL isEqualToString:@"اخبار الدوريات العربية"])
     {
 //        NSLog(@"Call News Arabic periodicals API");
         str_URL = [NSString stringWithFormat:@"%@newsList/2/0/%@",MAIN_URL,[self getUTCFormateDate:[NSDate date]]];
         [self get_DATA];
     }
-    else if ([get_NAV_TITL isEqualToString:@"أخبار الدوريات العالمية"])
+    else if ([get_NAV_TITL isEqualToString:@"اخبار الدوريات العالمية"])
     {
 //        NSLog(@"Call News World Leagues API");
         str_URL = [NSString stringWithFormat:@"%@newsList/3/0/%@",MAIN_URL,[self getUTCFormateDate:[NSDate date]]];
         [self get_DATA];
     }
-    else if ([get_NAV_TITL isEqualToString:@"كل الأخبار"])
+    else if ([get_NAV_TITL isEqualToString:@"اخبار رياضية اخرى"])
     {
 //        NSLog(@"Call Other Sports News API");
         str_URL = [NSString stringWithFormat:@"%@newsList/4/0/%@",MAIN_URL,[self getUTCFormateDate:[NSDate date]]];
         [self get_DATA];
     }
-    else if ([get_NAV_TITL isEqualToString:@"قطر 2022"])
+    else if ([get_NAV_TITL isEqualToString:@"قطر2022"])
     {
 //        NSLog(@"Qatar 2022");
         str_URL = [NSString stringWithFormat:@"%@newsList/5/0/%@",MAIN_URL,[self getUTCFormateDate:[NSDate date]]];

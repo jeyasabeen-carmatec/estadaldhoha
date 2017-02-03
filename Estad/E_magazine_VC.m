@@ -73,7 +73,8 @@
     
     //    [myCollapseClick openCollapseClickCellAtIndex:1 animated:NO];
     
-    list_NEWS = [[NSArray alloc]initWithObjects:@"أخبار الدوريات المحلية",@"الدوريات الأخبار العربية",@"أخبار الدوريات العالمية",@"كل الأخبار", @"قطر 2022", @"أسباير زون", nil];
+//    list_NEWS = [[NSArray alloc]initWithObjects:@"أخبار الدوريات المحلية",@"الدوريات الأخبار العربية",@"أخبار الدوريات العالمية",@"كل الأخبار", @"قطر 2022", @"أسباير زون", nil];
+    list_NEWS = [[NSArray alloc]initWithObjects:@"اخبار الدوريات المحلية",@"اخبار الدوريات العربية",@"اخبار الدوريات العالمية",@"اخبار رياضية اخرى",@"قطر2022",@"أسباير زون", nil];
     list_ARTICLES = [[NSArray alloc]initWithObjects:@"محرر بلوق",@"مقالات استاد الدوحة", nil];
     list_MEDIA = [[NSArray alloc]initWithObjects:@"صور" ,@"فيديوهات", nil];
     
@@ -252,7 +253,7 @@
     _VW_Serch_BAR.hidden = YES;
     
     CGRect size_NW = _VW_Content.frame;
-    size_NW.size.height = 179 + _COL_contnt.frame.size.height;
+    size_NW.size.height = _VW_Content.frame.size.height;
     size_NW.size.width = _scroll_CNTNT.frame.size.width;
     
     _VW_Content.frame = size_NW;

@@ -64,7 +64,8 @@
     myCollapseClick.CollapseClickDelegate = self;
     [myCollapseClick reloadCollapseClick];
     
-    list_NEWS = [[NSArray alloc]initWithObjects:@"أخبار الدوريات المحلية",@"الدوريات الأخبار العربية",@"أخبار الدوريات العالمية",@"كل الأخبار", @"قطر 2022", @"أسباير زون", nil];
+//    list_NEWS = [[NSArray alloc]initWithObjects:@"أخبار الدوريات المحلية",@"الدوريات الأخبار العربية",@"أخبار الدوريات العالمية",@"كل الأخبار", @"قطر 2022", @"أسباير زون", nil];
+    list_NEWS = [[NSArray alloc]initWithObjects:@"اخبار الدوريات المحلية",@"اخبار الدوريات العربية",@"اخبار الدوريات العالمية",@"اخبار رياضية اخرى",@"قطر2022",@"أسباير زون", nil];
     list_ARTICLES = [[NSArray alloc]initWithObjects:@"محرر بلوق",@"مقالات استاد الدوحة", nil];
     list_MEDIA = [[NSArray alloc]initWithObjects:@"صور" ,@"فيديوهات", nil];
     
@@ -887,11 +888,21 @@
     
 //    NSDictionary *result = [json_DICTIN valueForKey:@"result"];
     
+    @try {
+        main_ARR = [json_DICTIN valueForKey:@"result"];
+    } @catch (NSException *exception) {
+        main_ARR = [[NSArray alloc]init];
+    }
     
-    main_ARR = [json_DICTIN valueForKey:@"result"];
-    [json_RESULT addObjectsFromArray:main_ARR];
+    @try {
+        [json_RESULT addObjectsFromArray:main_ARR];
+    } @catch (NSException *exception) {
+        _content_Collection.hidden = YES;
+    }
+    
     
     NSLog(@"Result youtube = %@",json_RESULT);
+    [_content_Collection reloadData];
 }
 
 #pragma mark - UTC
@@ -1012,7 +1023,7 @@
     if(y > h + reload_distance)
     {
         count_VAL = count_VAL + 10;
-        if ([main_ARR count] == 10)
+        if ([main_ARR count] >= 10)
         {
             str_URL = [NSString stringWithFormat:@"%@videolist/%d/%@",MAIN_URL,count_VAL,[self getUTCFormateDate:[NSDate date]]];
             [self get_DATA];
