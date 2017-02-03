@@ -362,18 +362,29 @@
     temp_FRAME.size.height = [self tableViewHeight1];
     _list_arbNWS.frame = temp_FRAME;
     
+    
+    temp_FRAME = _lbl_head_1.frame;
+    temp_FRAME.origin.y = _list_arbNWS.frame.origin.y + [self tableViewHeight1] + 5;
+    temp_FRAME.size.height = 32;
+    _lbl_head_1.frame = temp_FRAME;
+    
     temp_FRAME = _list_localNWS.frame;
-    temp_FRAME.origin.y = _list_arbNWS.frame.origin.y + [self tableViewHeight1] + 3;
+    temp_FRAME.origin.y = _lbl_head_1.frame.origin.y + 37;
     temp_FRAME.size.height = [self tableViewHeight2];
     _list_localNWS.frame = temp_FRAME;
     
     temp_FRAME = _list_intrVW.frame;
-    temp_FRAME.origin.y = _list_localNWS.frame.origin.y + [self tableViewHeight2] + 3;
+    temp_FRAME.origin.y = _list_localNWS.frame.origin.y + [self tableViewHeight2] + 7;
     temp_FRAME.size.height = [self tableViewHeight3];
     _list_intrVW.frame = temp_FRAME;
     
-    temp_FRAME = _list_reports.frame;
+    temp_FRAME = _lbl_head_2.frame;
     temp_FRAME.origin.y = _list_intrVW.frame.origin.y + [self tableViewHeight3] + 3;
+    temp_FRAME.size.height = 32;
+    _lbl_head_2.frame = temp_FRAME;
+    
+    temp_FRAME = _list_reports.frame;
+    temp_FRAME.origin.y = _lbl_head_2.frame.origin.y + 37;
     temp_FRAME.size.height = [self tableViewHeight4];
     _list_reports.frame = temp_FRAME;
     
@@ -384,7 +395,6 @@
     
     main_FRAME.size.height = _Ads_banner.frame.origin.y + _Ads_banner.frame.size.height + 5;
     _VW_Contents.frame = main_FRAME;
-//    _scroll_contNT.frame = _VW_Contents.frame;
     _scroll_contNT.contentSize = _VW_Contents.frame.size;
     
     [_activityindicator stopAnimating];
@@ -1395,8 +1405,8 @@
     }
     else if (tableView == _list_arbNWS)
     {
-        NSDictionary *temp_DICTN = [arabnews objectAtIndex:indexPath.row];
-        NSDictionary *dict_VAL = [temp_DICTN valueForKey:@"News"];
+//        NSDictionary *temp_DICTN = [arabnews objectAtIndex:indexPath.row];
+        NSDictionary *dict_VAL = [arabnews valueForKey:@"News"];
         
         NEWS_datail_VC *controller = [[NEWS_datail_VC alloc] initWithNibName:@"NEWS_datail_VC" bundle:nil];
         controller.get_home = @"Home";

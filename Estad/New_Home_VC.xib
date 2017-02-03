@@ -31,6 +31,8 @@
                 <outlet property="VW_Serch_BAR" destination="a71-Uh-kSQ" id="6ck-UK-G6O"/>
                 <outlet property="VW_Settings" destination="XIW-HS-xR1" id="vDD-z6-UgR"/>
                 <outlet property="VW_swipe" destination="K0G-eg-K9C" id="FyY-gj-2In"/>
+                <outlet property="lbl_head_1" destination="KUz-9I-acU" id="fzg-Hi-PNB"/>
+                <outlet property="lbl_head_2" destination="LiQ-eN-yUa" id="8LU-1F-HCC"/>
                 <outlet property="list_DATA" destination="h64-V7-cZd" id="INy-Xd-DNt"/>
                 <outlet property="list_NEWS" destination="2rL-6A-d2u" id="vpV-YN-QmL"/>
                 <outlet property="list_arbNWS" destination="v09-Nd-P5Q" id="JH5-rh-8hz"/>
@@ -275,8 +277,15 @@
                         <outlet property="delegate" destination="-1" id="dsE-UA-Xhi"/>
                     </connections>
                 </tableView>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="3iD-5p-78f">
-                    <rect key="frame" x="8" y="491" width="359" height="128"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="الحوارات" textAlignment="right" lineBreakMode="clip" numberOfLines="3" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" id="KUz-9I-acU">
+                    <rect key="frame" x="8" y="490" width="359" height="32"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
+                    <color key="textColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="3iD-5p-78f">
+                    <rect key="frame" x="8" y="530" width="359" height="128"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
@@ -284,8 +293,8 @@
                         <outlet property="delegate" destination="-1" id="Fou-rM-IfU"/>
                     </connections>
                 </tableView>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="6S7-rw-4XN">
-                    <rect key="frame" x="8" y="627" width="359" height="128"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="6S7-rw-4XN">
+                    <rect key="frame" x="8" y="666" width="359" height="128"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
@@ -293,8 +302,15 @@
                         <outlet property="delegate" destination="-1" id="QXK-g4-Qob"/>
                     </connections>
                 </tableView>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="xVn-ER-NRN">
-                    <rect key="frame" x="8" y="763" width="359" height="128"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="التقارير و التحقيقات" textAlignment="right" lineBreakMode="clip" numberOfLines="3" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" id="LiQ-eN-yUa">
+                    <rect key="frame" x="8" y="802" width="359" height="32"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
+                    <color key="textColor" red="0.50196078430000002" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="xVn-ER-NRN">
+                    <rect key="frame" x="8" y="842" width="359" height="128"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
@@ -302,8 +318,8 @@
                         <outlet property="delegate" destination="-1" id="far-Dl-nfY"/>
                     </connections>
                 </tableView>
-                <view contentMode="scaleToFill" id="bfZ-bp-fAF" customClass="DFPBannerView">
-                    <rect key="frame" x="8" y="899" width="359" height="50"/>
+                <view contentMode="scaleToFill" misplaced="YES" id="bfZ-bp-fAF" customClass="DFPBannerView">
+                    <rect key="frame" x="8" y="978" width="359" height="50"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
