@@ -30,7 +30,7 @@
                 <outlet property="VW_Serch" destination="Rt1-xx-0a0" id="J2j-RR-Ayt"/>
                 <outlet property="VW_Serch_BAR" destination="a71-Uh-kSQ" id="6ck-UK-G6O"/>
                 <outlet property="VW_Settings" destination="XIW-HS-xR1" id="vDD-z6-UgR"/>
-                <outlet property="VW_swipe" destination="K0G-eg-K9C" id="FyY-gj-2In"/>
+                <outlet property="VW_swipe" destination="K0G-eg-K9C" id="X4G-CZ-gbb"/>
                 <outlet property="lbl_head_1" destination="KUz-9I-acU" id="fzg-Hi-PNB"/>
                 <outlet property="lbl_head_2" destination="LiQ-eN-yUa" id="8LU-1F-HCC"/>
                 <outlet property="list_DATA" destination="h64-V7-cZd" id="INy-Xd-DNt"/>

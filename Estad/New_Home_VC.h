@@ -29,10 +29,10 @@
 }
 
 
-@property (nonatomic, weak) IBOutlet UIView *VW_swipe;
+@property (nonatomic, strong) IBOutlet UIView *VW_swipe;
 @property (readonly, nonatomic) int menyDraw_X,menuDraw_width;
 
-@property (nonatomic, weak) IBOutlet UIView *overlayView;
+@property (nonatomic, strong) IBOutlet UIView *overlayView;
 
 @property (nonatomic, weak) IBOutlet UITableView *tbl_NEWS;
 @property (nonatomic, weak) IBOutlet UITableView *tbl_ARTICLES;
@@ -42,15 +42,15 @@
 //@property (nonatomic, strong) IBOutlet UIScrollView *scroll_lbl;
 
 #pragma mark - Search
-@property (nonatomic, weak) IBOutlet UIView *VW_Serch;
-@property (nonatomic, weak) IBOutlet UIView *VW_Serch_BAR;
-@property (nonatomic, weak) IBOutlet UISearchBar *serch_BAR;
+@property (nonatomic, strong) IBOutlet UIView *VW_Serch;
+@property (nonatomic, strong) IBOutlet UIView *VW_Serch_BAR;
+@property (nonatomic, strong) IBOutlet UISearchBar *serch_BAR;
 -(IBAction)BTN_close_SRCHT:(id)sender;
 @property (nonatomic, weak) IBOutlet UITableView *list_DATA;
 
 
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityindicator;
-@property (weak, nonatomic) IBOutlet UIView *VW_activity;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityindicator;
+@property (strong, nonatomic) IBOutlet UIView *VW_activity;
 
 @property (nonatomic, weak) IBOutlet UIWebView *widget_VW;
 @property (nonatomic, weak) IBOutlet UIScrollView *scroll_contNT;
