@@ -28,9 +28,9 @@
                 <outlet property="VW_Serch" destination="1d3-FE-ag8" id="hoO-4Q-Mlc"/>
                 <outlet property="VW_Serch_BAR" destination="Q1j-Dp-y8Z" id="i27-pL-8ge"/>
                 <outlet property="VW_Settings" destination="j3P-s6-Glb" id="fla-H1-3dt"/>
-                <outlet property="VW_swipe" destination="w9J-IR-m7w" id="xWm-oG-PgZ"/>
+                <outlet property="VW_swipe" destination="2vn-YK-3br" id="L1X-Kf-1WF"/>
                 <outlet property="list_DATA" destination="yzR-Lg-EjZ" id="cFx-3T-Kxs"/>
-                <outlet property="myCollapseClick" destination="cUq-SW-sCe" id="Ubn-dX-8iq"/>
+                <outlet property="myCollapseClick" destination="XG0-np-tbE" id="FBR-am-FgY"/>
                 <outlet property="serch_BAR" destination="Hda-DP-zcY" id="byN-ZG-9Fq"/>
                 <outlet property="tbl_ARTICLES" destination="mBI-pL-Fwc" id="Arc-il-0nM"/>
                 <outlet property="tbl_CONTENTS" destination="60W-pI-zdQ" id="PnY-ZW-iYm"/>
@@ -303,31 +303,31 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="699" y="1466"/>
         </view>
-        <view contentMode="scaleToFill" id="w9J-IR-m7w">
+        <view contentMode="scaleToFill" id="2vn-YK-3br">
             <rect key="frame" x="0.0" y="0.0" width="226" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_logo.png" id="cJV-Zm-Dd8">
-                    <rect key="frame" x="39" y="58" width="147" height="55"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_logo.png" id="Y7s-CZ-eyh">
+                    <rect key="frame" x="12" y="20" width="202" height="86"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.47450980390000003" green="0.0039215686269999999" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </imageView>
-                <view contentMode="scaleToFill" id="jnK-Fi-lJa">
+                <view contentMode="scaleToFill" id="IzF-tX-MsO">
                     <rect key="frame" x="0.0" y="140" width="218" height="1"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.34901960780000002" green="0.01176470588" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="cUq-SW-sCe" customClass="CollapseClick">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="XG0-np-tbE" customClass="CollapseClick">
                     <rect key="frame" x="0.0" y="140" width="226" height="428"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </scrollView>
-                <view alpha="0.34999999403953552" contentMode="scaleToFill" id="CbE-2d-M0P" userLabel="darkBorder">
-                    <rect key="frame" x="0.0" y="123" width="215" height="1"/>
+                <view alpha="0.34999999403953552" contentMode="scaleToFill" id="UJ4-4X-GhI" userLabel="darkBorder">
+                    <rect key="frame" x="5" y="123" width="215" height="1"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
-                <view alpha="0.25" contentMode="scaleToFill" id="IKH-L4-soG" userLabel="lightBorder">
-                    <rect key="frame" x="0.0" y="124" width="215" height="1"/>
+                <view alpha="0.25" contentMode="scaleToFill" id="MOJ-Rs-DPU" userLabel="lightBorder">
+                    <rect key="frame" x="5" y="124" width="215" height="1"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
