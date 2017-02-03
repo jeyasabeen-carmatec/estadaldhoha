@@ -358,27 +358,27 @@
     _list_NEWS.frame = temp_FRAME;
     
     temp_FRAME = _list_arbNWS.frame;
-    temp_FRAME.origin.y = _list_NEWS.frame.origin.y + [self tableViewHeight] + 5;
+    temp_FRAME.origin.y = _list_NEWS.frame.origin.y + [self tableViewHeight] + 3;
     temp_FRAME.size.height = [self tableViewHeight1];
     _list_arbNWS.frame = temp_FRAME;
     
     temp_FRAME = _list_localNWS.frame;
-    temp_FRAME.origin.y = _list_arbNWS.frame.origin.y + [self tableViewHeight1] + 5;
+    temp_FRAME.origin.y = _list_arbNWS.frame.origin.y + [self tableViewHeight1] + 3;
     temp_FRAME.size.height = [self tableViewHeight2];
     _list_localNWS.frame = temp_FRAME;
     
     temp_FRAME = _list_intrVW.frame;
-    temp_FRAME.origin.y = _list_localNWS.frame.origin.y + [self tableViewHeight2] + 5;
+    temp_FRAME.origin.y = _list_localNWS.frame.origin.y + [self tableViewHeight2] + 3;
     temp_FRAME.size.height = [self tableViewHeight3];
     _list_intrVW.frame = temp_FRAME;
     
     temp_FRAME = _list_reports.frame;
-    temp_FRAME.origin.y = _list_intrVW.frame.origin.y + [self tableViewHeight3] + 5;
+    temp_FRAME.origin.y = _list_intrVW.frame.origin.y + [self tableViewHeight3] + 3;
     temp_FRAME.size.height = [self tableViewHeight4];
     _list_reports.frame = temp_FRAME;
     
     temp_FRAME = _Ads_banner.frame;
-    temp_FRAME.origin.y = _list_reports.frame.origin.y + [self tableViewHeight4] + 5;
+    temp_FRAME.origin.y = _list_reports.frame.origin.y + [self tableViewHeight4] + 3;
     temp_FRAME.size.height = _Ads_banner.frame.size.height;
     _Ads_banner.frame = temp_FRAME;
     
@@ -949,6 +949,7 @@
             [cell.image_CNT sd_setImageWithURL:[NSURL URLWithString:url_STR]
                             placeholderImage:[UIImage imageNamed:@"Default.jpg"]];
             cell.lbl_TITL.text = [dict_VAL valueForKey:@"title"];
+            cell.lbl_TITL.numberOfLines = 2;
             cell.lbl_CNT.text = [dict_VAL valueForKey:@"summary"];
             cell.lbl_CNT.numberOfLines = 2;
             
@@ -999,7 +1000,9 @@
         
         [cell.image_CNT sd_setImageWithURL:[NSURL URLWithString:url_STR]
                           placeholderImage:[UIImage imageNamed:@"Default.jpg"]];
+        
         cell.lbl_TITL.text = [dict_VAL valueForKey:@"title"];
+        cell.lbl_TITL.numberOfLines = 2;
         cell.lbl_CNT.text = [dict_VAL valueForKey:@"summary"];
         cell.lbl_CNT.numberOfLines = 2;
         
@@ -1027,7 +1030,9 @@
             
             [cell.image_CNT sd_setImageWithURL:[NSURL URLWithString:url_STR]
                               placeholderImage:[UIImage imageNamed:@"Default.jpg"]];
+            
             cell.lbl_TITL.text = [dict_VAL valueForKey:@"title"];
+            cell.lbl_TITL.numberOfLines = 2;
             cell.lbl_CNT.text = [dict_VAL valueForKey:@"summary"];
             cell.lbl_CNT.numberOfLines = 2;
             
@@ -1092,7 +1097,9 @@
             
             [cell.image_CNT sd_setImageWithURL:[NSURL URLWithString:url_STR]
                               placeholderImage:[UIImage imageNamed:@"Default.jpg"]];
+            
             cell.lbl_TITL.text = [dict_VAL valueForKey:@"title"];
+            cell.lbl_TITL.numberOfLines = 2;
             cell.lbl_CNT.text = [dict_VAL valueForKey:@"summary"];
             cell.lbl_CNT.numberOfLines = 2;
             return cell;
@@ -1139,7 +1146,9 @@
             
             [cell.image_CNT sd_setImageWithURL:[NSURL URLWithString:url_STR]
                               placeholderImage:[UIImage imageNamed:@"Default.jpg"]];
+            
             cell.lbl_TITL.text = [dict_VAL valueForKey:@"title"];
+            cell.lbl_TITL.numberOfLines = 2;
             cell.lbl_CNT.text = [dict_VAL valueForKey:@"summary"];
             cell.lbl_CNT.numberOfLines = 2;
             return cell;
