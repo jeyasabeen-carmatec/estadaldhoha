@@ -46,6 +46,11 @@
 
 @synthesize menuDraw_width,menyDraw_X,VW_swipe;
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    self.navigationItem.hidesBackButton = YES;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -57,7 +62,8 @@
 //    list_NEWS = [[NSArray alloc]initWithObjects:@"أخبار الدوريات المحلية",@"الدوريات الأخبار العربية",@"أخبار الدوريات العالمية",@"كل الأخبار", @"قطر 2022", @"أسباير زون", nil];
     list_NEWS = [[NSArray alloc]initWithObjects:@"اخبار الدوريات المحلية",@"اخبار الدوريات العربية",@"اخبار الدوريات العالمية",@"اخبار رياضية اخرى",@"قطر2022",@"أسباير زون", nil];
     list_ARTICLES = [[NSArray alloc]initWithObjects:@"محرر بلوق",@"مقالات استاد الدوحة", nil];
-    list_MEDIA = [[NSArray alloc]initWithObjects:@"صور" ,@"فيديوهات", nil];
+//    list_MEDIA = [[NSArray alloc]initWithObjects:@"صور" ,@"فيديوهات", nil];
+    list_MEDIA = [[NSArray alloc]initWithObjects:@"الصور" ,@"الفيديو", nil];
     
     [self setup_VIEW];
 }
@@ -123,7 +129,7 @@
     // ^-Use UITextAlignmentCenter for older SDKs.
     label.textColor = [UIColor whiteColor]; // change this color
     self.navigationItem.titleView = label;
-    label.text = NSLocalizedString(@"About Us", @"");
+    label.text = NSLocalizedString(@"من نحن", @"");
     [label sizeToFit];
     self.navigationItem.titleView = label;
 
@@ -143,8 +149,6 @@
     [BTN_more addTarget:self action:@selector(more_ACTION) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *bar_SYNC = [[UIBarButtonItem alloc] initWithCustomView:BTN_more];
     
-    [self.navigationItem setRightBarButtonItems:[NSArray arrayWithObjects:negativeSpacer,bar_SYNC,Nil]];
-    
     UILabel *lbl_btn_srch = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 40, 40)];
     lbl_btn_srch.text = @"";
     lbl_btn_srch.font = [UIFont fontWithName:@"FontAwesome" size:21.0f];
@@ -155,7 +159,9 @@
     [BTN_srch addTarget:self action:@selector(SERCH_action) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *bar_btn_srch = [[UIBarButtonItem alloc]initWithCustomView:BTN_srch];
     
-    [self.navigationItem setLeftBarButtonItems:[NSArray arrayWithObjects:bar_btn_srch,Nil]];
+    [self.navigationItem setRightBarButtonItems:[NSArray arrayWithObjects:negativeSpacer,bar_SYNC,bar_btn_srch,Nil]];
+    
+//    [self.navigationItem setLeftBarButtonItems:[NSArray arrayWithObjects:bar_btn_srch,Nil]];
     
     int statusbar_HEIGHT = [UIApplication sharedApplication].statusBarFrame.size.height;
     self.navigationController.navigationBar.frame = CGRectMake(0,statusbar_HEIGHT,self.navigationController.navigationBar.frame.size.width,self.navigationController.navigationBar.frame.size.height);
@@ -201,7 +207,7 @@
     _lbl_disp_contents.text = @"أستاد الدوحة الالكترونية .. صوت اعلامي قطري الهوية , ومنصة الكترونية مختصة بكرة القدم وسائر الرياضات الأخرى. يرأس تحريره الأستاذ ماجد الخليفي ويحمل رسالة للشباب القطري والعربي في كل مكان من خلال حرصه على تكريس دور الاعلام الرياضي الهادف في بناء صرح الكرة القطرية وفي تكريس روح النقد البناء كأحد مقومات الاعلام الرياضي الالكتروني . ويسعى الموقع الى مواكبة الاحداث الكروية محليا وعربياً وعالمياً والتعامل مع الايقاع السريع للمعلومة والحدث وغيرها مما يتعذر على استاد الدوحة الورقية نشره بحكم طبيعة صدورها يومي الاثنين والخميس . ويحرص الموقع وانطلاقاً من توجيهات السيد رئيس التحرير على ان يكون حاضراً وراصداً ومتابعاً لمختلف الأنشطة والفعاليات الرياضية وان يكون محط اهتمام ومتابعة الشباب الرياضي في قطر وخارجها من خلال مواكبته ومتابعته للأحداث البارزة على خارطة الكرة محلياً وعربياً وعالمياً . كما ان للموقع رسالة اعلامية نبيلة تعبر عن الوجه المشرق لتطلعات الشباب القطري وقيمه الجديدة والمتوافقة مع الرؤية الوطنية لعام 2030 .";
     
     _lbl_disp_contents.numberOfLines = 0;
-    _lbl_disp_contents.textAlignment = NSTextAlignmentCenter;
+    _lbl_disp_contents.textAlignment = NSTextAlignmentRight;
     [_lbl_disp_contents sizeToFit];
     
     _VW_Serch_BAR = [[UIView alloc] initWithFrame:self.navigationController.view.frame];

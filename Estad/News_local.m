@@ -79,7 +79,8 @@
 //    list_NEWS = [[NSArray alloc]initWithObjects:@"أخبار الدوريات المحلية",@"الدوريات الأخبار العربية",@"أخبار الدوريات العالمية",@"كل الأخبار", @"قطر 2022", @"أسباير زون", nil];
     list_NEWS = [[NSArray alloc]initWithObjects:@"اخبار الدوريات المحلية",@"اخبار الدوريات العربية",@"اخبار الدوريات العالمية",@"اخبار رياضية اخرى",@"قطر2022",@"أسباير زون", nil];
     list_ARTICLES = [[NSArray alloc]initWithObjects:@"محرر بلوق",@"مقالات استاد الدوحة", nil];
-    list_MEDIA = [[NSArray alloc]initWithObjects:@"صور" ,@"فيديوهات", nil];
+//    list_MEDIA = [[NSArray alloc]initWithObjects:@"صور" ,@"فيديوهات", nil];
+    list_MEDIA = [[NSArray alloc]initWithObjects:@"الصور" ,@"الفيديو", nil];
     
     count_VAL = 0;
     json_RESULT = [[NSMutableArray alloc]init];
@@ -160,8 +161,6 @@
     [BTN_more addTarget:self action:@selector(more_ACTION) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *bar_SYNC = [[UIBarButtonItem alloc] initWithCustomView:BTN_more];
     
-    [self.navigationItem setRightBarButtonItems:[NSArray arrayWithObjects:negativeSpacer,bar_SYNC,Nil]];
-    
     UILabel *lbl_btn_srch = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 40, 40)];
     lbl_btn_srch.text = @"";
     lbl_btn_srch.font = [UIFont fontWithName:@"FontAwesome" size:21.0f];
@@ -172,7 +171,9 @@
     [BTN_srch addTarget:self action:@selector(SERCH_action) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *bar_btn_srch = [[UIBarButtonItem alloc]initWithCustomView:BTN_srch];
     
-    [self.navigationItem setLeftBarButtonItems:[NSArray arrayWithObjects:bar_btn_srch,Nil]];
+    [self.navigationItem setRightBarButtonItems:[NSArray arrayWithObjects:negativeSpacer,bar_SYNC,bar_btn_srch,Nil]];
+    
+//    [self.navigationItem setLeftBarButtonItems:[NSArray arrayWithObjects:bar_btn_srch,Nil]];
     
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
     label.backgroundColor = [UIColor clearColor];
@@ -704,6 +705,9 @@
                 
 //                NSLog(@"Vale in index is %@",tmp_NEWS);
                 
+                cell.label_time.text = [NSString stringWithFormat:@"%@",[tmp_NEWS valueForKey:@"release_time"]];
+                cell.label_visitor.text = [NSString stringWithFormat:@"%@",[tmp_NEWS valueForKey:@"visitor"]];
+                
                 return cell;
             }
             else
@@ -1200,31 +1204,31 @@
         count_VAL = count_VAL + 10;
     
         if ([API_RESP count] == 10)
-        {
-            if ([get_NAV_TITL isEqualToString:@"أخبار الدوريات المحلية"]) {
+        {            
+            if ([get_NAV_TITL isEqualToString:@"اخبار الدوريات المحلية"]) {
                 //        NSLog(@"Call News local patrols API");
                 str_URL = [NSString stringWithFormat:@"%@newsList/1/%d/%@/",MAIN_URL,count_VAL,[self getUTCFormateDate:[NSDate date]]];
                 [self get_DATA];
             }
-            else if ([get_NAV_TITL isEqualToString:@"الدوريات الأخبار العربية"])
+            else if ([get_NAV_TITL isEqualToString:@"اخبار الدوريات العربية"])
             {
                 //        NSLog(@"Call News Arabic periodicals API");
                 str_URL = [NSString stringWithFormat:@"%@newsList/2/%d/%@/",MAIN_URL,count_VAL,[self getUTCFormateDate:[NSDate date]]];
                 [self get_DATA];
             }
-            else if ([get_NAV_TITL isEqualToString:@"أخبار الدوريات العالمية"])
+            else if ([get_NAV_TITL isEqualToString:@"اخبار الدوريات العالمية"])
             {
                 //        NSLog(@"Call News World Leagues API");
                 str_URL = [NSString stringWithFormat:@"%@newsList/3/%d/%@/",MAIN_URL,count_VAL,[self getUTCFormateDate:[NSDate date]]];
                 [self get_DATA];
             }
-            else if ([get_NAV_TITL isEqualToString:@"كل الأخبار"])
+            else if ([get_NAV_TITL isEqualToString:@"اخبار رياضية اخرى"])
             {
                 //        NSLog(@"Call Other Sports News API");
                 str_URL = [NSString stringWithFormat:@"%@newsList/4/%d/%@/",MAIN_URL,count_VAL,[self getUTCFormateDate:[NSDate date]]];
                 [self get_DATA];
             }
-            else if ([get_NAV_TITL isEqualToString:@"قطر 2022"])
+            else if ([get_NAV_TITL isEqualToString:@"قطر2022"])
             {
                 //        NSLog(@"Qatar 2022");
                 str_URL = [NSString stringWithFormat:@"%@newsList/5/%d/%@/",MAIN_URL,count_VAL,[self getUTCFormateDate:[NSDate date]]];

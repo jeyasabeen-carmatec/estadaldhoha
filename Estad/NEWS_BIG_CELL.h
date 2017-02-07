@@ -12,5 +12,7 @@
 
 @property (nonatomic, weak) IBOutlet UIImageView *image_VW;
 @property (nonatomic, weak) IBOutlet UILabel *label_VW;
+@property (nonatomic, weak) IBOutlet UILabel *label_time;
+@property (nonatomic, weak) IBOutlet UILabel *label_visitor;
 
 @end
