@@ -364,7 +364,7 @@
             break;
             
         case 8:
-            return @"اعدادات";
+            return @"إعدادات";
             break;
             
         default:
