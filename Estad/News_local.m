@@ -32,6 +32,8 @@
 
 #import "SDWebImage/UIImageView+WebCache.h"
 
+#import <QuartzCore/QuartzCore.h>
+
 
 @interface News_local ()
 
@@ -78,7 +80,8 @@
     
 //    list_NEWS = [[NSArray alloc]initWithObjects:@"أخبار الدوريات المحلية",@"الدوريات الأخبار العربية",@"أخبار الدوريات العالمية",@"كل الأخبار", @"قطر 2022", @"أسباير زون", nil];
     list_NEWS = [[NSArray alloc]initWithObjects:@"اخبار الدوريات المحلية",@"اخبار الدوريات العربية",@"اخبار الدوريات العالمية",@"اخبار رياضية اخرى",@"قطر2022",@"أسباير زون", nil];
-    list_ARTICLES = [[NSArray alloc]initWithObjects:@"محرر بلوق",@"مقالات استاد الدوحة", nil];
+//    list_ARTICLES = [[NSArray alloc]initWithObjects:@"محرر بلوق",@"مقالات استاد الدوحة", nil];
+    list_ARTICLES = [[NSArray alloc]initWithObjects:@"مقالات رئيس التحرير",@"مقالات استاد الدوحة", nil];
 //    list_MEDIA = [[NSArray alloc]initWithObjects:@"صور" ,@"فيديوهات", nil];
     list_MEDIA = [[NSArray alloc]initWithObjects:@"الصور" ,@"الفيديو", nil];
     
@@ -708,6 +711,18 @@
                 cell.label_time.text = [NSString stringWithFormat:@"%@",[tmp_NEWS valueForKey:@"release_time"]];
                 cell.label_visitor.text = [NSString stringWithFormat:@"%@",[tmp_NEWS valueForKey:@"visitor"]];
                 
+//                cell.VW_cvr.layer.cornerRadius = 5.0f;
+//                cell.VW_cvr.layer.masksToBounds = YES;
+//                cell.VW_cvr.layer.shadowRadius  = 1.5f;
+//                cell.VW_cvr.layer.shadowColor   = [UIColor grayColor].CGColor;
+//                cell.VW_cvr.layer.shadowOffset  = CGSizeMake(0.0f, 0.0f);
+//                cell.VW_cvr.layer.shadowOpacity = 0.9f;
+////                cell.VW_cvr.layer.masksToBounds = NO;
+//                
+//                UIEdgeInsets shadowInsets     = UIEdgeInsetsMake(0, 0, -1.5f, 0);
+//                UIBezierPath *shadowPath      = [UIBezierPath bezierPathWithRect:UIEdgeInsetsInsetRect(cell.VW_cvr.bounds, shadowInsets)];
+//                cell.VW_cvr.layer.shadowPath    = shadowPath.CGPath;
+                
                 return cell;
             }
             else
@@ -725,21 +740,29 @@
                     NSLog(@"Google Mobile Ads SDK version: %@", [DFPRequest sdkVersion]);
                     
                     GADRequest *request = [GADRequest request];
-//                    request.testDevices = @[@"b53627777feeb4f1d2d61a350a80514f"];
+                    //                    request.testDevices = @[@"b53627777feeb4f1d2d61a350a80514f"];
                     
                     GADBannerView *bannerView = [[GADBannerView alloc]init];
                     bannerView.adUnitID = @"ca-app-pub-8762774270996921/9236537494";
                     bannerView.rootViewController = (id)self;
                     bannerView.delegate = (id<GADBannerViewDelegate>)self;
-                    bannerView.frame = CGRectMake(cell.Ads_banner.frame.origin.x, cell.Ads_banner.frame.origin.y, _tbl_CONTENTS.frame.size.width, cell.Ads_banner.frame.size.height); //cell.Ads_banner.frame;//
+                    bannerView.frame = CGRectMake(0, cell.contentView.frame.origin.y, self.tbl_CONTENTS.frame.size.width, 58); //cell.Ads_banner.frame;//
                     
                     [bannerView loadRequest:request];
                     
                     [cell.Ads_banner addSubview:bannerView];
                     
-//                    cell.Ads_banner.adUnitID = @"ca-app-pub-8762774270996921/9236537494";
-//                    cell.Ads_banner.rootViewController = self;
-//                    [cell.Ads_banner loadRequest:request];
+//                    cell.Ads_banner.layer.cornerRadius = 5.0f;
+//                    cell.Ads_banner.layer.masksToBounds = YES;
+//                    cell.Ads_banner.layer.shadowRadius  = 1.5f;
+//                    cell.Ads_banner.layer.shadowColor   = [UIColor grayColor].CGColor;
+//                    cell.Ads_banner.layer.shadowOffset  = CGSizeMake(0.0f, 0.0f);
+//                    cell.Ads_banner.layer.shadowOpacity = 0.9f;
+////                    cell.Ads_banner.layer.masksToBounds = NO;
+//                    
+//                    UIEdgeInsets shadowInsets     = UIEdgeInsetsMake(0, 0, -1.5f, 0);
+//                    UIBezierPath *shadowPath      = [UIBezierPath bezierPathWithRect:UIEdgeInsetsInsetRect(cell.Ads_banner.bounds, shadowInsets)];
+//                    cell.Ads_banner.layer.shadowPath    = shadowPath.CGPath;
                     
                     return cell;
                 }
@@ -782,6 +805,18 @@
                 cell.label_time.text = [NSString stringWithFormat:@"%@",[tmp_NEWS valueForKey:@"release_time"]];
                 cell.label_visitor.text = [NSString stringWithFormat:@"%@",[tmp_NEWS valueForKey:@"visitor"]];
                 
+//                cell.VW_cvr.layer.cornerRadius = 5.0f;
+//                cell.VW_cvr.layer.masksToBounds = YES;
+//                cell.VW_cvr.layer.shadowRadius  = 1.5f;
+//                cell.VW_cvr.layer.shadowColor   = [UIColor grayColor].CGColor;
+//                cell.VW_cvr.layer.shadowOffset  = CGSizeMake(0.0f, 0.0f);
+//                cell.VW_cvr.layer.shadowOpacity = 0.9f;
+////                cell.VW_cvr.layer.masksToBounds = NO;
+//                
+//                UIEdgeInsets shadowInsets     = UIEdgeInsetsMake(0, 0, -1.5f, 0);
+//                UIBezierPath *shadowPath      = [UIBezierPath bezierPathWithRect:UIEdgeInsetsInsetRect(cell.VW_cvr.bounds, shadowInsets)];
+//                cell.VW_cvr.layer.shadowPath    = shadowPath.CGPath;
+                
                 return cell;
             }
         }
@@ -818,7 +853,7 @@
     {
         if (indexPath.row == 0 || indexPath.row % 5 == 0)
         {
-            return 300;
+            return 235;
         }
         else
         {

@@ -452,16 +452,35 @@
     
     
     CGRect newframe11 = _main_VW.frame;
+    newframe11.origin.x = 0;
+    newframe11.origin.y = 0;
     newframe11.size.height = _coment_VW.frame.origin.y + _coment_VW.frame.size.height;
     _main_VW.frame = newframe11;
     
+    CGRect frm_BTN = _hold_BTN.frame;
+     if ([NewsComment count]== 0)
+     {
+         frm_BTN.origin.y = self.coment_VW.frame.origin.y + 20;
+         _hold_BTN.frame = frm_BTN;
+     }
+    else
+    {
+        frm_BTN.origin.y = _main_VW.frame.origin.y + _main_VW.frame.size.height;
+        _hold_BTN.frame = frm_BTN;
+    }
+    
+    
     CGRect frame_new = _scroll_SCRN.frame;
-    frame_new.origin.y = frame_new.origin.y - 20;
-    _scroll_SCRN.frame = frame_new;
+    frame_new.size.height = frm_BTN.origin.y + frm_BTN.size.height + 20;
+//    _scroll_SCRN.frame = frame_new;
     
     
     [_scroll_SCRN addSubview:_main_VW];
-    _scroll_SCRN.contentSize = _main_VW.frame.size;
+    [_scroll_SCRN addSubview:_hold_BTN];
+    
+    CGSize new_size = CGSizeMake(frame_new.size.width, frame_new.size.height);
+    
+    _scroll_SCRN.contentSize = new_size;
 }
 
 -(IBAction)close_Action:(id)sender

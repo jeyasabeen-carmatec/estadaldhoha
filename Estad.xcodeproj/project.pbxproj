@@ -151,6 +151,7 @@
 		9AEAACD81DDAD4D70075EAF2 /* News_CELL.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AEAACD61DDAD4D70075EAF2 /* News_CELL.m */; };
 		9AEAACD91DDAD4D70075EAF2 /* News_CELL.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AEAACD71DDAD4D70075EAF2 /* News_CELL.xib */; };
 		BE62C85F1E48A53C000E2397 /* Logo_NEW.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE62C85E1E48A53C000E2397 /* Logo_NEW.jpg */; };
+		BE62C8691E4C827B000E2397 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE62C8681E4C827A000E2397 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -382,6 +383,7 @@
 		9AEAACD71DDAD4D70075EAF2 /* News_CELL.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = News_CELL.xib; sourceTree = "<group>"; };
 		BE548C4D1E435B420094B256 /* Estad.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Estad.entitlements; sourceTree = "<group>"; };
 		BE62C85E1E48A53C000E2397 /* Logo_NEW.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Logo_NEW.jpg; sourceTree = "<group>"; };
+		BE62C8681E4C827A000E2397 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -389,6 +391,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE62C8691E4C827B000E2397 /* QuartzCore.framework in Frameworks */,
 				188CF40D1E0AC4A800CC1363 /* Security.framework in Frameworks */,
 				188CF40B1E0AC4A200CC1363 /* Social.framework in Frameworks */,
 				188CF4091E0AC00400CC1363 /* Foundation.framework in Frameworks */,
@@ -861,6 +864,7 @@
 				18C38F3B1E1E2249004F2082 /* GooglePLUS */,
 				772F97091DC31ADE001BCF7E /* Estad */,
 				772F97081DC31ADE001BCF7E /* Products */,
+				BE62C8671E4C827A000E2397 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -963,6 +967,14 @@
 				9A9555781DDAE0E400A5FBC5 /* media_CELL.xib */,
 			);
 			name = Custom_CELL;
+			sourceTree = "<group>";
+		};
+		BE62C8671E4C827A000E2397 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BE62C8681E4C827A000E2397 /* QuartzCore.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1236,7 +1248,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "7815ec7c-a996-4a17-a9f1-57a83d397644";
+				PROVISIONING_PROFILE = "770f8d74-0079-4178-b4c4-771cf1da8694";
+				PROVISIONING_PROFILE_SPECIFIER = "770f8d74-0079-4178-b4c4-771cf1da8694";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1280,7 +1293,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "7815ec7c-a996-4a17-a9f1-57a83d397644";
+				PROVISIONING_PROFILE = "770f8d74-0079-4178-b4c4-771cf1da8694";
+				PROVISIONING_PROFILE_SPECIFIER = "770f8d74-0079-4178-b4c4-771cf1da8694";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -1308,8 +1322,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.carmatec.Estad;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "7815ec7c-a996-4a17-a9f1-57a83d397644";
-				PROVISIONING_PROFILE_SPECIFIER = new_estd_adhoc;
+				PROVISIONING_PROFILE = "770f8d74-0079-4178-b4c4-771cf1da8694";
+				PROVISIONING_PROFILE_SPECIFIER = Estad_app_itunes;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1335,8 +1349,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.carmatec.Estad;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "7815ec7c-a996-4a17-a9f1-57a83d397644";
-				PROVISIONING_PROFILE_SPECIFIER = new_estd_adhoc;
+				PROVISIONING_PROFILE = "770f8d74-0079-4178-b4c4-771cf1da8694";
+				PROVISIONING_PROFILE_SPECIFIER = Estad_app_itunes;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

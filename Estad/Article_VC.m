@@ -72,7 +72,7 @@
     
 //    list_NEWS = [[NSArray alloc]initWithObjects:@"أخبار الدوريات المحلية",@"الدوريات الأخبار العربية",@"أخبار الدوريات العالمية",@"كل الأخبار", @"قطر 2022", @"أسباير زون", nil];
     list_NEWS = [[NSArray alloc]initWithObjects:@"اخبار الدوريات المحلية",@"اخبار الدوريات العربية",@"اخبار الدوريات العالمية",@"اخبار رياضية اخرى",@"قطر2022",@"أسباير زون", nil];
-    list_ARTICLES = [[NSArray alloc]initWithObjects:@"محرر بلوق",@"مقالات استاد الدوحة", nil];
+    list_ARTICLES = [[NSArray alloc]initWithObjects:@"مقالات رئيس التحرير",@"مقالات استاد الدوحة", nil];
 //    list_MEDIA = [[NSArray alloc]initWithObjects:@"صور" ,@"فيديوهات", nil];
     list_MEDIA = [[NSArray alloc]initWithObjects:@"الصور" ,@"الفيديو", nil];
     
@@ -945,7 +945,7 @@
 {
     count_VAL = 0;
     json_RESULT = [[NSMutableArray alloc]init];
-    if ([get_NAV_TITL isEqualToString:@"محرر بلوق"]) {
+    if ([get_NAV_TITL isEqualToString:@"مقالات رئيس التحرير"]) {
 //        NSLog(@"Call News local patrols API");
         str_URL = [NSString stringWithFormat:@"%@articleList/1/0/%@",MAIN_URL,[self getUTCFormateDate:[NSDate date]]];
         [self get_DATA];
@@ -1104,7 +1104,7 @@
         count_VAL = count_VAL + 10;
         if ([main_ARR count] == 10)
         {
-            if ([get_NAV_TITL isEqualToString:@"محرر بلوق"]) {
+            if ([get_NAV_TITL isEqualToString:@"مقالات رئيس التحرير"]) {
                 //        NSLog(@"Call News local patrols API");
                 str_URL = [NSString stringWithFormat:@"%@articleList/1/%d/%@",MAIN_URL,count_VAL,[self getUTCFormateDate:[NSDate date]]];
                 [self get_DATA];

@@ -15,4 +15,6 @@
 @property (nonatomic, weak) IBOutlet UILabel *label_time;
 @property (nonatomic, weak) IBOutlet UILabel *label_visitor;
 
+@property (nonatomic, weak) IBOutlet UIView *VW_cvr;
+
 @end
