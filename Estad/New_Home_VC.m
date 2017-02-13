@@ -368,19 +368,18 @@
     temp_FRAME.size.height = [self tableViewHeight1];
     _list_arbNWS.frame = temp_FRAME;
     
-    
-    temp_FRAME = _lbl_head_1.frame;
-    temp_FRAME.origin.y = _list_arbNWS.frame.origin.y + [self tableViewHeight1] + 5;
-    temp_FRAME.size.height = 32;
-    _lbl_head_1.frame = temp_FRAME;
-    
     temp_FRAME = _list_localNWS.frame;
-    temp_FRAME.origin.y = _lbl_head_1.frame.origin.y + 37;
+    temp_FRAME.origin.y = _list_arbNWS.frame.origin.y + [self tableViewHeight1] + 5;
     temp_FRAME.size.height = [self tableViewHeight2];
     _list_localNWS.frame = temp_FRAME;
     
+    temp_FRAME = _lbl_head_1.frame;
+    temp_FRAME.origin.y = _list_localNWS.frame.origin.y + [self tableViewHeight2] + 5;
+    temp_FRAME.size.height = 32;
+    _lbl_head_1.frame = temp_FRAME;
+    
     temp_FRAME = _list_intrVW.frame;
-    temp_FRAME.origin.y = _list_localNWS.frame.origin.y + [self tableViewHeight2] + 7;
+    temp_FRAME.origin.y = _lbl_head_1.frame.origin.y + 32 + 3;
     temp_FRAME.size.height = [self tableViewHeight3];
     _list_intrVW.frame = temp_FRAME;
     
