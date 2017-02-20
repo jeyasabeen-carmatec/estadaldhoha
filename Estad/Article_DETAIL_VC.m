@@ -415,7 +415,7 @@
 -(IBAction)whatsAPP_Action:(id)sender
 {
 //    NSString *str_URL = [NSString stringWithFormat:@"%@articleContent/%@",MAIN_URL,get_ID];
-    NSString *str_URL = [NSString stringWithFormat:@"%@news/details/%@",FILE_URL,get_ID];
+    NSString *str_URL = [NSString stringWithFormat:@"%@articles/details/%@",FILE_URL,get_ID];
     if ([WhatsAppKit isWhatsAppInstalled]) {
         [WhatsAppKit launchWhatsAppWithMessage:str_URL];
     }
@@ -439,7 +439,7 @@
 //    
 //    _overlay_VIW.hidden = YES;
     
-    NSString *str_URL = [NSString stringWithFormat:@"%@news/details/%@",FILE_URL,get_ID];
+    NSString *str_URL = [NSString stringWithFormat:@"%@articles/details/%@",FILE_URL,get_ID];
     NSDictionary *temp_dictin = [json_DATA valueForKey:@"result"];
     NSDictionary *news = [temp_dictin valueForKey:@"News"];
     NSString *title = [news valueForKey:@"title"];
@@ -464,7 +464,7 @@
 -(IBAction)Tweet_BTN:(id)sender
 {
 //    NSString *str_URL = [NSString stringWithFormat:@"%@articleContent/%@",MAIN_URL,get_ID];
-    NSString *str_URL = [NSString stringWithFormat:@"%@news/details/%@",FILE_URL,get_ID];
+    NSString *str_URL = [NSString stringWithFormat:@"%@articles/details/%@",FILE_URL,get_ID];
     NSDictionary *temp_dictin = [json_DATA valueForKey:@"result"];
     NSDictionary *news = [temp_dictin valueForKey:@"News"];
     NSString *title = [news valueForKey:@"title"];
@@ -489,7 +489,7 @@
 -(IBAction)GooglPLS:(id)sender
 {
 //    NSString *str_URL = [NSString stringWithFormat:@"%@articleContent/%@",MAIN_URL,get_ID];
-    NSString *str_URL = [NSString stringWithFormat:@"%@news/details/%@",FILE_URL,get_ID];
+    NSString *str_URL = [NSString stringWithFormat:@"%@articles/details/%@",FILE_URL,get_ID];
     NSURL *share = [NSURL URLWithString:str_URL];
     NSURLComponents* urlComponents = [[NSURLComponents alloc]
                                       initWithString:@"https://plus.google.com/share"];

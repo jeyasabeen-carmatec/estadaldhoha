@@ -32,7 +32,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-   [GADMobileAds configureWithApplicationID:@"ca-app-pub-8762774270996921~1852871497"];
+   [GADMobileAds configureWithApplicationID:@"ca-app-pub-7923951913698714~3284921780"];
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     self.window.backgroundColor = [UIColor whiteColor];

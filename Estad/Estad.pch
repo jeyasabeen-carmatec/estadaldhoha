@@ -23,12 +23,19 @@
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
-#define MAIN_URL @"http://192.64.84.166/estad/Apis/"
+//#define MAIN_URL @"http://192.64.84.166/estad/Apis/"
 //#define MAIN_URL @"http://192.168.0.116/estad/Apis/"
-#define IMAGE_URL @"http://192.64.84.166/estad/files/"
+//#define IMAGE_URL @"http://192.64.84.166/estad/files/"
 //#define IMAGE_URL @"http://192.168.0.116/estad/files/"
-#define FILE_URL @"http://192.64.84.166/estad/"
+//#define FILE_URL @"http://192.64.84.166/estad/"
 //#define FILE_URL @"http://192.168.0.116/estad/"
+
+//#define MAIN_URL @"http://192.64.84.166/estad/Apis/"
+#define MAIN_URL @"http://estadaldoha.com/Apis/"
+//#define IMAGE_URL @"http://192.64.84.166/estad/files/"
+#define IMAGE_URL @"http://estadaldoha.com/files/"
+//#define FILE_URL @"http://192.64.84.166/estad/"
+#define FILE_URL @"http://estadaldoha.com/"
 
 #define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
 

@@ -743,7 +743,7 @@
                     //                    request.testDevices = @[@"b53627777feeb4f1d2d61a350a80514f"];
                     
                     GADBannerView *bannerView = [[GADBannerView alloc]init];
-                    bannerView.adUnitID = @"ca-app-pub-8762774270996921/9236537494";
+                    bannerView.adUnitID = @"ca-app-pub-7923951913698714/4761654987";
                     bannerView.rootViewController = (id)self;
                     bannerView.delegate = (id<GADBannerViewDelegate>)self;
                     bannerView.frame = CGRectMake(0, cell.contentView.frame.origin.y, self.tbl_CONTENTS.frame.size.width, 58); //cell.Ads_banner.frame;//

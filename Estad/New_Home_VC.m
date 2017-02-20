@@ -119,6 +119,7 @@
     }
     
     NSError *error;
+//    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@homePage_new",MAIN_URL]];
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@homePage_new",MAIN_URL]];
     NSData *aData = [NSData dataWithContentsOfURL:url];
     
@@ -326,7 +327,7 @@
     
     GADRequest *request = [GADRequest request];
     //                    request.testDevices = @[@"b53627777feeb4f1d2d61a350a80514f"];
-    _Ads_banner.adUnitID = @"ca-app-pub-8762774270996921/9236537494";
+    _Ads_banner.adUnitID = @"ca-app-pub-7923951913698714/4761654987";
     _Ads_banner.rootViewController = self;
     [_Ads_banner loadRequest:request];
 }
