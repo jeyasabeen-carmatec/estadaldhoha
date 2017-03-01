@@ -215,30 +215,30 @@
     if ([[UIApplication sharedApplication] isRegisteredForRemoteNotifications])
     {
         [_swtch_Notification setOn:YES animated:YES];
-        _lbl_notification.text = @"Pushnotification يتم تمكين";
+        _lbl_notification.text = @"يتم تمكين";
         NSString *sound_STAT = [[NSUserDefaults standardUserDefaults] valueForKey:@"SOUND_STAT"];
         if (sound_STAT)
         {
             if ([sound_STAT isEqualToString:@"SOUND_ON"]) {
                 [_swtch_Notification_sound setOn:YES animated:YES];
-                _lbl_notification_sound.text = @"Notificationsound على";
+                _lbl_notification_sound.text = @"على";
             }
             else
             {
                 [_swtch_Notification_sound setOn:NO animated:YES];
-                _lbl_notification_sound.text = @"Notificationsound قبالة";
+                _lbl_notification_sound.text = @"قبالة";
             }
         }
         else
         {
             [_swtch_Notification_sound setOn:NO animated:YES];
-            _lbl_notification_sound.text = @"Notificationsound قبالة";
+            _lbl_notification_sound.text = @"قبالة";
         }
     }
     else
     {
-        _lbl_notification.text = @"Pushnotification تعطيل";
-        _lbl_notification_sound.text = @"Notificationsound قبالة";
+        _lbl_notification.text = @"تعطيل";
+        _lbl_notification_sound.text = @"قبالة";
         [_swtch_Notification setOn:NO animated:YES];
         [_swtch_Notification_sound setOn:NO animated:YES];
     }
@@ -428,7 +428,7 @@
             break;
             
         case 3:
-            return @"المركز الاعلمي";
+            return @"المركز الاعلامي";
             break;
             
         case 4:
@@ -930,8 +930,8 @@
         
         [_swtch_Notification_sound setOn:YES animated:YES];
         
-        _lbl_notification.text = @"Pushnotification يتم تمكين";
-        _lbl_notification_sound.text = @"Notificationsound على";
+        _lbl_notification.text = @"يتم تمكين";
+        _lbl_notification_sound.text = @"على";
     }
     else
     {
@@ -943,8 +943,8 @@
         
         [_swtch_Notification_sound setOn:NO animated:YES];
         
-        _lbl_notification.text = @"Pushnotification تعطيل";
-        _lbl_notification_sound.text = @"Notificationsound قبالة";
+        _lbl_notification.text = @"تعطيل";
+        _lbl_notification_sound.text = @"قبالة";
     }
 }
 
@@ -968,7 +968,7 @@
                 [[UIApplication sharedApplication] openURL:url];
             }
             
-            _lbl_notification_sound.text = @"Notificationsound على";
+            _lbl_notification_sound.text = @"على";
         }
         else
         {
@@ -986,7 +986,7 @@
                 [[UIApplication sharedApplication] openURL:url];
             }
             
-            _lbl_notification_sound.text = @"Notificationsound قبالة";
+            _lbl_notification_sound.text = @"قبالة";
         }
     }
     else

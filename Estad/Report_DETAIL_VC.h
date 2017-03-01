@@ -42,6 +42,9 @@
 @property (nonatomic, weak) IBOutlet UIButton *add_COMMENT;
 @property (nonatomic, weak) IBOutlet UIButton *view_COMMENT;
 
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityindicator;
+@property (strong, nonatomic) IBOutlet UIView *VW_activity;
+
 
 @property (nonatomic, weak) IBOutlet UIView *hold_BTN;
 @property (nonatomic, weak) IBOutlet UILabel *lbl_comnt_STAT;

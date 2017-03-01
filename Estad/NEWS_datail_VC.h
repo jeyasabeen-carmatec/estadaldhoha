@@ -61,4 +61,7 @@
 @property (nonatomic, strong) IBOutlet UILabel *lbl_CMNT_head;
 @property (nonatomic, strong) IBOutlet UILabel *lbl_CMNT_date;
 
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityindicator;
+@property (strong, nonatomic) IBOutlet UIView *VW_activity;
+
 @end

@@ -301,7 +301,7 @@
             break;
             
         case 3:
-            return @"المركز الاعلمي";
+            return @"المركز الاعلامي";
             break;
             
         case 4:

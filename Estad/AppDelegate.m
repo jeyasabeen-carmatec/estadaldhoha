@@ -9,11 +9,19 @@
 #import "AppDelegate.h"
 #import "Splash_SCREEN.h"
 #import "HomeController.h"
+#import "NEWS_datail_VC.h"
+#import "Report_DETAIL_VC.h"
+#import "Interview_DETAIL.h"
+#import "Article_DETAIL_VC.h"
+
 //#import <FBSDKCoreKit/FBSDKCoreKit.h>
 
 @import GoogleMobileAds;
 
 @interface AppDelegate ()
+{
+    NSDictionary *dUserInfo;
+}
 
 @end
 
@@ -46,6 +54,47 @@
     Splash_SCREEN *PUSH_VC = [[Splash_SCREEN alloc]initWithNibName:@"Splash_SCREEN" bundle:nil];
     UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:PUSH_VC];
     self.window.rootViewController = navController;
+    
+    if (launchOptions != nil)
+    {
+        //Store the data from the push.
+        dUserInfo = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+        if (dUserInfo != nil)
+        {
+            //Do whatever you need
+            NSLog(@"Notification Detail = %@",dUserInfo);
+            NSString *model_ID = [dUserInfo valueForKey:@"acme1"];
+            NSString *model_name = [dUserInfo valueForKey:@"acme2"];
+            
+            if ([model_name isEqualToString:@"news"]) {
+                NEWS_datail_VC *controller = [[NEWS_datail_VC alloc] initWithNibName:@"NEWS_datail_VC" bundle:nil];
+                controller.get_home = @"Home";
+                controller.get_ID = @"21";
+                [navController pushViewController:controller animated:YES];
+            }
+            else if ([model_name isEqualToString:@"article"])
+            {
+                Article_DETAIL_VC *controller = [[Article_DETAIL_VC alloc] initWithNibName:@"Article_DETAIL_VC" bundle:nil];
+                controller.get_home = @"Home";
+                controller.get_ID = @"42";
+                [navController pushViewController:controller animated:YES];
+            }
+            else if ([model_name isEqualToString:@"interview"])
+            {
+                Interview_DETAIL *controller = [[Interview_DETAIL alloc] initWithNibName:@"Interview_DETAIL" bundle:nil];
+                controller.get_home = @"Home";
+                controller.get_ID = model_ID;
+                [navController pushViewController:controller animated:YES];
+            }
+            else if ([model_name isEqualToString:@"report"])
+            {
+                Report_DETAIL_VC *controller = [[Report_DETAIL_VC alloc] initWithNibName:@"Report_DETAIL_VC" bundle:nil];
+                controller.get_home = @"Home";
+                controller.get_ID = model_ID;
+                [navController pushViewController:controller animated:YES];
+            }
+        }
+    }
     
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0"))
     {
@@ -91,8 +140,8 @@
         [[UIApplication sharedApplication] registerUserNotificationSettings:notificationSettings];
     }
     /* Check and update Push notification settings*/
-
-
+    
+   
     return YES;
 }
 
@@ -171,6 +220,59 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+-(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+{
+    NSLog(@"Notification Received .. Dictionary %@",userInfo);
+    UINavigationController *navController;
+    
+    [[NSUserDefaults standardUserDefaults] setObject:@"HOME" forKey:@"BACKOPTION"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    dUserInfo = userInfo;
+    if (dUserInfo != nil)
+    {
+        //Do whatever you need
+        NSLog(@"Notification Detail = %@",dUserInfo);
+        NSString *model_ID = [dUserInfo valueForKey:@"acme1"];
+        NSString *model_name = [dUserInfo valueForKey:@"acme2"];
+        
+        if ([model_name isEqualToString:@"news"]) {
+            NEWS_datail_VC *controller = [[NEWS_datail_VC alloc] initWithNibName:@"NEWS_datail_VC" bundle:nil];
+            controller.get_home = @"Home";
+            controller.get_ID = model_ID;
+//            [navController pushViewController:controller animated:YES];
+            navController = [[UINavigationController alloc]initWithRootViewController:controller];
+        }
+        else if ([model_name isEqualToString:@"article"])
+        {
+            Article_DETAIL_VC *controller = [[Article_DETAIL_VC alloc] initWithNibName:@"Article_DETAIL_VC" bundle:nil];
+            controller.get_home = @"Home";
+            controller.get_ID = model_ID;
+            navController = [[UINavigationController alloc]initWithRootViewController:controller];
+        }
+        else if ([model_name isEqualToString:@"interview"])
+        {
+            Interview_DETAIL *controller = [[Interview_DETAIL alloc] initWithNibName:@"Interview_DETAIL" bundle:nil];
+            controller.get_home = @"Home";
+            controller.get_ID = model_ID;
+            navController = [[UINavigationController alloc]initWithRootViewController:controller];
+        }
+        else if ([model_name isEqualToString:@"report"])
+        {
+            Report_DETAIL_VC *controller = [[Report_DETAIL_VC alloc] initWithNibName:@"Report_DETAIL_VC" bundle:nil];
+            controller.get_home = @"Home";
+            controller.get_ID = model_ID;
+            navController = [[UINavigationController alloc]initWithRootViewController:controller];
+        }
+        else
+        {
+            Splash_SCREEN *PUSH_VC = [[Splash_SCREEN alloc]initWithNibName:@"Splash_SCREEN" bundle:nil];
+            navController = [[UINavigationController alloc]initWithRootViewController:PUSH_VC];
+        }
+    }
+    self.window.backgroundColor = [UIColor colorWithRed:0.47 green:0.00 blue:0.24 alpha:1.0];
+    self.window.rootViewController = navController;
 }
 
 @end

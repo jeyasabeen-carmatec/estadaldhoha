@@ -33,6 +33,11 @@
 #pragma mark - Image Cache
 #import "SDWebImage/UIImageView+WebCache.h"
 
+
+#pragma mark - Internet error
+#import "Internet_Error.h"
+
+
 @interface New_Home_VC ()
 
 @end
@@ -130,9 +135,11 @@
     }
     else
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"Please chek internet connection settings" delegate:self cancelButtonTitle:nil otherButtonTitles:@"Ok", nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"يرجى التحقق من إعدادات الاتصال بالإنترنت" delegate:self cancelButtonTitle:nil otherButtonTitles:@"حسنا", nil];
         [alert show];
-        [self API_Home_page];
+//        [self API_Home_page];
+        Internet_Error *controller = [[Internet_Error alloc] initWithNibName:@"Internet_Error" bundle:nil];
+        [self.navigationController pushViewController:controller animated:YES];
     }
 }
 
@@ -141,7 +148,7 @@
     NSString *token = (NSString *)notification.object;
     NSLog(@"new token available : %@", token);
     NSError *error;
-    NSString *URL_STR = [NSString stringWithFormat:@"http://192.168.0.116/estad/Apis/registerPush"];
+    NSString *URL_STR = [NSString stringWithFormat:@"%@registerPush",MAIN_URL];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     
     NSString *post = [NSString stringWithFormat:@"token=%@&type=%@",token,@"ios"];
@@ -171,7 +178,7 @@
     NSString *token = [[NSUserDefaults standardUserDefaults]valueForKey:@"DEV_TOK"];
     NSLog(@"new token available : %@", token);
     NSError *error;
-    NSString *URL_STR = [NSString stringWithFormat:@"http://192.168.0.116/estad/Apis/registerPush"];
+    NSString *URL_STR = [NSString stringWithFormat:@"%@registerPush",MAIN_URL];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     
     NSString *post = [NSString stringWithFormat:@"token=%@&type=%@",token,@"ios"];
@@ -194,6 +201,12 @@
         NSMutableDictionary *push = (NSMutableDictionary *)[NSJSONSerialization JSONObjectWithData:aData options:NSASCIIStringEncoding error:&error];
         NSLog(@"OUT Json Push register %@",push);
         
+    }
+    else
+    {
+//        Internet_Error *nextVC = [[Internet_Error alloc] initWithNibName:@"Internet_Error" bundle:<#(nullable NSBundle *)#>
+        Internet_Error *controller = [[Internet_Error alloc] initWithNibName:@"Internet_Error" bundle:nil];
+        [self.navigationController pushViewController:controller animated:YES];
     }
 }
 
@@ -568,7 +581,7 @@
             break;
             
         case 3:
-            return @"المركز الاعلمي";
+            return @"المركز الاعلامي";
             break;
             
         case 4:

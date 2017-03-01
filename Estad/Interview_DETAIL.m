@@ -20,6 +20,8 @@
 #import "WhatsAppKit.h"
 #import <social/social.h>
 
+#import "New_Home_VC.h"
+
 @interface Interview_DETAIL ()
 {
     NSMutableDictionary *json_DATA;
@@ -85,6 +87,18 @@
     [self.navigationController.view addSubview:_overlay_VIW];
     
     _overlay_VIW.hidden = YES;
+    
+    _VW_activity = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    CGRect new_FRAME = _VW_activity.frame;
+    new_FRAME.size.width = self.navigationController.navigationBar.frame.size.width;
+    _VW_activity.frame = new_FRAME;
+    _VW_activity.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.1];
+    _activityindicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    _activityindicator.center = _VW_activity.center;
+    [_VW_activity addSubview:_activityindicator];
+    [self.navigationController.view addSubview:_VW_activity];
+    
+    _VW_activity.hidden = YES;
     
     NSDictionary *temp_dictin = [json_DATA valueForKey:@"result"];
     NSDictionary *news = [temp_dictin valueForKey:@"Interview"];
@@ -291,7 +305,28 @@
         menu_Home_VC.get_NAV_TITL = get_titl;
         [self.navigationController pushViewController:menu_Home_VC animated:NO];
     }*/
-    [self.navigationController popViewControllerAnimated:NO];
+    NSString *menu = [[NSUserDefaults standardUserDefaults]valueForKey:@"BACKOPTION"];
+    if (menu) {
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"BACKOPTION"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        _VW_activity.hidden = NO;
+        [_activityindicator startAnimating];
+        [self performSelector:@selector(home_VC) withObject:_activityindicator afterDelay:0.01];
+        
+    }
+    else
+    {
+        [self.navigationController popViewControllerAnimated:NO];
+    }
+}
+-(void) home_VC
+{
+    New_Home_VC *controller = [[New_Home_VC alloc] initWithNibName:@"New_Home_VC" bundle:nil];
+    [self.navigationController pushViewController:controller animated:NO];
+    
+    [_activityindicator stopAnimating];
+    _VW_activity.hidden = YES;
 }
 -(IBAction)share_Action:(id)sender
 {
@@ -484,7 +519,7 @@
     }
     else
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"Whatsapp Not installed" delegate:sender cancelButtonTitle:nil otherButtonTitles:@"Ok", nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"Whatsapp غير مثبت" delegate:sender cancelButtonTitle:nil otherButtonTitles:@"حسنا", nil];
         [alert show];
     }
     _overlay_VIW.hidden = YES;
