@@ -1146,7 +1146,8 @@
 -(void) Decide_API
 {
     count_VAL = 0;
-    str_URL = [NSString stringWithFormat:@"%@pictureList/0/%@",MAIN_URL,[self getUTCFormateDate:[NSDate date]]];
+//    str_URL = [NSString stringWithFormat:@"%@pictureList/0/%@",MAIN_URL,[self getUTCFormateDate:[NSDate date]]];
+    str_URL = [NSString stringWithFormat:@"%@pictureList/0/",MAIN_URL];
     NSLog(@"Post Url = %@",str_URL);
     json_RESULT = [[NSMutableArray alloc]init];
 //    [self get_DATA];
@@ -1190,7 +1191,7 @@
 }
 
 #pragma mark - UTC
--(NSString *)getUTCFormateDate:(NSDate *)localDate
+/*-(NSString *)getUTCFormateDate:(NSDate *)localDate
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
@@ -1199,7 +1200,7 @@
     //    NSString *dateString = [dateFormatter stringFromDate:localDate];
     return @"2016-05-05";
     //    return dateString;
-}
+}*/
 
 - (void)viewWillLayoutSubviews
 {
@@ -1320,7 +1321,8 @@
             if ([main_ARR count] != 0)
             {
                 count_VAL = count_VAL + 10;
-                str_URL = [NSString stringWithFormat:@"%@pictureList/%d/%@",MAIN_URL,count_VAL,[self getUTCFormateDate:[NSDate date]]];
+//                str_URL = [NSString stringWithFormat:@"%@pictureList/%d/%@",MAIN_URL,count_VAL,[self getUTCFormateDate:[NSDate date]]];
+                str_URL = [NSString stringWithFormat:@"%@pictureList/%d/",MAIN_URL,count_VAL];
 //                [self get_DATA];
                 _VW_activity.hidden = NO;
                 [_activityindicator startAnimating];

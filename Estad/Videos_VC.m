@@ -881,6 +881,7 @@
     count_VAL = 0;
     json_RESULT = [[NSMutableArray alloc]init];
     str_URL = [NSString stringWithFormat:@"%@videolist/0/%@",MAIN_URL,[self getUTCFormateDate:[NSDate date]]];
+//    str_URL = [NSString stringWithFormat:@"%@videolist/0/",MAIN_URL];
     [self get_DATA];
 }
 -(void) get_DATA
@@ -1036,6 +1037,7 @@
         if ([main_ARR count] >= 10)
         {
             str_URL = [NSString stringWithFormat:@"%@videolist/%d/%@",MAIN_URL,count_VAL,[self getUTCFormateDate:[NSDate date]]];
+//            str_URL = [NSString stringWithFormat:@"%@videolist/%d/",MAIN_URL,count_VAL];
             [self get_DATA];
         }
     }

@@ -1030,37 +1030,43 @@
 {
     if ([get_NAV_TITL isEqualToString:@"اخبار الدوريات المحلية"]) {
 //        NSLog(@"Call News local patrols API");
-        str_URL = [NSString stringWithFormat:@"%@newsList/1/0/%@",MAIN_URL,[self getUTCFormateDate:[NSDate date]]];
+        str_URL = [NSString stringWithFormat:@"%@newsList/1/0/",MAIN_URL];
+//        str_URL = [NSString stringWithFormat:@"%@newsList/1/0/%@",MAIN_URL,[self getUTCFormateDate:[NSDate date]]];
         [self get_DATA];
     }
     else if ([get_NAV_TITL isEqualToString:@"اخبار الدوريات العربية"])
     {
 //        NSLog(@"Call News Arabic periodicals API");
-        str_URL = [NSString stringWithFormat:@"%@newsList/2/0/%@",MAIN_URL,[self getUTCFormateDate:[NSDate date]]];
+        str_URL = [NSString stringWithFormat:@"%@newsList/2/0/",MAIN_URL];
+//        str_URL = [NSString stringWithFormat:@"%@newsList/2/0/%@",MAIN_URL,[self getUTCFormateDate:[NSDate date]]];
         [self get_DATA];
     }
     else if ([get_NAV_TITL isEqualToString:@"اخبار الدوريات العالمية"])
     {
 //        NSLog(@"Call News World Leagues API");
-        str_URL = [NSString stringWithFormat:@"%@newsList/3/0/%@",MAIN_URL,[self getUTCFormateDate:[NSDate date]]];
+        str_URL = [NSString stringWithFormat:@"%@newsList/3/0/",MAIN_URL];
+//        str_URL = [NSString stringWithFormat:@"%@newsList/3/0/%@",MAIN_URL,[self getUTCFormateDate:[NSDate date]]];
         [self get_DATA];
     }
     else if ([get_NAV_TITL isEqualToString:@"اخبار رياضية اخرى"])
     {
 //        NSLog(@"Call Other Sports News API");
-        str_URL = [NSString stringWithFormat:@"%@newsList/4/0/%@",MAIN_URL,[self getUTCFormateDate:[NSDate date]]];
+        str_URL = [NSString stringWithFormat:@"%@newsList/4/0/",MAIN_URL];
+//        str_URL = [NSString stringWithFormat:@"%@newsList/4/0/%@",MAIN_URL,[self getUTCFormateDate:[NSDate date]]];
         [self get_DATA];
     }
     else if ([get_NAV_TITL isEqualToString:@"قطر2022"])
     {
 //        NSLog(@"Qatar 2022");
-        str_URL = [NSString stringWithFormat:@"%@newsList/5/0/%@",MAIN_URL,[self getUTCFormateDate:[NSDate date]]];
+        str_URL = [NSString stringWithFormat:@"%@newsList/5/0/",MAIN_URL];
+//        str_URL = [NSString stringWithFormat:@"%@newsList/5/0/%@",MAIN_URL,[self getUTCFormateDate:[NSDate date]]];
         [self get_DATA];
     }
     else if ([get_NAV_TITL isEqualToString:@"أسباير زون"])
     {
 //        NSLog(@"Aspire Zone");
-        str_URL = [NSString stringWithFormat:@"%@newsList/6/0/%@",MAIN_URL,[self getUTCFormateDate:[NSDate date]]];
+        str_URL = [NSString stringWithFormat:@"%@newsList/6/0/",MAIN_URL];
+//        str_URL = [NSString stringWithFormat:@"%@newsList/6/0/%@",MAIN_URL,[self getUTCFormateDate:[NSDate date]]];
         [self get_DATA];
     }
 }
@@ -1127,7 +1133,7 @@
 }
 
 #pragma mark - UTC
--(NSString *)getUTCFormateDate:(NSDate *)localDate
+/*-(NSString *)getUTCFormateDate:(NSDate *)localDate
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
@@ -1136,7 +1142,7 @@
 //    NSString *dateString = [dateFormatter stringFromDate:localDate];
     return @"2016-05-05";
 //    return dateString;
-}
+} */
 
 #pragma mark - Search Actions
 -(void) SERCH_action
@@ -1242,37 +1248,43 @@
         {            
             if ([get_NAV_TITL isEqualToString:@"اخبار الدوريات المحلية"]) {
                 //        NSLog(@"Call News local patrols API");
-                str_URL = [NSString stringWithFormat:@"%@newsList/1/%d/%@/",MAIN_URL,count_VAL,[self getUTCFormateDate:[NSDate date]]];
+                str_URL = [NSString stringWithFormat:@"%@newsList/1/%d/",MAIN_URL,count_VAL];
+//                str_URL = [NSString stringWithFormat:@"%@newsList/1/%d/%@/",MAIN_URL,count_VAL,[self getUTCFormateDate:[NSDate date]]];
                 [self get_DATA];
             }
             else if ([get_NAV_TITL isEqualToString:@"اخبار الدوريات العربية"])
             {
                 //        NSLog(@"Call News Arabic periodicals API");
-                str_URL = [NSString stringWithFormat:@"%@newsList/2/%d/%@/",MAIN_URL,count_VAL,[self getUTCFormateDate:[NSDate date]]];
+                str_URL = [NSString stringWithFormat:@"%@newsList/2/%d/",MAIN_URL,count_VAL];
+//                str_URL = [NSString stringWithFormat:@"%@newsList/2/%d/%@/",MAIN_URL,count_VAL,[self getUTCFormateDate:[NSDate date]]];
                 [self get_DATA];
             }
             else if ([get_NAV_TITL isEqualToString:@"اخبار الدوريات العالمية"])
             {
                 //        NSLog(@"Call News World Leagues API");
-                str_URL = [NSString stringWithFormat:@"%@newsList/3/%d/%@/",MAIN_URL,count_VAL,[self getUTCFormateDate:[NSDate date]]];
+//                str_URL = [NSString stringWithFormat:@"%@newsList/3/%d/%@/",MAIN_URL,count_VAL,[self getUTCFormateDate:[NSDate date]]];
+                str_URL = [NSString stringWithFormat:@"%@newsList/3/%d/",MAIN_URL,count_VAL];
                 [self get_DATA];
             }
             else if ([get_NAV_TITL isEqualToString:@"اخبار رياضية اخرى"])
             {
                 //        NSLog(@"Call Other Sports News API");
-                str_URL = [NSString stringWithFormat:@"%@newsList/4/%d/%@/",MAIN_URL,count_VAL,[self getUTCFormateDate:[NSDate date]]];
+//                str_URL = [NSString stringWithFormat:@"%@newsList/4/%d/%@/",MAIN_URL,count_VAL,[self getUTCFormateDate:[NSDate date]]];
+                str_URL = [NSString stringWithFormat:@"%@newsList/4/%d/",MAIN_URL,count_VAL];
                 [self get_DATA];
             }
             else if ([get_NAV_TITL isEqualToString:@"قطر2022"])
             {
                 //        NSLog(@"Qatar 2022");
-                str_URL = [NSString stringWithFormat:@"%@newsList/5/%d/%@/",MAIN_URL,count_VAL,[self getUTCFormateDate:[NSDate date]]];
+                str_URL = [NSString stringWithFormat:@"%@newsList/5/%d/",MAIN_URL,count_VAL];
+//                str_URL = [NSString stringWithFormat:@"%@newsList/5/%d/%@/",MAIN_URL,count_VAL,[self getUTCFormateDate:[NSDate date]]];
                 [self get_DATA];
             }
             else if ([get_NAV_TITL isEqualToString:@"أسباير زون"])
             {
                 //        NSLog(@"Aspire Zone");
-                str_URL = [NSString stringWithFormat:@"%@newsList/6/%d/%@/",MAIN_URL,count_VAL,[self getUTCFormateDate:[NSDate date]]];
+//                str_URL = [NSString stringWithFormat:@"%@newsList/6/%d/%@/",MAIN_URL,count_VAL,[self getUTCFormateDate:[NSDate date]]];
+                str_URL = [NSString stringWithFormat:@"%@newsList/6/%d/",MAIN_URL,count_VAL];
                 [self get_DATA];
             }
         }

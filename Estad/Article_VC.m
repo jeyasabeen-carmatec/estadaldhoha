@@ -947,13 +947,15 @@
     json_RESULT = [[NSMutableArray alloc]init];
     if ([get_NAV_TITL isEqualToString:@"مقالات رئيس التحرير"]) {
 //        NSLog(@"Call News local patrols API");
-        str_URL = [NSString stringWithFormat:@"%@articleList/1/0/%@",MAIN_URL,[self getUTCFormateDate:[NSDate date]]];
+//        str_URL = [NSString stringWithFormat:@"%@articleList/1/0/%@",MAIN_URL,[self getUTCFormateDate:[NSDate date]]];
+        str_URL = [NSString stringWithFormat:@"%@articleList/1/0/",MAIN_URL];
         [self get_DATA];
     }
     else if ([get_NAV_TITL isEqualToString:@"مقالات استاد الدوحة"])
     {
 //        NSLog(@"Call News Arabic periodicals API");
-        str_URL = [NSString stringWithFormat:@"%@articleList/2/0/%@",MAIN_URL,[self getUTCFormateDate:[NSDate date]]];
+//        str_URL = [NSString stringWithFormat:@"%@articleList/2/0/%@",MAIN_URL,[self getUTCFormateDate:[NSDate date]]];
+        str_URL = [NSString stringWithFormat:@"%@articleList/2/0/",MAIN_URL];
         [self get_DATA];
     }
 }
@@ -981,7 +983,7 @@
 }
 
 #pragma mark - UTC
--(NSString *)getUTCFormateDate:(NSDate *)localDate
+/*-(NSString *)getUTCFormateDate:(NSDate *)localDate
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
@@ -990,7 +992,7 @@
     //    NSString *dateString = [dateFormatter stringFromDate:localDate];
     return @"2016-05-05";
     //    return dateString;
-}
+}*/
 
 - (void)viewWillLayoutSubviews
 {
@@ -1106,13 +1108,15 @@
         {
             if ([get_NAV_TITL isEqualToString:@"مقالات رئيس التحرير"]) {
                 //        NSLog(@"Call News local patrols API");
-                str_URL = [NSString stringWithFormat:@"%@articleList/1/%d/%@",MAIN_URL,count_VAL,[self getUTCFormateDate:[NSDate date]]];
+//                str_URL = [NSString stringWithFormat:@"%@articleList/1/%d/%@",MAIN_URL,count_VAL,[self getUTCFormateDate:[NSDate date]]];
+                str_URL = [NSString stringWithFormat:@"%@articleList/1/%d/",MAIN_URL,count_VAL];
                 [self get_DATA];
             }
             else if ([get_NAV_TITL isEqualToString:@"مقالات استاد الدوحة"])
             {
                 //        NSLog(@"Call News Arabic periodicals API");
-                str_URL = [NSString stringWithFormat:@"%@articleList/2/%d/%@",MAIN_URL,count_VAL,[self getUTCFormateDate:[NSDate date]]];
+//                str_URL = [NSString stringWithFormat:@"%@articleList/2/%d/%@",MAIN_URL,count_VAL,[self getUTCFormateDate:[NSDate date]]];
+                str_URL = [NSString stringWithFormat:@"%@articleList/2/%d/",MAIN_URL,count_VAL];
                 [self get_DATA];
             }
         }

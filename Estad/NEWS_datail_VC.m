@@ -384,7 +384,7 @@
 }
 
 #pragma mark - UTC
--(NSString *)getUTCFormateDate:(NSDate *)localDate
+/*-(NSString *)getUTCFormateDate:(NSDate *)localDate
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
@@ -392,7 +392,7 @@
     [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     NSString *dateString = [dateFormatter stringFromDate:localDate];
     return dateString;
-}
+} */
 
 - (void)webViewDidFinishLoad:(UIWebView *)aWebView {
     CGRect frame = aWebView.frame;
