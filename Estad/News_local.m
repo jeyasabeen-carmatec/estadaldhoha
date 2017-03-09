@@ -194,7 +194,14 @@
     self.navigationController.navigationBar.frame = CGRectMake(0,statusbar_HEIGHT,self.navigationController.navigationBar.frame.size.width,self.navigationController.navigationBar.frame.size.height);
     
     statusbar_HEIGHT = [UIApplication sharedApplication].statusBarFrame.size.height;
-    menuDraw_width = [UIApplication sharedApplication].statusBarFrame.size.width * 0.80;
+    if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad )
+    {
+        menuDraw_width = [UIApplication sharedApplication].statusBarFrame.size.width * 0.50;
+    }
+    else
+    {
+        menuDraw_width = [UIApplication sharedApplication].statusBarFrame.size.width * 0.80;
+    }
     menyDraw_X = self.navigationController.view.frame.size.width; //- menuDraw_width;
     VW_swipe.frame = CGRectMake(self.navigationController.view.frame.size.width, self.view.frame.origin.y + statusbar_HEIGHT, menuDraw_width, self.navigationController.view.frame.size.height);
     

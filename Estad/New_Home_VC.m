@@ -271,7 +271,15 @@
     [_scroll_contNT addSubview:_VW_Contents];
     
     statusbar_HEIGHT = [UIApplication sharedApplication].statusBarFrame.size.height;
-    menuDraw_width = [UIApplication sharedApplication].statusBarFrame.size.width * 0.80;
+    if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad )
+    {
+        menuDraw_width = [UIApplication sharedApplication].statusBarFrame.size.width * 0.50;
+    }
+    else
+    {
+        menuDraw_width = [UIApplication sharedApplication].statusBarFrame.size.width * 0.80;
+    }
+    
     menyDraw_X = self.navigationController.view.frame.size.width; //- menuDraw_width;
     VW_swipe.frame = CGRectMake(self.navigationController.view.frame.size.width, self.view.frame.origin.y + statusbar_HEIGHT, menuDraw_width, self.navigationController.view.frame.size.height);
     
