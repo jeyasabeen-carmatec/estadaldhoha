@@ -166,7 +166,7 @@
     // ^-Use UITextAlignmentCenter for older SDKs.
     label.textColor = [UIColor whiteColor]; // change this color
     self.navigationItem.titleView = label;
-    label.text = NSLocalizedString(@"الجريدة PDF", @"");
+    label.text = NSLocalizedString(@"PDF الجريدة", @"");
     [label sizeToFit];
     self.navigationItem.titleView = label;
     
@@ -350,7 +350,7 @@
             break;
             
         case 4:
-            return @"الجريدة PDF";
+            return @"PDF الجريدة";
             break;
         case 5:
             return @"من نحن";

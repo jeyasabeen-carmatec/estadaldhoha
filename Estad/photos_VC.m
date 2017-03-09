@@ -660,7 +660,7 @@
             break;
             
         case 4:
-            return @"الجريدة PDF";
+            return @"PDF الجريدة";
             break;
         case 5:
             return @"من نحن";

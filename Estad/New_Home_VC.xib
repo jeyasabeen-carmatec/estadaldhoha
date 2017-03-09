@@ -378,7 +378,7 @@
             <rect key="frame" x="0.0" y="0.0" width="226" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Logo_NEW.jpg" id="uze-Ar-fxe">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="splash_logo.png" id="uze-Ar-fxe">
                     <rect key="frame" x="36" y="42" width="154" height="61"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.47450980390000003" green="0.0039215686269999999" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -425,7 +425,7 @@
         </view>
     </objects>
     <resources>
-        <image name="Logo_NEW.jpg" width="540" height="180"/>
+        <image name="splash_logo.png" width="540" height="180"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

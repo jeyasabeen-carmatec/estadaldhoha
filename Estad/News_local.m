@@ -320,7 +320,7 @@
             break;
             
         case 4:
-            return @"الجريدة PDF";
+            return @"PDF الجريدة";
             break;
         case 5:
             return @"من نحن";
@@ -853,7 +853,14 @@
     {
         if (indexPath.row == 0 || indexPath.row % 5 == 0)
         {
-            return 235;
+            if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad )
+            {
+                return 420;
+            }
+            else
+            {
+                return 235;
+            }
         }
         else
         {

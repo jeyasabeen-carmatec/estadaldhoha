@@ -91,6 +91,10 @@
 #pragma mark - View Customisation
 -(void) setup_VIEW
 {
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(tokenAvailableNotification:)
+                                                 name:@"NEW_TOKEN_AVAILABLE"
+                                               object:nil];
     //    [self.navigationController.navigationBar setTintColor:[UIColor colorWithRed:0.44 green:0.00 blue:0.24 alpha:1.0]];
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.44 green:0.00 blue:0.24 alpha:1.0];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
@@ -432,7 +436,7 @@
             break;
             
         case 4:
-            return @"الجريدة PDF";
+            return @"PDF الجريدة";
             break;
         case 5:
             return @"من نحن";
@@ -1000,5 +1004,34 @@
     }
 }
 
+#pragma mark - Register Push Notification
+- (void)tokenAvailableNotification:(NSNotification *)notification {
+    NSString *token = (NSString *)notification.object;
+    NSLog(@"new token available : %@", token);
+    NSError *error;
+    NSString *URL_STR = [NSString stringWithFormat:@"%@registerPush",MAIN_URL];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    
+    NSString *post = [NSString stringWithFormat:@"token=%@&type=%@",token,@"ios"];
+    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    NSString *postLength = [NSString stringWithFormat:@"%lu",(unsigned long)[postData length]];
+    
+    [request setURL:[NSURL URLWithString:URL_STR]];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPBody:postData];
+    
+    NSLog(@"Datas Posted == %@",post);
+    
+    NSURLResponse *response;
+    NSData *aData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    
+    if (aData)
+    {
+        NSMutableDictionary *push = (NSMutableDictionary *)[NSJSONSerialization JSONObjectWithData:aData options:NSASCIIStringEncoding error:&error];
+        NSLog(@"OUT Json Push register %@",push);
+    }
+}
 
 @end

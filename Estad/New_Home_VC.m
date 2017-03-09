@@ -585,7 +585,7 @@
             break;
             
         case 4:
-            return @"الجريدة PDF";
+            return @"PDF الجريدة";
             break;
         case 5:
             return @"من نحن";
@@ -1262,7 +1262,14 @@
     else if (tableView == _list_NEWS)
     {
         if (indexPath.row == 0) {
-            return 264;
+            if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad )
+            {
+                return 550;
+            }
+            else
+            {
+                return 315;
+            }
         }
         else
         {
@@ -1271,23 +1278,51 @@
     }
     else if (tableView == _list_arbNWS)
     {
-        return 264;
+        if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad )
+        {
+            return 550;
+        }
+        else
+        {
+            return 315;
+        }
     }
     else if (tableView == _list_localNWS)
     {
         if ([localNews count] == 1)
         {
-            return 264;
+            if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad )
+            {
+                return 550;
+            }
+            else
+            {
+                return 315;
+            }
         }
         else
         {
-            return 169;
+            if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad )
+            {
+                return 300;
+            }
+            else
+            {
+                return 169;
+            }
         }
     }
     else if (tableView == _list_intrVW)
     {
         if (indexPath.row == 0) {
-            return 264;
+            if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad )
+            {
+                return 550;
+            }
+            else
+            {
+                return 315;
+            }
         }
         else
         {
@@ -1298,11 +1333,25 @@
     {
         if (indexPath.row == 0)
         {
-            return 264;
+            if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad )
+            {
+                return 550;
+            }
+            else
+            {
+                return 315;
+            }
         }
         else if (indexPath.row == 4 && [reports count] > 5)
         {
-            return 169;
+            if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad )
+            {
+                return 300;
+            }
+            else
+            {
+                return 169;
+            }
         }
         else
         {

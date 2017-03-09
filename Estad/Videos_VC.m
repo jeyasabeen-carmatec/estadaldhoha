@@ -146,7 +146,16 @@
 
         CGSize calCulateSizze;
         calCulateSizze.width = fixedWidth - 12.0f;
+    
+    if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad )
+    {
+        calCulateSizze.height = 410.0f;
+    }
+    else
+    {
         calCulateSizze.height = 188.0f;
+    }
+    
     
 //        calCulateSizze.width = fixedWidth/2.0f - 12.0f;
 //        calCulateSizze.height = 120.0f;
@@ -391,7 +400,7 @@
             break;
             
         case 4:
-            return @"الجريدة PDF";
+            return @"PDF الجريدة";
             break;
         case 5:
             return @"من نحن";
@@ -880,20 +889,22 @@
 {
     count_VAL = 0;
     json_RESULT = [[NSMutableArray alloc]init];
-    str_URL = [NSString stringWithFormat:@"%@videolist/0/%@",MAIN_URL,[self getUTCFormateDate:[NSDate date]]];
+    str_URL = [NSString stringWithFormat:@"%@videolist/0/",MAIN_URL];//,[self getUTCFormateDate:[NSDate date]]
 //    str_URL = [NSString stringWithFormat:@"%@videolist/0/",MAIN_URL];
-    [self get_DATA];
+//    [self get_DATA];
+    _VW_activity.hidden = NO;
+    [_activityindicator startAnimating];
+    [self performSelector:@selector(get_DATA) withObject:_activityindicator afterDelay:0.01];
 }
 -(void) get_DATA
 {
     NSError *error;
-    //        NSLog(@"str_URL = %@",str_URL);
+    NSLog(@"str_URL  test log = %@",str_URL);
     NSURL *url = [NSURL URLWithString:str_URL];
     NSData *aData = [NSData dataWithContentsOfURL:url];
     NSMutableDictionary *json_DICTIN = (NSMutableDictionary *)[NSJSONSerialization JSONObjectWithData:aData options:NSASCIIStringEncoding error:&error];
     
-    //    NSLog(@"Ou json response = %@",[json_DICTIN valueForKey:@"result"]);
-    
+//    NSLog(@"Ou json response = %@",[json_DICTIN valueForKey:@"result"]);
 //    NSDictionary *result = [json_DICTIN valueForKey:@"result"];
     
     @try {
@@ -908,12 +919,13 @@
         _content_Collection.hidden = YES;
     }
     
-    
+    [_activityindicator stopAnimating];
+    _VW_activity.hidden = YES;
     NSLog(@"Result youtube = %@",json_RESULT);
     [_content_Collection reloadData];
 }
 
-#pragma mark - UTC
+/*#pragma mark - UTC
 -(NSString *)getUTCFormateDate:(NSDate *)localDate
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -921,9 +933,16 @@
     [dateFormatter setTimeZone:timeZone];
     [dateFormatter setDateFormat:@"yyyy-MM-dd"];
     //    NSString *dateString = [dateFormatter stringFromDate:localDate];
-    return @"2016-05-05";
-    //    return dateString;
-}
+    NSDateComponents *offsetComponents = [[NSDateComponents alloc] init];
+    [offsetComponents setMonth:-6];
+    
+    NSDate *new_date = [[NSCalendar currentCalendar] dateByAddingComponents:offsetComponents toDate:localDate options:0];
+    
+    NSString *dateString = [dateFormatter stringFromDate:new_date];
+    
+//    return @"2016-05-05";
+    return dateString;
+}*/
 
 - (void)viewWillLayoutSubviews
 {
@@ -1034,11 +1053,14 @@
     if(y > h + reload_distance)
     {
         count_VAL = count_VAL + 10;
-        if ([main_ARR count] >= 10)
+         if ([main_ARR count] != 0)
         {
-            str_URL = [NSString stringWithFormat:@"%@videolist/%d/%@",MAIN_URL,count_VAL,[self getUTCFormateDate:[NSDate date]]];
+            str_URL = [NSString stringWithFormat:@"%@videolist/%d/",MAIN_URL,count_VAL]; //,[self getUTCFormateDate:[NSDate date]]
 //            str_URL = [NSString stringWithFormat:@"%@videolist/%d/",MAIN_URL,count_VAL];
-            [self get_DATA];
+//            [self get_DATA];
+            _VW_activity.hidden = NO;
+            [_activityindicator startAnimating];
+            [self performSelector:@selector(get_DATA) withObject:_activityindicator afterDelay:0.01];
         }
     }
 }

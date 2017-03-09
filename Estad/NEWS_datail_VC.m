@@ -102,6 +102,13 @@
     
     _VW_activity.hidden = YES;
     
+    new_FRAME = _profile_VW.frame;
+    if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad )
+    {
+        new_FRAME.size.height = 480;
+    }
+    
+    _profile_VW.frame = new_FRAME;
     
      NSLog(@"set up Get home = %@",get_home);
      NSLog(@"Nes titl = %@",get_News_titl);
@@ -133,8 +140,15 @@
         });
     });
     
-    _lbl_TIME.text = [NSString stringWithFormat:@"%@",[news valueForKey:@"release_time"]];
-    _lbl_VIEWRS.text = [NSString stringWithFormat:@"%@",[news valueForKey:@"visitor"]];
+    NSString *relese_time = [NSString stringWithFormat:@"%@",[news valueForKey:@"release_time"]];
+    relese_time = [relese_time stringByReplacingOccurrencesOfString:@"(null)" withString:@""];
+    relese_time = [relese_time stringByReplacingOccurrencesOfString:@"<null>" withString:@""];
+    _lbl_TIME.text = relese_time;
+    
+    NSString *viewers = [NSString stringWithFormat:@"%@",[news valueForKey:@"visitor"]];
+    viewers = [viewers stringByReplacingOccurrencesOfString:@"(null)" withString:@""];
+    viewers = [viewers stringByReplacingOccurrencesOfString:@"<null>" withString:@""];
+    _lbl_VIEWRS.text = viewers;
     
     NSString *date_STR = [NSString stringWithFormat:@"%@",[temp_dictin valueForKey:@"dateformat"]];
     NSString *title_STR  = [NSString stringWithFormat:@"%@",[news valueForKey:@"title"]];
@@ -146,6 +160,7 @@
     
     NSString *dtail = [NSString stringWithFormat:@"%@\n\n %@\n\n %@\n\n",date_STR,title_STR,tag];
     dtail = [dtail stringByReplacingOccurrencesOfString:@"<null>" withString:@""];
+    dtail = [dtail stringByReplacingOccurrencesOfString:@"(null)" withString:@"Not Mentioned"];
     NSString *test = [dtail stringByAppendingString:@"\t\n"];
     
     NSDictionary *attribs = @{
@@ -177,7 +192,7 @@
 //    _lbl_CNTNT.textAlignment = NSTextAlignmentRight;
     [self.lbl_date_E sizeToFit];
     
-    [_lbl_date_E setFrame:CGRectMake(8,_lbl_date_E.frame.origin.y,self.view.frame.size.width - 16,_lbl_date_E.frame.size.height )];
+    [_lbl_date_E setFrame:CGRectMake(8,_profile_VW.frame.origin.y + _profile_VW.frame.size.height + 10,self.view.frame.size.width - 16,_lbl_comnt_STAT.frame.size.height)];
     
     //_lbl_CNTNT.scrollEnabled = NO;
     
