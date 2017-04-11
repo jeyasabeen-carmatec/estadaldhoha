@@ -426,6 +426,7 @@
     
     [_activityindicator stopAnimating];
     _VW_activity.hidden = YES;
+    
 }
 
 - (CGFloat)tableViewHeight
@@ -990,6 +991,8 @@
             cell.lbl_CNT.text = [dict_VAL valueForKey:@"summary"];
             cell.lbl_CNT.numberOfLines = 2;
             
+            [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+            
             return cell;
         }
         else
@@ -1013,6 +1016,9 @@
             cell.lbl_TITL.text = [dict_VAL valueForKey:@"title"];
             cell.lbl_CNT.text = [dict_VAL valueForKey:@"summary"];
             cell.lbl_CNT.numberOfLines = 4;
+            
+            [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+            
             return cell;
         }
         
@@ -1043,6 +1049,8 @@
         cell.lbl_CNT.text = [dict_VAL valueForKey:@"summary"];
         cell.lbl_CNT.numberOfLines = 2;
         
+        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+        
         return cell;
     }
     else if (tableView == _list_localNWS)
@@ -1072,6 +1080,8 @@
             cell.lbl_TITL.numberOfLines = 2;
             cell.lbl_CNT.text = [dict_VAL valueForKey:@"summary"];
             cell.lbl_CNT.numberOfLines = 2;
+            
+            [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
             
             return cell;
         }
@@ -1113,6 +1123,8 @@
             cell.lbl_CNT2.numberOfLines = 4;
             [cell.btn2 addTarget:self action:@selector(local_news1) forControlEvents:UIControlEventTouchUpInside];
             
+            [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+            
             return cell;
         }
     }
@@ -1139,6 +1151,9 @@
             cell.lbl_TITL.numberOfLines = 2;
             cell.lbl_CNT.text = [dict_VAL valueForKey:@"summary"];
             cell.lbl_CNT.numberOfLines = 2;
+            
+            [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+            
             return cell;
         }
         else
@@ -1162,6 +1177,9 @@
             cell.lbl_TITL.text = [dict_VAL valueForKey:@"title"];
             cell.lbl_CNT.text = [dict_VAL valueForKey:@"summary"];
             cell.lbl_CNT.numberOfLines = 4;
+            
+            [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+            
             return cell;
         }
     }
@@ -1188,6 +1206,9 @@
             cell.lbl_TITL.numberOfLines = 2;
             cell.lbl_CNT.text = [dict_VAL valueForKey:@"summary"];
             cell.lbl_CNT.numberOfLines = 2;
+            
+            [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+            
             return cell;
         }
         else if (indexPath.row == 4 && [reports count] > 5)
@@ -1227,6 +1248,9 @@
             cell.lbl_CNT2.text = [dict_VAL1 valueForKey:@"summary"];
             cell.lbl_CNT2.numberOfLines = 4;
             [cell.btn2 addTarget:self action:@selector(local_reports1) forControlEvents:UIControlEventTouchUpInside];
+            
+            [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+            
             return cell;
         }
         else
@@ -1248,6 +1272,9 @@
             cell.lbl_TITL.text = [dict_VAL valueForKey:@"title"];
             cell.lbl_CNT.text = [dict_VAL valueForKey:@"summary"];
             cell.lbl_CNT.numberOfLines = 4;
+            
+            [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+            
             return cell;
         }
     }

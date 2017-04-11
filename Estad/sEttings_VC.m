@@ -51,6 +51,8 @@
 {
     self.navigationItem.hidesBackButton = YES;
     
+    
+    
     _VW_Serch_BAR.hidden = YES;
     [searchResults removeAllObjects];
     [_list_DATA reloadData];
@@ -58,6 +60,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(AvailableNotification:)
+                                                 name:@"Update_AVAILABLE"
+                                               object:nil];
+    
     // Do any additional setup after loading the view from its nib.
     
 //    list_NEWS = [[NSArray alloc]initWithObjects:@"أخبار الدوريات المحلية",@"الدوريات الأخبار العربية",@"أخبار الدوريات العالمية",@"كل الأخبار", @"قطر 2022", @"أسباير زون", nil];
@@ -226,30 +234,30 @@
     if ([[UIApplication sharedApplication] isRegisteredForRemoteNotifications])
     {
         [_swtch_Notification setOn:YES animated:YES];
-        _lbl_notification.text = @"يتم تمكين";
+//        _lbl_notification.text = @"يتم تمكين";
         NSString *sound_STAT = [[NSUserDefaults standardUserDefaults] valueForKey:@"SOUND_STAT"];
         if (sound_STAT)
         {
             if ([sound_STAT isEqualToString:@"SOUND_ON"]) {
                 [_swtch_Notification_sound setOn:YES animated:YES];
-                _lbl_notification_sound.text = @"على";
+//                _lbl_notification_sound.text = @"على";
             }
             else
             {
                 [_swtch_Notification_sound setOn:NO animated:YES];
-                _lbl_notification_sound.text = @"قبالة";
+//                _lbl_notification_sound.text = @"قبالة";
             }
         }
         else
         {
             [_swtch_Notification_sound setOn:NO animated:YES];
-            _lbl_notification_sound.text = @"قبالة";
+//            _lbl_notification_sound.text = @"قبالة";
         }
     }
     else
     {
-        _lbl_notification.text = @"تعطيل";
-        _lbl_notification_sound.text = @"قبالة";
+//        _lbl_notification.text = @"تعطيل";
+//        _lbl_notification_sound.text = @"قبالة";
         [_swtch_Notification setOn:NO animated:YES];
         [_swtch_Notification_sound setOn:NO animated:YES];
     }
@@ -941,8 +949,8 @@
         
         [_swtch_Notification_sound setOn:YES animated:YES];
         
-        _lbl_notification.text = @"يتم تمكين";
-        _lbl_notification_sound.text = @"على";
+//        _lbl_notification.text = @"يتم تمكين";
+//        _lbl_notification_sound.text = @"على";
     }
     else
     {
@@ -954,60 +962,23 @@
         
         [_swtch_Notification_sound setOn:NO animated:YES];
         
-        _lbl_notification.text = @"تعطيل";
-        _lbl_notification_sound.text = @"قبالة";
+//        _lbl_notification.text = @"تعطيل";
+//        _lbl_notification_sound.text = @"قبالة";
     }
 }
 
 - (IBAction)SOUND_STAT:(id)sender
 {
-    if ([[UIApplication sharedApplication] isRegisteredForRemoteNotifications])
-    {
-        if ([_swtch_Notification_sound isOn])
-        {
-            [[UIApplication sharedApplication] unregisterForRemoteNotifications];
-            
-            [[NSUserDefaults standardUserDefaults] setObject:@"SOUND_ON" forKey:@"SOUND_STAT"];
-            [[NSUserDefaults standardUserDefaults] synchronize];
-            
-            UIUserNotificationSettings* notificationSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil];
-            [[UIApplication sharedApplication] registerUserNotificationSettings:notificationSettings];
-            
-            BOOL canOpenSettings = (UIApplicationOpenSettingsURLString != NULL);
-            if (canOpenSettings) {
-                NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
-                [[UIApplication sharedApplication] openURL:url];
-            }
-            
-            _lbl_notification_sound.text = @"على";
-        }
-        else
-        {
-            [[UIApplication sharedApplication] unregisterForRemoteNotifications];
-            
-            [[NSUserDefaults standardUserDefaults] setObject:@"SOUND_OFF" forKey:@"SOUND_STAT"];
-            [[NSUserDefaults standardUserDefaults] synchronize];
-            
-            UIUserNotificationSettings* notificationSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge categories:nil];
-            [[UIApplication sharedApplication] registerUserNotificationSettings:notificationSettings];
-            
-            BOOL canOpenSettings = (UIApplicationOpenSettingsURLString != NULL);
-            if (canOpenSettings) {
-                NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
-                [[UIApplication sharedApplication] openURL:url];
-            }
-            
-            _lbl_notification_sound.text = @"قبالة";
-        }
-    }
-    else
-    {
-        BOOL canOpenSettings = (UIApplicationOpenSettingsURLString != NULL);
-        if (canOpenSettings) {
-            NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
-            [[UIApplication sharedApplication] openURL:url];
-        }
-        
+   /* */
+    
+    [[NSUserDefaults standardUserDefaults]setObject:@"FromSETTINGS" forKey:@"fromVCSETTING"];
+    [[NSUserDefaults standardUserDefaults]synchronize];
+    
+    
+    BOOL canOpenSettings = (UIApplicationOpenSettingsURLString != NULL);
+    if (canOpenSettings) {
+        NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+        [[UIApplication sharedApplication] openURL:url];
     }
 }
 
@@ -1038,6 +1009,54 @@
     {
         NSMutableDictionary *push = (NSMutableDictionary *)[NSJSONSerialization JSONObjectWithData:aData options:NSASCIIStringEncoding error:&error];
         NSLog(@"OUT Json Push register %@",push);
+    }
+}
+
+- (void)AvailableNotification:(NSNotification *)notification
+{
+    
+    BOOL canOpenSettings = (UIApplicationOpenSettingsURLString != NULL);
+    if (canOpenSettings) {
+        NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+        [[UIApplication sharedApplication] openURL:url];
+    }
+    
+    
+    BOOL remoteNotificationsEnabled = false, noneEnabled,alertsEnabled, badgesEnabled, soundsEnabled;
+    
+    if ([[UIApplication sharedApplication] respondsToSelector:@selector(registerUserNotificationSettings:)]) {
+        // iOS8+
+        remoteNotificationsEnabled = [UIApplication sharedApplication].isRegisteredForRemoteNotifications;
+        
+        UIUserNotificationSettings *userNotificationSettings = [UIApplication sharedApplication].currentUserNotificationSettings;
+        
+        noneEnabled = userNotificationSettings.types == UIUserNotificationTypeNone;
+        alertsEnabled = userNotificationSettings.types & UIUserNotificationTypeAlert;
+        badgesEnabled = userNotificationSettings.types & UIUserNotificationTypeBadge;
+        soundsEnabled = userNotificationSettings.types & UIUserNotificationTypeSound;
+        
+    }
+    
+    if ([[UIApplication sharedApplication] respondsToSelector:@selector(registerUserNotificationSettings:)]) {
+        NSLog(@"Remote notifications enabled: %@", remoteNotificationsEnabled ? @"YES" : @"NO");
+    }
+    
+    NSLog(@"Notification type status:");
+    NSLog(@"  None: %@", noneEnabled ? @"enabled" : @"disabled");
+    NSLog(@"  Alerts: %@", alertsEnabled ? @"enabled" : @"disabled");
+    NSLog(@"  Badges: %@", badgesEnabled ? @"enabled" : @"disabled");
+    NSLog(@"  Sounds: %@", soundsEnabled ? @"enabled" : @"disabled");
+    
+    if ([[NSString stringWithFormat:@"  Sounds: %@", soundsEnabled ? @"enabled" : @"disabled"] isEqualToString:@"  Sounds: enabled"]) {
+        [_swtch_Notification_sound setOn:YES animated:YES];
+        [[NSUserDefaults standardUserDefaults] setObject:@"SOUND_OFF" forKey:@"SOUND_STAT"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    else
+    {
+        [_swtch_Notification_sound setOn:NO animated:YES];
+        [[NSUserDefaults standardUserDefaults] setObject:@"SOUND_ON" forKey:@"SOUND_STAT"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
     }
 }
 

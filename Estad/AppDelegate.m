@@ -104,41 +104,41 @@
     }
    
     /* Check and update Push notification settings*/
-    NSString *notification_STAT = [[NSUserDefaults standardUserDefaults] valueForKey:@"NOTIFICATOION_STAT"];
-    if (notification_STAT)
-    {
-        NSString *sound_not = [[NSUserDefaults standardUserDefaults] valueForKey:@"SOUND_STAT"];
-        if ([notification_STAT isEqualToString:@"NOTIFICATION_ON"])
-        {
-            if (sound_not)
-            {
-                if ([sound_not isEqualToString:@"SOUND_ON"]) {
-                    UIUserNotificationSettings* notificationSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil];
-                    [[UIApplication sharedApplication] registerUserNotificationSettings:notificationSettings];
-                }
-                else
-                {
-                    UIUserNotificationSettings* notificationSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge categories:nil];
-                    [[UIApplication sharedApplication] registerUserNotificationSettings:notificationSettings];
-                }
-            }
-            else
-            {
-                [[NSUserDefaults standardUserDefaults] setObject:@"SOUND_ON" forKey:@"SOUND_STAT"];
-                [[NSUserDefaults standardUserDefaults] synchronize];
-                UIUserNotificationSettings* notificationSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil];
-                [[UIApplication sharedApplication] registerUserNotificationSettings:notificationSettings];
-            }
-        }
-    }
-    else
-    {
+//    NSString *notification_STAT = [[NSUserDefaults standardUserDefaults] valueForKey:@"NOTIFICATOION_STAT"];
+//    if (notification_STAT)
+//    {
+//        NSString *sound_not = [[NSUserDefaults standardUserDefaults] valueForKey:@"SOUND_STAT"];
+//        if ([notification_STAT isEqualToString:@"NOTIFICATION_ON"])
+//        {
+//            if (sound_not)
+//            {
+//                if ([sound_not isEqualToString:@"SOUND_ON"]) {
+//                    UIUserNotificationSettings* notificationSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil];
+//                    [[UIApplication sharedApplication] registerUserNotificationSettings:notificationSettings];
+//                }
+//                else
+//                {
+//                    UIUserNotificationSettings* notificationSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge categories:nil];
+//                    [[UIApplication sharedApplication] registerUserNotificationSettings:notificationSettings];
+//                }
+//            }
+//            else
+//            {
+//                [[NSUserDefaults standardUserDefaults] setObject:@"SOUND_ON" forKey:@"SOUND_STAT"];
+//                [[NSUserDefaults standardUserDefaults] synchronize];
+//                UIUserNotificationSettings* notificationSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil];
+//                [[UIApplication sharedApplication] registerUserNotificationSettings:notificationSettings];
+//            }
+//        }
+//    }
+//    else
+//    {
         [[NSUserDefaults standardUserDefaults] setObject:@"NOTIFICATION_ON" forKey:@"NOTIFICATOION_STAT"];
         [[NSUserDefaults standardUserDefaults] setObject:@"SOUND_ON" forKey:@"SOUND_STAT"];
         [[NSUserDefaults standardUserDefaults] synchronize];
         UIUserNotificationSettings* notificationSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil];
         [[UIApplication sharedApplication] registerUserNotificationSettings:notificationSettings];
-    }
+//    }
     /* Check and update Push notification settings*/
     
    
@@ -216,6 +216,18 @@
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     
 //    [FBSDKAppEvents activateApp];
+
+    NSString *fromVCSETTING = [[NSUserDefaults standardUserDefaults]valueForKey:@"fromVCSETTING"];
+    if (fromVCSETTING) {
+        NSLog(@"asdasdawsd");
+        
+        [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"fromVCSETTING"];
+        [[NSUserDefaults standardUserDefaults]synchronize];
+        
+        NSNotification *notif = [NSNotification notificationWithName:@"Update_AVAILABLE" object:@"Status_change"];
+        [[NSNotificationCenter defaultCenter] postNotification:notif];
+        
+    }
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

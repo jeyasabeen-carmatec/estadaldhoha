@@ -149,66 +149,85 @@
     
     NSString *date_STR = [NSString stringWithFormat:@"%@",[temp_dictin valueForKey:@"dateformat"]];
     NSString *title_STR  = [NSString stringWithFormat:@"%@",[news valueForKey:@"title"]];
-    NSString *tag = [NSString stringWithFormat:@"Tag : %@",[news valueForKey:@"tags"]];
+//    NSString *tag = [NSString stringWithFormat:@"%@ : بطاقة",[news valueForKey:@"tags"]];
     NSString *data = [NSString stringWithFormat:@"%@",[news valueForKey:@"content"]];
     
     
-    NSAttributedString *new_str = [[NSAttributedString alloc] initWithData:[data dataUsingEncoding:NSUTF8StringEncoding]
-                                                                   options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType,
-                                                                             NSCharacterEncodingDocumentAttribute: @(NSUTF8StringEncoding)}
-                                                        documentAttributes:nil error:nil];
-    
-    NSString* string = new_str.string;
-    
-    
-    NSString *dtail = [NSString stringWithFormat:@"%@\n\n %@\n\n %@\n\n %@\n",date_STR,title_STR,tag,string];
-    
-    dtail = [dtail stringByReplacingOccurrencesOfString:@"<null>" withString:@""];
-    dtail = [dtail stringByReplacingOccurrencesOfString:@"(null)" withString:@""];
-    
-    NSString *test = [dtail stringByAppendingString:@"\t\n"];
-    
-    NSDictionary *attribs = @{
-                              NSForegroundColorAttributeName: self.lbl_date_E.tintColor,
-                              NSFontAttributeName: self.lbl_date_E.font
-                              };
-    NSMutableAttributedString *attributedText =
-    [[NSMutableAttributedString alloc] initWithString:test
-                                           attributes:attribs];
+//    NSAttributedString *new_str = [[NSAttributedString alloc] initWithData:[data dataUsingEncoding:NSUTF8StringEncoding]
+//                                                                   options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType,
+//                                                                             NSCharacterEncodingDocumentAttribute: @(NSUTF8StringEncoding)}
+//                                                        documentAttributes:nil error:nil];
+//    
+//    NSString* string = new_str.string;
     
     
-    NSRange cmp = [dtail rangeOfString:date_STR];
-    [attributedText setAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"HelveticaNeue" size:14.0]}
-                            range:cmp];
-    
-    NSRange titl = [dtail rangeOfString:title_STR];
-    [attributedText setAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"HelveticaNeue-Bold" size:18.0],
-                                    NSForegroundColorAttributeName : [UIColor colorWithRed:0.47 green:0.0 blue:0.25 alpha:1.0]}
-                            range:titl];
-    
-    NSRange typ = [dtail rangeOfString:tag];
-    [attributedText setAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"HelveticaNeue" size:14.0]}
-                            range:typ];
-    
-    NSRange sttr = [dtail rangeOfString:string];
-    [attributedText setAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"HelveticaNeue" size:14.0]
-                                    ,
-                                    NSForegroundColorAttributeName : [UIColor blackColor]}
-                            range:sttr];
-    
-    
-    
-    self.lbl_date_E.numberOfLines = 0;
-    self.lbl_date_E.attributedText = attributedText;
-    //self.lbl_CNTNT.adjustsFontSizeToFitWidth = YES;
-    //    _lbl_CNTNT.textAlignment = NSTextAlignmentRight;
-    [self.lbl_date_E sizeToFit];
-    
-    [_lbl_date_E setFrame:CGRectMake(8,_profile_VW.frame.origin.y + _profile_VW.frame.size.height + 10,self.view.frame.size.width - 16,_lbl_comnt_STAT.frame.size.height)];
+//    NSString *dtail = [NSString stringWithFormat:@"%@\n\n %@\n %@\n\n %@\n",date_STR,title_STR,tag,data];
+//    
+//    dtail = [dtail stringByReplacingOccurrencesOfString:@"<null>" withString:@""];
+//    dtail = [dtail stringByReplacingOccurrencesOfString:@"(null)" withString:@""];
+//    
+//    NSString *test = [dtail stringByAppendingString:@"\t\n"];
+//    
+//    NSDictionary *attribs = @{
+//                              NSForegroundColorAttributeName: self.lbl_date_E.tintColor,
+//                              NSFontAttributeName: self.lbl_date_E.font
+//                              };
+//    NSMutableAttributedString *attributedText =
+//    [[NSMutableAttributedString alloc] initWithString:test
+//                                           attributes:attribs];
+//    
+//    
+//    NSRange cmp = [dtail rangeOfString:date_STR];
+//    [attributedText setAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"HelveticaNeue" size:14.0]}
+//                            range:cmp];
+//    
+//    NSRange titl = [dtail rangeOfString:title_STR];
+//    [attributedText setAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"HelveticaNeue-Bold" size:19.0],
+//                                    NSForegroundColorAttributeName : [UIColor colorWithRed:0.47 green:0.0 blue:0.25 alpha:1.0]}
+//                            range:titl];
+//    
+//    NSRange typ = [dtail rangeOfString:tag];
+//    [attributedText setAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"HelveticaNeue" size:14.0]}
+//                            range:typ];
+//    
+//    NSRange sttr = [dtail rangeOfString:data];
+//    [attributedText setAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"HelveticaNeue" size:14.0]
+//                                    ,
+//                                    NSForegroundColorAttributeName : [UIColor blackColor]}
+//                            range:sttr];
+//    
+//    
+//    
+//    self.lbl_date_E.numberOfLines = 0;
+//    self.lbl_date_E.attributedText = attributedText;
+//    //self.lbl_CNTNT.adjustsFontSizeToFitWidth = YES;
+//    //    _lbl_CNTNT.textAlignment = NSTextAlignmentRight;
+//    [self.lbl_date_E sizeToFit];
+//    
+//    [_lbl_date_E setFrame:CGRectMake(8,_profile_VW.frame.origin.y + _profile_VW.frame.size.height + 10,self.view.frame.size.width - 16,_lbl_comnt_STAT.frame.size.height)];
     
     //_lbl_CNTNT.scrollEnabled = NO;
     
     //    [_lbl_CNTNT loadHTMLString:data baseURL:nil];
+    
+    date_STR = [date_STR stringByReplacingOccurrencesOfString:@"<null>" withString:@""];
+    date_STR = [date_STR stringByReplacingOccurrencesOfString:@"(null)" withString:@""];
+    _lbl_date.text = date_STR;
+    
+    float orginy = _lbl_title.frame.origin.y;
+    float width1 = _lbl_title.frame.size.width;
+    float orginx = _lbl_title.frame.origin.x;
+    
+    title_STR = [title_STR stringByReplacingOccurrencesOfString:@"<null>" withString:@""];
+    title_STR = [title_STR stringByReplacingOccurrencesOfString:@"(null)" withString:@""];
+    _lbl_title.text = title_STR;
+    _lbl_title.numberOfLines = 0;
+    [_lbl_title sizeToFit];
+    
+    float heihtt = _lbl_title.frame.size.height;
+    
+    [_lbl_title setFrame:CGRectMake(orginx,orginy,width1,heihtt)];
+    
     [_lbl_CNTNT loadHTMLString:[NSString stringWithFormat:@"<div style='text-align:right'>%@<div>",data] baseURL:nil];
     
 }
@@ -424,13 +443,14 @@
     [_view_COMMENT addTarget:self action:@selector(read_ALL_comnt) forControlEvents:UIControlEventTouchUpInside];
     [_hold_BTN addSubview:_view_COMMENT];
     
-    float exp_height = _lbl_date_E.frame.origin.y + _lbl_date_E.frame.size.height;
+    float exp_height = _lbl_title.frame.origin.y + _lbl_title.frame.size.height;
     
     CGRect g_frame = _lbl_CNTNT.frame;
     g_frame.origin.y = exp_height;
+    g_frame.size.height = self.lbl_CNTNT.frame.origin.y + fittingSize.height;
     _lbl_CNTNT.frame = g_frame;
     
-    _lbl_CNTNT.scrollView.scrollEnabled = NO;
+    _lbl_CNTNT.scrollView.scrollEnabled = YES;
     
     CGRect new_frame = self.lbl_CNTNT.frame;
     new_frame.size.height = self.lbl_CNTNT.frame.origin.y + fittingSize.height;
@@ -453,6 +473,8 @@
         _lbl_CMNT_date.hidden = YES;
         _lbl_CMNT_head.hidden = YES;
         _lbl_comnt_STAT.hidden = YES;
+        
+        content_frame.size.height = 3.0f;
     }
     else
     {
@@ -467,6 +489,8 @@
             _lbl_CMNT_date.hidden = YES;
             _lbl_CMNT_head.hidden = YES;
             _lbl_comnt_STAT.hidden = YES;
+            
+            content_frame.size.height = 3.0f;
         }
     }
     
@@ -579,4 +603,11 @@
     _overlay_VIW.hidden = YES;
 }
 
+- (IBAction)view_comments:(id)sender {
+    Comments_VC *controller = [[Comments_VC alloc]initWithNibName:@"Comments_VC" bundle:nil];
+    controller.get_ID1 = get_ID;
+    controller.get_titl1 = get_titl;
+    controller.get_home = @"Interview Detail";
+    [self.navigationController pushViewController:controller animated:YES];
+}
 @end

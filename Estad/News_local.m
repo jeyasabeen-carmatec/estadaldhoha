@@ -730,6 +730,8 @@
 //                UIBezierPath *shadowPath      = [UIBezierPath bezierPathWithRect:UIEdgeInsetsInsetRect(cell.VW_cvr.bounds, shadowInsets)];
 //                cell.VW_cvr.layer.shadowPath    = shadowPath.CGPath;
                 
+                [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+                
                 return cell;
             }
             else
@@ -823,6 +825,8 @@
 //                UIEdgeInsets shadowInsets     = UIEdgeInsetsMake(0, 0, -1.5f, 0);
 //                UIBezierPath *shadowPath      = [UIBezierPath bezierPathWithRect:UIEdgeInsetsInsetRect(cell.VW_cvr.bounds, shadowInsets)];
 //                cell.VW_cvr.layer.shadowPath    = shadowPath.CGPath;
+                
+                [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
                 
                 return cell;
             }

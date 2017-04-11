@@ -12,7 +12,7 @@
 @interface NEWS_datail_VC : UIViewController <UIWebViewDelegate>
 
 @property (nonatomic, weak) IBOutlet UIWebView *lbl_CNTNT;
-@property (nonatomic, weak) IBOutlet UILabel *lbl_date_E;
+//@property (nonatomic, weak) IBOutlet UILabel *lbl_date_E;
 @property (nonatomic, weak) IBOutlet UIView *profile_VW;
 @property (nonatomic, weak) IBOutlet UIScrollView *scroll_SCRN;
 @property (nonatomic, weak) IBOutlet UIView *main_VW;
@@ -63,5 +63,9 @@
 
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityindicator;
 @property (strong, nonatomic) IBOutlet UIView *VW_activity;
+
+@property (nonatomic, weak) IBOutlet UILabel *lbl_date;
+@property (nonatomic, weak) IBOutlet UILabel *lbl_title;
+- (IBAction)view_comments:(id)sender;
 
 @end

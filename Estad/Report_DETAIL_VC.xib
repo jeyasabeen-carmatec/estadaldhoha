@@ -26,7 +26,8 @@
                 <outlet property="lbl_TIME" destination="DbY-aH-P7B" id="Qaw-tY-SbL"/>
                 <outlet property="lbl_VIEWRS" destination="Q0s-Cf-Dbq" id="yvY-qc-KYK"/>
                 <outlet property="lbl_comnt_STAT" destination="o5V-T4-N8a" id="8AA-Xt-hrk"/>
-                <outlet property="lbl_date_E" destination="z4K-oq-IFg" id="nfp-8B-doA"/>
+                <outlet property="lbl_date" destination="4cO-FM-iYH" id="wTM-sN-cp2"/>
+                <outlet property="lbl_title" destination="UpF-Tw-WTL" id="ENf-c7-8fy"/>
                 <outlet property="main_VW" destination="FPw-fN-Vs8" id="fyr-8T-rM8"/>
                 <outlet property="profile_VW" destination="7IR-6I-9GG" id="EjL-o4-oTm"/>
                 <outlet property="scroll_SCRN" destination="bWj-fa-tTc" id="lGr-vi-2bi"/>
@@ -60,7 +61,7 @@
                                             <rect key="frame" x="8" y="8" width="30" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.17259738869863014" colorSpace="calibratedWhite"/>
-                                            <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="22"/>
+                                            <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="18"/>
                                             <state key="normal" title="">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
@@ -75,7 +76,7 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nYu-z8-PHb">
                                                     <rect key="frame" x="8" y="8" width="35" height="35"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="27"/>
+                                                    <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="19"/>
                                                     <state key="normal" title="">
                                                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
@@ -86,10 +87,13 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="LmB-h8-y32">
                                                     <rect key="frame" x="51" y="8" width="35" height="35"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="27"/>
+                                                    <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="19"/>
                                                     <state key="normal" title="">
                                                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="view_comments:" destination="-1" eventType="touchUpInside" id="rpQ-CI-hOO"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rXh-Xa-K1B">
                                                     <rect key="frame" x="295" y="15" width="17" height="21"/>
@@ -125,15 +129,22 @@
                                     </subviews>
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </view>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="z4K-oq-IFg">
-                                    <rect key="frame" x="0.0" y="238" width="320" height="95"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4cO-FM-iYH">
+                                    <rect key="frame" x="8" y="238" width="299" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                    <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <webView contentMode="scaleToFill" id="G24-BS-lMo">
-                                    <rect key="frame" x="8" y="341" width="304" height="105"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UpF-Tw-WTL">
+                                    <rect key="frame" x="8" y="267" width="299" height="26"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="19"/>
+                                    <color key="textColor" red="0.47450980390000003" green="0.0039215686269999999" blue="0.24313725489999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <webView contentMode="scaleToFill" misplaced="YES" id="G24-BS-lMo">
+                                    <rect key="frame" x="8" y="406" width="304" height="40"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" red="0.28958413004875183" green="0.31462949514389038" blue="0.32950475811958313" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <connections>

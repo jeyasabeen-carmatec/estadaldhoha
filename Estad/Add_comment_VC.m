@@ -57,7 +57,7 @@
     // ^-Use UITextAlignmentCenter for older SDKs.
     label.textColor = [UIColor whiteColor]; // change this color
     self.navigationItem.titleView = label;
-    label.text = NSLocalizedString(@"Leave A Comment", @"");
+    label.text = NSLocalizedString(@"اترك تعليقا", @"");
     [label sizeToFit];
     self.navigationItem.titleView = label;
     
@@ -163,56 +163,30 @@
 {
     NSLog(@"The Model = %@ Id = %@",get_Home,get_ID1);
     
-    NSString *model_ID;
-    
-    if ([get_Home isEqualToString:@"News Detail"])
-    {
-        model_ID = @"1";
-    }
-    else if ([get_Home isEqualToString:@"Article Detail"])
-    {
-        model_ID = @"2";
-    }
-    else if ([get_Home isEqualToString:@"Interview Detail"])
-    {
-        model_ID = @"3";
-    }
-    else if ([get_Home isEqualToString:@"Report Detail"])
-    {
-        model_ID = @"4";
-    }
-    
 //    http://192.64.84.166/estad/Apis/addComments?name=test&email=test@gmail.com&comment=comment&id=78&modelId=1
     
     NSString *name = [NSString stringWithFormat:@"%@",_GET_name.text];
     NSString *email = [NSString stringWithFormat:@"%@",_GET_email.text];
     NSString *comment = [NSString stringWithFormat:@"%@",_GET_contents.text];
     
-    NSString *url_STR = [NSString stringWithFormat:@"%@addComments?name=%@&email=%@&comment=%@&id=%@&modelId=%@",MAIN_URL,name,email,comment,get_ID1,model_ID];
-    url_STR = [url_STR stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
-    
-    NSLog(@"Post Url %@",url_STR);
-    
-    NSError *error = nil;
-//    NSURL *url = [NSURL URLWithString:url_STR];
-    NSData *aData = [NSData dataWithContentsOfURL:[NSURL URLWithString:url_STR]];
-    
-    if (aData)
-    {
-        NSMutableDictionary *out_JSON = (NSMutableDictionary *)[NSJSONSerialization JSONObjectWithData:aData options:NSASCIIStringEncoding error:&error];
-        
-        NSString *suc = [out_JSON valueForKey:@"success"];
-        
-        int stat = [suc intValue];
-        
-        if (stat == 1)
-             {
-                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"Success" delegate:self cancelButtonTitle:nil otherButtonTitles:@"Ok", nil];
-                 [alert show];
-             }
-        [self back_ACTION];
+    if (name.length == 0) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"اسم الشخص" message:@"اسم الشخص غير صالح" delegate:self cancelButtonTitle:nil otherButtonTitles:@"حسنا", nil];
+        [alert show];
     }
-    
+    else if (email.length == 0)
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"البريد الإلكتروني" message:@"البريد الإلكتروني غير صالح" delegate:self cancelButtonTitle:nil otherButtonTitles:@"حسنا", nil];
+        [alert show];
+    }
+    else if (comment.length == 0)
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"اضف تعليق" message:@"التعليق غير صالح" delegate:self cancelButtonTitle:nil otherButtonTitles:@"حسنا", nil];
+        [alert show];
+    }
+    else
+    {
+        [self validateEMAIL:email];
+    }
 }
 
 #pragma masrk - Text field Deligate
@@ -240,6 +214,87 @@
     // [UIView setAnimationDuration:0.25];
     self.view.frame = CGRectMake(0,self.navigationController.navigationBar.frame.origin.y + self.navigationController.navigationBar.frame.size.height,self.view.frame.size.width ,self.view.frame.size.height);
     [UIView commitAnimations];
+}
+
+-(void) validateEMAIL :(NSString *) email_STR
+{
+    NSString *text_to_compare = email_STR;
+    
+    NSString *emailRegEx = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,10}";
+    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegEx];
+    
+    if ([emailTest evaluateWithObject:text_to_compare] == NO)
+    {
+//        _TXT_username.text = @"";
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"البريد الإلكتروني" message:@"البريد الإلكتروني غير صالح" delegate:self cancelButtonTitle:nil otherButtonTitles:@"حسنا", nil];
+        [alert show];
+    }
+    
+    else
+    {
+        NSString *name = _GET_name.text;
+        NSString *coment = _GET_contents.text;
+        
+        NSCharacterSet *set = [NSCharacterSet whitespaceCharacterSet];
+        if ([[name stringByTrimmingCharactersInSet: set] length] == 0)
+        {
+            // String contains only whitespace.
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"اسم الشخص" message:@"اسم الشخص غير صالح" delegate:self cancelButtonTitle:nil otherButtonTitles:@"حسنا", nil];
+            [alert show];
+        }
+        else if ([[coment stringByTrimmingCharactersInSet: set] length] == 0)
+        {
+            // String contains only whitespace.
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"اضف تعليق" message:@"التعليق غير صالح" delegate:self cancelButtonTitle:nil otherButtonTitles:@"حسنا", nil];
+            [alert show];
+        }
+        else
+        {
+            NSString *model_ID;
+            
+            if ([get_Home isEqualToString:@"News Detail"])
+            {
+                model_ID = @"1";
+            }
+            else if ([get_Home isEqualToString:@"Article Detail"])
+            {
+                model_ID = @"2";
+            }
+            else if ([get_Home isEqualToString:@"Interview Detail"])
+            {
+                model_ID = @"3";
+            }
+            else if ([get_Home isEqualToString:@"Report Detail"])
+            {
+                model_ID = @"4";
+            }
+            
+            NSString *url_STR = [NSString stringWithFormat:@"%@addComments?name=%@&email=%@&comment=%@&id=%@&modelId=%@",MAIN_URL,name,_GET_email.text,_GET_contents.text,get_ID1,model_ID];
+            url_STR = [url_STR stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+            
+            NSLog(@"Post Url %@",url_STR);
+            
+            NSError *error = nil;
+            //    NSURL *url = [NSURL URLWithString:url_STR];
+            NSData *aData = [NSData dataWithContentsOfURL:[NSURL URLWithString:url_STR]];
+            
+            if (aData)
+            {
+                NSMutableDictionary *out_JSON = (NSMutableDictionary *)[NSJSONSerialization JSONObjectWithData:aData options:NSASCIIStringEncoding error:&error];
+                
+                NSString *suc = [out_JSON valueForKey:@"success"];
+                
+                int stat = [suc intValue];
+                
+                if (stat == 1)
+                {
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"نجاح" delegate:self cancelButtonTitle:nil otherButtonTitles:@"حسنا", nil];
+                    [alert show];
+                }
+                [self back_ACTION];
+            }
+        }
+    }
 }
 
 @end
