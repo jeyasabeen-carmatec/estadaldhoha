@@ -1024,7 +1024,7 @@
 				TargetAttributes = {
 					772F97061DC31ADE001BCF7E = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = 4MCGAH3G26;
+						DevelopmentTeam = 3W4Z78RZ75;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -1246,11 +1246,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_ENTITLEMENTS = Estad/Estad.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Aromal P. Rajagopal (CPRZV94W5U)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Aromal P. Rajagopal (CPRZV94W5U)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Aspire Printing Press (3W4Z78RZ75)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Aspire Printing Press (3W4Z78RZ75)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = 4MCGAH3G26;
+				DEVELOPMENT_TEAM = 3W4Z78RZ75;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -1271,7 +1271,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "bca95801-89b8-4d17-b887-6fe468d62d66";
+				PROVISIONING_PROFILE = "3cbc14b4-30bf-45ec-af8f-36d527f73ee4";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1299,11 +1299,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_ENTITLEMENTS = Estad/Estad.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Aromal P. Rajagopal (CPRZV94W5U)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Aromal P. Rajagopal (CPRZV94W5U)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Aspire Printing Press (3W4Z78RZ75)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Aspire Printing Press (3W4Z78RZ75)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = 4MCGAH3G26;
+				DEVELOPMENT_TEAM = 3W4Z78RZ75;
 				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1317,7 +1317,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "bca95801-89b8-4d17-b887-6fe468d62d66";
+				PROVISIONING_PROFILE = "3cbc14b4-30bf-45ec-af8f-36d527f73ee4";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1330,9 +1330,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Estad/Estad.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Aromal P. Rajagopal (CPRZV94W5U)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Aromal P. Rajagopal (CPRZV94W5U)";
-				DEVELOPMENT_TEAM = 4MCGAH3G26;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Aspire Printing Press (3W4Z78RZ75)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Aspire Printing Press (3W4Z78RZ75)";
+				DEVELOPMENT_TEAM = 3W4Z78RZ75;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1344,10 +1344,10 @@
 				INFOPLIST_FILE = Estad/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.carmatec.testPushNotification;
+				PRODUCT_BUNDLE_IDENTIFIER = com.goodbarber.estadaldoha;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "bca95801-89b8-4d17-b887-6fe468d62d66";
-				PROVISIONING_PROFILE_SPECIFIER = test_push_notification;
+				PROVISIONING_PROFILE = "3cbc14b4-30bf-45ec-af8f-36d527f73ee4";
+				PROVISIONING_PROFILE_SPECIFIER = estadaldoha;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1357,9 +1357,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Estad/Estad.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Aromal P. Rajagopal (CPRZV94W5U)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Aromal P. Rajagopal (CPRZV94W5U)";
-				DEVELOPMENT_TEAM = 4MCGAH3G26;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Aspire Printing Press (3W4Z78RZ75)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Aspire Printing Press (3W4Z78RZ75)";
+				DEVELOPMENT_TEAM = 3W4Z78RZ75;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1371,10 +1371,10 @@
 				INFOPLIST_FILE = Estad/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.carmatec.testPushNotification;
+				PRODUCT_BUNDLE_IDENTIFIER = com.goodbarber.estadaldoha;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "bca95801-89b8-4d17-b887-6fe468d62d66";
-				PROVISIONING_PROFILE_SPECIFIER = test_push_notification;
+				PROVISIONING_PROFILE = "3cbc14b4-30bf-45ec-af8f-36d527f73ee4";
+				PROVISIONING_PROFILE_SPECIFIER = estadaldoha;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
