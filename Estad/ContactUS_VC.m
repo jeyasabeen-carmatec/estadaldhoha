@@ -18,7 +18,7 @@
 #import "Videos_VC.h"
 //#import "HomeController.h"
 #import "New_Home_VC.h"
-#import "Cell_CONTACT_US_F.h"
+//#import "Cell_CONTACT_US_F.h"
 #import "cell_CON_US_SE.h"
 #import "About_US_VC.h"
 #import "Editorial_board_VC.h"
@@ -652,7 +652,7 @@
     }
     else if (tableView == _tbl_contact_US)
     {
-        if (indexPath.row == 0)
+       /* if (indexPath.row == 0)
         {
             static NSString *simpleTableIdentifier = @"SimpleTableCell";
             Cell_CONTACT_US_F *cell = (Cell_CONTACT_US_F *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
@@ -665,7 +665,7 @@
             return cell;
         }
         else
-        {
+        {*/
             static NSString *simpleTableIdentifier = @"SimpleTableCell";
             cell_CON_US_SE *cell = (cell_CON_US_SE *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
             if (cell == nil)
@@ -673,14 +673,19 @@
                 NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"cell_CON_US_SE" owner:self options:nil];
                 cell = [nib objectAtIndex:0];
             }
-            if (indexPath.row == 1) {
+           if (indexPath.row == 0) {
+                cell.lbl_title.text = @"العنوان";
+                cell.lbl_contents.text = @"إدارة اسباير للطباعة و النشر و التوزيع , قطر";
+                cell.img_logo.image = [UIImage imageNamed:@"location"];
+            }
+            else if (indexPath.row == 1) {
                 cell.lbl_title.text = @"رقم الهاتف";
-                cell.lbl_contents.text = @"00974 44138578";
+                cell.lbl_contents.text = @"+974 441 38578";
                 cell.img_logo.image = [UIImage imageNamed:@"phone"];
             }
             else if (indexPath.row == 2) {
-                cell.lbl_title.text = @"البريد الاكتروني";
-                cell.lbl_contents.text = @"Info@estadaldoha.com";
+                cell.lbl_title.text = @"البريد الالكتروني";
+                cell.lbl_contents.text = @"info@estadaldoha.com";
                 cell.img_logo.image = [UIImage imageNamed:@"email"];
             }
             else if (indexPath.row == 3) {
@@ -690,12 +695,13 @@
             }
             else if (indexPath.row == 4) {
                 cell.lbl_title.text = @"الفاكس";
-                cell.lbl_contents.text = @"00974 44138594";
+                cell.lbl_contents.text = @"+974 441 38 594";
                 cell.img_logo.image = [UIImage imageNamed:@"fax"];
             }
-            
+        
+            [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
             return cell;
-        }
+       // }
         
     }
     else if (tableView == _list_DATA)

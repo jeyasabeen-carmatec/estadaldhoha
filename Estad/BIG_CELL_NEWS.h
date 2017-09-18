@@ -14,4 +14,6 @@
 @property (nonatomic, weak) IBOutlet UILabel *lbl_TITL;
 @property (nonatomic, weak) IBOutlet UILabel *lbl_CNT;
 
+@property (nonatomic, weak) IBOutlet UIView *VW_Content;
+
 @end

@@ -57,8 +57,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     post = [[NSArray alloc]initWithObjects:@"رئيس التحرير",@"مدير التحرير",@"سكرتير التحرير", nil];
-    name = [[NSArray alloc]initWithObjects:@"ماجد محمد الخليفي",@"علم الدين هاشم",@"احمد اسماعيل", nil];
-    email = [[NSArray alloc]initWithObjects:@"malkhaligi@estadaldoha.com",@"alameldin56@estadaldoha.com",@"ahmed@estadaldoha.com", nil];
+    name = [[NSArray alloc]initWithObjects:@"ماجد الخليفي",@"احمد الانصاري",@"احمد اسماعيل", nil];
+    email = [[NSArray alloc]initWithObjects:
+             @"malkhailifi@estadaldoha.com",@"alansari@estadaldoha.com",@"ahmed@estadaldoha.com", nil];
     
     myCollapseClick.CollapseClickDelegate = self;
     [myCollapseClick reloadCollapseClick];
@@ -652,9 +653,38 @@
             NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"Editorial_BRD_cell" owner:self options:nil];
             cell = [nib objectAtIndex:0];
         }
-        cell.lbl_post.text = [post objectAtIndex:indexPath.row];
-        cell.lbl_name.text = [name objectAtIndex:indexPath.row];
+//        cell.lbl_post.text = [post objectAtIndex:indexPath.row];
+//        cell.lbl_name.text = [name objectAtIndex:indexPath.row];
         cell.lbl_email_id.text = [email objectAtIndex:indexPath.row];
+        
+        NSString *post_string = [NSString stringWithFormat:@"%@ : %@",[post objectAtIndex:indexPath.row],[name objectAtIndex:indexPath.row]];
+        
+        // If attributed text is supported (iOS6+)
+        if ([cell.lbl_post respondsToSelector:@selector(setAttributedText:)]) {
+            
+            // Define general attributes for the entire text
+            NSDictionary *attribs = @{
+                                      NSForegroundColorAttributeName: cell.lbl_post.textColor,
+                                      NSFontAttributeName: cell.lbl_post.font
+                                      };
+            NSMutableAttributedString *attributedText =
+            [[NSMutableAttributedString alloc] initWithString:post_string
+                                                   attributes:attribs];
+            
+            // Red text attributes
+            //            UIColor *redColor = [UIColor redColor];
+            NSRange cmp = [post_string rangeOfString:[name objectAtIndex:indexPath.row]];// * Notice that usage of rangeOfString in this case may cause some bugs - I use it here only for demonstration
+            [attributedText setAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"HelveticaNeue" size:14.0],NSForegroundColorAttributeName:[UIColor blackColor]}
+                                    range:cmp];
+        
+            cell.lbl_post.attributedText = attributedText;
+        }
+        else
+        {
+            cell.lbl_post.text = [post_string capitalizedString];
+        }
+        
+        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         
         return cell;
     }

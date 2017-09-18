@@ -36,6 +36,15 @@
     _VW_activity.hidden = YES;
     
     
+    CABasicAnimation *TransformAnim = [CABasicAnimation animationWithKeyPath:@"transform"];
+    
+    TransformAnim.fromValue = [NSValue valueWithCATransform3D:CATransform3DIdentity];
+    TransformAnim.toValue = [NSValue valueWithCATransform3D:CATransform3DMakeRotation(M_PI, 0, 1, 0)];
+    
+    TransformAnim.cumulative = YES; TransformAnim.duration = 2; TransformAnim.repeatCount = 5;
+    
+    [_splashView.layer addAnimation:TransformAnim forKey:nil];
+    
     [self animate_VC];
 
 }
@@ -43,14 +52,8 @@
 -(void) animate_VC
 {
 //    [UIView animateWithDuration:0.5f animations:^{
-        CABasicAnimation *TransformAnim = [CABasicAnimation animationWithKeyPath:@"transform"];
-        
-        TransformAnim.fromValue = [NSValue valueWithCATransform3D:CATransform3DIdentity];
-        TransformAnim.toValue = [NSValue valueWithCATransform3D:CATransform3DMakeRotation(M_PI, 0, 1, 0)];
-        
-        TransformAnim.cumulative = YES; TransformAnim.duration = 2; TransformAnim.repeatCount = 5;
-        
-        [_splashView.layer addAnimation:TransformAnim forKey:nil];
+    
+    
 //    }];
     
 //    [self performSelector:@selector(next_VC) withObject:TransformAnim afterDelay:2.0];

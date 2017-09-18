@@ -30,12 +30,12 @@
 //#define FILE_URL @"http://192.64.84.166/estad/"
 //#define FILE_URL @"http://192.168.0.116/estad/"
 
-//#define MAIN_URL @"http://192.64.84.166/estad/Apis/"
-#define MAIN_URL @"http://estadaldoha.com/Apis/"
-//#define IMAGE_URL @"http://192.64.84.166/estad/files/"
-#define IMAGE_URL @"http://estadaldoha.com/files/"
-//#define FILE_URL @"http://192.64.84.166/estad/"
-#define FILE_URL @"http://estadaldoha.com/"
+//#define MAIN_URL @"http://192.168.0.116/estad/Apis/"
+#define MAIN_URL @"http://www.estadaldoha.com/Apis/"
+//#define IMAGE_URL @"http://192.168.0.116/estad/files/"
+#define IMAGE_URL @"http://www.estadaldoha.com/files/"
+//#define FILE_URL @"http://192.168.0.116/estad/"
+#define FILE_URL @"http://www.estadaldoha.com/"
 
 // NSString *URL_STR = [NSString stringWithFormat:@"http://192.168.0.116/estad/Apis/registerPush"];
 

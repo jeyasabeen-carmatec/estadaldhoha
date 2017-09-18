@@ -682,6 +682,10 @@
             cell = [nib objectAtIndex:0];
         }
         cell.lbl_content.text = [list_NEWS objectAtIndex:indexPath.row];
+        
+        cell.contentView.layer.cornerRadius = 5;
+        cell.contentView.layer.masksToBounds = YES;
+        
         return cell;
     }
     else if (tableView == _tbl_ARTICLES)
@@ -694,6 +698,10 @@
             cell = [nib objectAtIndex:0];
         }
         cell.lbl_content.text = [list_ARTICLES objectAtIndex:indexPath.row];
+        
+        cell.contentView.layer.cornerRadius = 5;
+        cell.contentView.layer.masksToBounds = YES;
+        
         return cell;
     }
     else if (tableView == _tbl_MEDIA)
@@ -706,6 +714,10 @@
             cell = [nib objectAtIndex:0];
         }
         cell.lbl_content.text = [list_MEDIA objectAtIndex:indexPath.row];
+        
+        cell.contentView.layer.cornerRadius = 5;
+        cell.contentView.layer.masksToBounds = YES;
+        
         return cell;
     }
     else if (tableView == _list_DATA)
@@ -719,6 +731,10 @@
         }
         cell.lbl_NME.text = [searchResults objectAtIndex:indexPath.row];
         cell.lbl_NME.numberOfLines = 2;
+        
+        cell.contentView.layer.cornerRadius = 5;
+        cell.contentView.layer.masksToBounds = YES;
+        
         return cell;
     }
     static NSString *simpleTableIdentifier = @"SimpleTableItem";

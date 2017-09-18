@@ -13,5 +13,6 @@
 @property (nonatomic, weak) IBOutlet UIImageView *image_CNT;
 @property (nonatomic, weak) IBOutlet UILabel *lbl_TITL;
 @property (nonatomic, weak) IBOutlet UILabel *lbl_CNT;
+@property (nonatomic, weak) IBOutlet UIView *VW_content;
 
 @end

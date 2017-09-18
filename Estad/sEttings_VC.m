@@ -1022,7 +1022,7 @@
     }
     
     
-    BOOL remoteNotificationsEnabled = false, noneEnabled,alertsEnabled, badgesEnabled, soundsEnabled;
+    BOOL remoteNotificationsEnabled = false, noneEnabled = false,alertsEnabled = false, badgesEnabled = false, soundsEnabled = false;
     
     if ([[UIApplication sharedApplication] respondsToSelector:@selector(registerUserNotificationSettings:)]) {
         // iOS8+

@@ -13,6 +13,7 @@
 #import "Report_DETAIL_VC.h"
 #import "Interview_DETAIL.h"
 #import "Article_DETAIL_VC.h"
+#import "SDWebImage/UIImageView+WebCache.h"
 
 //#import <FBSDKCoreKit/FBSDKCoreKit.h>
 
@@ -236,7 +237,7 @@
 -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
     NSLog(@"Notification Received .. Dictionary %@",userInfo);
-    UINavigationController *navController;
+    UINavigationController *navController = nil;
     
     [[NSUserDefaults standardUserDefaults] setObject:@"HOME" forKey:@"BACKOPTION"];
     [[NSUserDefaults standardUserDefaults] synchronize];

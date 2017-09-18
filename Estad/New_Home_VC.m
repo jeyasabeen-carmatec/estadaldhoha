@@ -149,6 +149,10 @@
     NSLog(@"new token available : %@", token);
     NSError *error;
     NSString *URL_STR = [NSString stringWithFormat:@"%@registerPush",MAIN_URL];
+    
+    
+    NSLog(@"Mail url = %@",URL_STR);
+    
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     
     NSString *post = [NSString stringWithFormat:@"token=%@&type=%@",token,@"ios"];
@@ -171,6 +175,8 @@
         NSMutableDictionary *push = (NSMutableDictionary *)[NSJSONSerialization JSONObjectWithData:aData options:NSASCIIStringEncoding error:&error];
         NSLog(@"OUT Json Push register %@",push);
     }
+    
+    NSLog(@"OUT error %@",error);
 }
 
 -(void) send_TOK
@@ -926,6 +932,10 @@
             cell = [nib objectAtIndex:0];
         }
         cell.lbl_content.text = [list_NEWS1 objectAtIndex:indexPath.row];
+        
+//        cell.contentView.layer.cornerRadius = 5;
+//        cell.contentView.layer.masksToBounds = YES;
+        
         return cell;
     }
     else if (tableView == _tbl_ARTICLES)
@@ -938,6 +948,10 @@
             cell = [nib objectAtIndex:0];
         }
         cell.lbl_content.text = [list_ARTICLES objectAtIndex:indexPath.row];
+        
+//        cell.contentView.layer.cornerRadius = 5;
+//        cell.contentView.layer.masksToBounds = YES;
+        
         return cell;
     }
     else if (tableView == _tbl_MEDIA)
@@ -950,6 +964,10 @@
             cell = [nib objectAtIndex:0];
         }
         cell.lbl_content.text = [list_MEDIA objectAtIndex:indexPath.row];
+        
+//        cell.contentView.layer.cornerRadius = 5;
+//        cell.contentView.layer.masksToBounds = YES;
+        
         return cell;
     }
     else if (tableView == _list_DATA)
@@ -963,6 +981,10 @@
         }
         cell.lbl_NME.text = [searchResults objectAtIndex:indexPath.row];
         cell.lbl_NME.numberOfLines = 2;
+        
+//        cell.contentView.layer.cornerRadius = 5;
+//        cell.contentView.layer.masksToBounds = YES;
+        
         return cell;
     }
     else if (tableView == _list_NEWS)
@@ -993,6 +1015,9 @@
             
             [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
             
+            [cell.VW_Content.layer setCornerRadius:5.0f];
+            [cell.VW_Content.layer setMasksToBounds:YES];
+            
             return cell;
         }
         else
@@ -1018,6 +1043,9 @@
             cell.lbl_CNT.numberOfLines = 4;
             
             [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+            
+            [cell.VW_content.layer setCornerRadius:5.0f];
+            [cell.VW_content.layer setMasksToBounds:YES];
             
             return cell;
         }
@@ -1051,6 +1079,9 @@
         
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         
+        [cell.VW_Content.layer setCornerRadius:5.0f];
+        [cell.VW_Content.layer setMasksToBounds:YES];
+        
         return cell;
     }
     else if (tableView == _list_localNWS)
@@ -1083,6 +1114,9 @@
             
             [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
             
+            [cell.VW_Content.layer setCornerRadius:5.0f];
+            [cell.VW_Content.layer setMasksToBounds:YES];
+            
             return cell;
         }
         else
@@ -1108,6 +1142,9 @@
             cell.lbl_CNT1.numberOfLines = 4;
             [cell.btn1 addTarget:self action:@selector(local_news0) forControlEvents:UIControlEventTouchUpInside];
             
+            cell.VW_1.layer.cornerRadius = 5;
+            cell.VW_1.layer.masksToBounds = YES;
+            
             
             NSDictionary *temp_DICTN1 = [localNews objectAtIndex:indexPath.row + 1];
             NSDictionary *dict_VAL1 = [temp_DICTN1 valueForKey:@"News"];
@@ -1122,6 +1159,9 @@
             cell.lbl_CNT2.text = [dict_VAL1 valueForKey:@"summary"];
             cell.lbl_CNT2.numberOfLines = 4;
             [cell.btn2 addTarget:self action:@selector(local_news1) forControlEvents:UIControlEventTouchUpInside];
+            
+            cell.VW_2.layer.cornerRadius = 5;
+            cell.VW_2.layer.masksToBounds = YES;
             
             [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
             
@@ -1154,6 +1194,9 @@
             
             [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
             
+            [cell.VW_Content.layer setCornerRadius:5.0f];
+            [cell.VW_Content.layer setMasksToBounds:YES];
+            
             return cell;
         }
         else
@@ -1179,6 +1222,9 @@
             cell.lbl_CNT.numberOfLines = 4;
             
             [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+            
+            [cell.VW_content.layer setCornerRadius:5.0f];
+            [cell.VW_content.layer setMasksToBounds:YES];
             
             return cell;
         }
@@ -1209,6 +1255,9 @@
             
             [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
             
+            [cell.VW_Content.layer setCornerRadius:5.0f];
+            [cell.VW_Content.layer setMasksToBounds:YES];
+            
             return cell;
         }
         else if (indexPath.row == 4 && [reports count] > 5)
@@ -1234,6 +1283,8 @@
             cell.lbl_CNT1.numberOfLines = 4;
             [cell.btn1 addTarget:self action:@selector(local_reports0) forControlEvents:UIControlEventTouchUpInside];
             
+            cell.VW_1.layer.cornerRadius = 5;
+            cell.VW_1.layer.masksToBounds = YES;
             
             NSDictionary *temp_DICTN1 = [reports objectAtIndex:indexPath.row + 1];
             NSDictionary *dict_VAL1 = [temp_DICTN1 valueForKey:@"Report"];
@@ -1249,7 +1300,13 @@
             cell.lbl_CNT2.numberOfLines = 4;
             [cell.btn2 addTarget:self action:@selector(local_reports1) forControlEvents:UIControlEventTouchUpInside];
             
+            cell.btn2.layer.cornerRadius = 5;
+            cell.btn2.layer.masksToBounds = YES;
+            
             [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+            
+            cell.VW_2.layer.cornerRadius = 5;
+            cell.VW_2.layer.masksToBounds = YES;
             
             return cell;
         }
@@ -1274,6 +1331,9 @@
             cell.lbl_CNT.numberOfLines = 4;
             
             [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+            
+            [cell.VW_content.layer setCornerRadius:5.0f];
+            [cell.VW_content.layer setMasksToBounds:YES];
             
             return cell;
         }
@@ -1711,6 +1771,9 @@ shouldStartLoadWithRequest:(NSURLRequest*)request
     NSString *jsString = [[NSString alloc]      initWithFormat:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '%d%%'",[fontSize intValue]];
     [_widget_VW stringByEvaluatingJavaScriptFromString:jsString];
     
+    _widget_VW.layer.cornerRadius = 5.0;
+    _widget_VW.layer.masksToBounds = YES;
+    
 //    CGRect frame1 = _widget_VW.frame;
 //    frame1.size.height = 60;
 //    _widget_VW.frame = frame1;
@@ -1770,7 +1833,6 @@ shouldStartLoadWithRequest:(NSURLRequest*)request
         frame.size = fittingSize;
         _widget_VW.frame = frame;
         NSLog(@"size: %f, %f", fittingSize.width, fittingSize.height);
-
         
         [self setup_DATA];
     }

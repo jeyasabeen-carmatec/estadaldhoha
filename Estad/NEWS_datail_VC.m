@@ -202,6 +202,14 @@
     date_STR = [date_STR stringByReplacingOccurrencesOfString:@"(null)" withString:@""];
     _lbl_date.text = date_STR;
     
+    CGRect frame_1 = _lbl_date.frame;
+    frame_1.origin.y = _profile_VW.frame.size.height + 10;
+    _lbl_date.frame = frame_1;
+    
+    frame_1 = _lbl_title.frame;
+    frame_1.origin.y = _lbl_date.frame.origin.y + _lbl_date.frame.size.height + 10;
+    _lbl_title.frame = frame_1;
+    
     float orginy = _lbl_title.frame.origin.y;
     float width1 = _lbl_title.frame.size.width;
     float orginx = _lbl_title.frame.origin.x;
@@ -455,6 +463,7 @@
     
     [_view_COMMENT addTarget:self action:@selector(read_ALL_comnt) forControlEvents:UIControlEventTouchUpInside];
     [_hold_BTN addSubview:_view_COMMENT];
+    
     
     float exp_height = _lbl_title.frame.origin.y + _lbl_title.frame.size.height;
     

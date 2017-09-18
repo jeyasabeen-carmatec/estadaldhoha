@@ -11,7 +11,7 @@
 @interface Editorial_BRD_cell : UITableViewCell
 
 @property (nonatomic, weak) IBOutlet UILabel *lbl_post;
-@property (nonatomic, weak) IBOutlet UILabel *lbl_name;
-@property (nonatomic, weak) IBOutlet UILabel *lbl_email_id;
+//@property (nonatomic, weak) IBOutlet UILabel *lbl_name;
+@property (nonatomic, weak) IBOutlet UITextView *lbl_email_id;
 
 @end

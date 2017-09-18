@@ -732,6 +732,9 @@
                 
                 [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
                 
+                [cell.VW_cvr.layer setCornerRadius:5.0f];
+                [cell.VW_cvr.layer setMasksToBounds:YES];
+                
                 return cell;
             }
             else

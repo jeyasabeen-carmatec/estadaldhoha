@@ -26,7 +26,6 @@
 		182D59EB1DDC27570050DF37 /* NEWS_BIG_CELL.xib in Resources */ = {isa = PBXBuildFile; fileRef = 182D59E91DDC27570050DF37 /* NEWS_BIG_CELL.xib */; };
 		182D59EF1DDC27750050DF37 /* News_ADS_cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 182D59ED1DDC27750050DF37 /* News_ADS_cell.m */; };
 		182D59F01DDC27750050DF37 /* News_ADS_cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 182D59EE1DDC27750050DF37 /* News_ADS_cell.xib */; };
-		1866A0E41DEC6A2500F08A67 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1866A0E31DEC6A2500F08A67 /* GoogleMobileAds.framework */; };
 		1868AEDB1DDB359D00D2A114 /* News_local.m in Sources */ = {isa = PBXBuildFile; fileRef = 1868AED91DDB359D00D2A114 /* News_local.m */; };
 		1868AEDC1DDB359D00D2A114 /* News_local.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1868AEDA1DDB359D00D2A114 /* News_local.xib */; };
 		188CF3FD1E0AB11900CC1363 /* NSString+WhatsAppKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 188CF3FA1E0AB11900CC1363 /* NSString+WhatsAppKit.m */; };
@@ -110,6 +109,7 @@
 		18F17D2F1E0BACFE005180DC /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18F17D2C1E0BACFE005180DC /* Info.plist */; };
 		18F17D321E0BC57F005180DC /* YTPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F17D311E0BC57F005180DC /* YTPlayerView.m */; };
 		18FCFFF71DED4D5C003B7475 /* Assets.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 18FCFFF61DED4D5C003B7475 /* Assets.bundle */; };
+		363F29040FEA236EAC4E7149 /* libPods-Estad.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A643AB20DBB1255EFB9F90C1 /* libPods-Estad.a */; };
 		7705229C1DC9DAB6001C4922 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7705229B1DC9DAB6001C4922 /* CoreGraphics.framework */; };
 		7705229E1DC9DAC1001C4922 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7705229D1DC9DAC1001C4922 /* UIKit.framework */; };
 		772F970C1DC31ADE001BCF7E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 772F970B1DC31ADE001BCF7E /* main.m */; };
@@ -129,8 +129,10 @@
 		9A95557A1DDAE0E400A5FBC5 /* media_CELL.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A9555781DDAE0E400A5FBC5 /* media_CELL.xib */; };
 		9AEAACD81DDAD4D70075EAF2 /* News_CELL.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AEAACD61DDAD4D70075EAF2 /* News_CELL.m */; };
 		9AEAACD91DDAD4D70075EAF2 /* News_CELL.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AEAACD71DDAD4D70075EAF2 /* News_CELL.xib */; };
-		BE62C85F1E48A53C000E2397 /* Logo_NEW.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE62C85E1E48A53C000E2397 /* Logo_NEW.jpg */; };
+		BE2DC7581F6FC4950097443E /* Logo_NEW.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE2DC7571F6FC4950097443E /* Logo_NEW.jpg */; };
+		BE2DC75A1F6FC54E0097443E /* splash_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = BE2DC7591F6FC54E0097443E /* splash_logo.png */; };
 		BE62C8691E4C827B000E2397 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE62C8681E4C827A000E2397 /* QuartzCore.framework */; };
+		BEA45CDE1F3C911100316D7E /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEA45CDD1F3C911100316D7E /* GoogleMobileAds.framework */; };
 		BEE665701E5D5CDC00DF9235 /* Internet_Error.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE6656E1E5D5CDC00DF9235 /* Internet_Error.m */; };
 		BEE665711E5D5CDC00DF9235 /* Internet_Error.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEE6656F1E5D5CDC00DF9235 /* Internet_Error.xib */; };
 		BEE665AE1E600C6300DF9235 /* FLAnimatedImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE665AD1E600C6300DF9235 /* FLAnimatedImageView+WebCache.m */; };
@@ -153,7 +155,6 @@
 		BEE665E61E600C8100DF9235 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE665D11E600C8100DF9235 /* UIImageView+WebCache.m */; };
 		BEE665E71E600C8100DF9235 /* UIView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE665D31E600C8100DF9235 /* UIView+WebCache.m */; };
 		BEE665E81E600C8100DF9235 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE665D51E600C8100DF9235 /* UIView+WebCacheOperation.m */; };
-		BEE9B3131E6E83FF00AD83C6 /* splash_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = BEE9B3121E6E83FE00AD83C6 /* splash_logo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -187,7 +188,6 @@
 		182D59EC1DDC27750050DF37 /* News_ADS_cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = News_ADS_cell.h; sourceTree = "<group>"; };
 		182D59ED1DDC27750050DF37 /* News_ADS_cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = News_ADS_cell.m; sourceTree = "<group>"; };
 		182D59EE1DDC27750050DF37 /* News_ADS_cell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = News_ADS_cell.xib; sourceTree = "<group>"; };
-		1866A0E31DEC6A2500F08A67 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
 		1868AED81DDB359D00D2A114 /* News_local.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = News_local.h; sourceTree = "<group>"; };
 		1868AED91DDB359D00D2A114 /* News_local.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = News_local.m; sourceTree = "<group>"; };
 		1868AEDA1DDB359D00D2A114 /* News_local.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = News_local.xib; sourceTree = "<group>"; };
@@ -310,6 +310,7 @@
 		18F17D301E0BC57F005180DC /* YTPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTPlayerView.h; sourceTree = "<group>"; };
 		18F17D311E0BC57F005180DC /* YTPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTPlayerView.m; sourceTree = "<group>"; };
 		18FCFFF61DED4D5C003B7475 /* Assets.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Assets.bundle; sourceTree = "<group>"; };
+		3C9BAB13B3F865A3736B89B5 /* Pods-Estad.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Estad.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Estad/Pods-Estad.debug.xcconfig"; sourceTree = "<group>"; };
 		770522991DC9DAAE001C4922 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7705229B1DC9DAB6001C4922 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		7705229D1DC9DAC1001C4922 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -341,8 +342,12 @@
 		9AEAACD51DDAD4D70075EAF2 /* News_CELL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = News_CELL.h; sourceTree = "<group>"; };
 		9AEAACD61DDAD4D70075EAF2 /* News_CELL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = News_CELL.m; sourceTree = "<group>"; };
 		9AEAACD71DDAD4D70075EAF2 /* News_CELL.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = News_CELL.xib; sourceTree = "<group>"; };
-		BE62C85E1E48A53C000E2397 /* Logo_NEW.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Logo_NEW.jpg; sourceTree = "<group>"; };
+		9F2EE9AAE52C82110D3CE8CA /* Pods-Estad.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Estad.release.xcconfig"; path = "Pods/Target Support Files/Pods-Estad/Pods-Estad.release.xcconfig"; sourceTree = "<group>"; };
+		A643AB20DBB1255EFB9F90C1 /* libPods-Estad.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Estad.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE2DC7571F6FC4950097443E /* Logo_NEW.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Logo_NEW.jpg; sourceTree = "<group>"; };
+		BE2DC7591F6FC54E0097443E /* splash_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash_logo.png; sourceTree = "<group>"; };
 		BE62C8681E4C827A000E2397 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		BEA45CDD1F3C911100316D7E /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
 		BEE664F91E56E16D00DF9235 /* Estad.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Estad.entitlements; sourceTree = "<group>"; };
 		BEE6656D1E5D5CDC00DF9235 /* Internet_Error.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Internet_Error.h; sourceTree = "<group>"; };
 		BEE6656E1E5D5CDC00DF9235 /* Internet_Error.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Internet_Error.m; sourceTree = "<group>"; };
@@ -388,7 +393,6 @@
 		BEE665D31E600C8100DF9235 /* UIView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCache.m"; sourceTree = "<group>"; };
 		BEE665D41E600C8100DF9235 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		BEE665D51E600C8100DF9235 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
-		BEE9B3121E6E83FE00AD83C6 /* splash_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash_logo.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -398,13 +402,14 @@
 			files = (
 				BE62C8691E4C827B000E2397 /* QuartzCore.framework in Frameworks */,
 				188CF40D1E0AC4A800CC1363 /* Security.framework in Frameworks */,
+				BEA45CDE1F3C911100316D7E /* GoogleMobileAds.framework in Frameworks */,
 				188CF40B1E0AC4A200CC1363 /* Social.framework in Frameworks */,
 				188CF4091E0AC00400CC1363 /* Foundation.framework in Frameworks */,
 				188CF4001E0AB76600CC1363 /* Bolts.framework in Frameworks */,
 				18EF94071DEC73600002E4C7 /* AdSupport.framework in Frameworks */,
 				7705229E1DC9DAC1001C4922 /* UIKit.framework in Frameworks */,
-				1866A0E41DEC6A2500F08A67 /* GoogleMobileAds.framework in Frameworks */,
 				7705229C1DC9DAB6001C4922 /* CoreGraphics.framework in Frameworks */,
+				363F29040FEA236EAC4E7149 /* libPods-Estad.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -536,7 +541,7 @@
 		18A3A7901DEC12EE008D4CD4 /* Contact_US */ = {
 			isa = PBXGroup;
 			children = (
-				BEE9B3121E6E83FE00AD83C6 /* splash_logo.png */,
+				BE2DC7591F6FC54E0097443E /* splash_logo.png */,
 				18A3A7A11DEC1E01008D4CD4 /* email.png */,
 				18A3A7A21DEC1E01008D4CD4 /* fax.png */,
 				18A3A7A31DEC1E01008D4CD4 /* location.png */,
@@ -597,7 +602,7 @@
 		18A3A7C61DEC60FF008D4CD4 /* AdMob */ = {
 			isa = PBXGroup;
 			children = (
-				1866A0E31DEC6A2500F08A67 /* GoogleMobileAds.framework */,
+				BEA45CDD1F3C911100316D7E /* GoogleMobileAds.framework */,
 			);
 			name = AdMob;
 			sourceTree = "<group>";
@@ -840,6 +845,15 @@
 			path = FLAnimatedImage;
 			sourceTree = "<group>";
 		};
+		68C5AEF2AE974304D3FDDC54 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3C9BAB13B3F865A3736B89B5 /* Pods-Estad.debug.xcconfig */,
+				9F2EE9AAE52C82110D3CE8CA /* Pods-Estad.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		770522881DC9CE98001C4922 /* collapse_Click */ = {
 			isa = PBXGroup;
 			children = (
@@ -871,6 +885,7 @@
 				772F97091DC31ADE001BCF7E /* Estad */,
 				772F97081DC31ADE001BCF7E /* Products */,
 				BE62C8671E4C827A000E2397 /* Frameworks */,
+				68C5AEF2AE974304D3FDDC54 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -886,7 +901,7 @@
 			isa = PBXGroup;
 			children = (
 				BEE664F91E56E16D00DF9235 /* Estad.entitlements */,
-				BE62C85E1E48A53C000E2397 /* Logo_NEW.jpg */,
+				BE2DC7571F6FC4950097443E /* Logo_NEW.jpg */,
 				18F17D251E0BABB4005180DC /* Default.jpg */,
 				18F17D271E0BACFE005180DC /* FLAnimatedImage */,
 				18F17CE61E0BA955005180DC /* SDWebImage */,
@@ -979,6 +994,7 @@
 			isa = PBXGroup;
 			children = (
 				BE62C8681E4C827A000E2397 /* QuartzCore.framework */,
+				A643AB20DBB1255EFB9F90C1 /* libPods-Estad.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1000,9 +1016,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 772F971E1DC31ADF001BCF7E /* Build configuration list for PBXNativeTarget "Estad" */;
 			buildPhases = (
+				0AF072F672F1EFFA61BA6B22 /* [CP] Check Pods Manifest.lock */,
 				772F97031DC31ADE001BCF7E /* Sources */,
 				772F97041DC31ADE001BCF7E /* Frameworks */,
 				772F97051DC31ADE001BCF7E /* Resources */,
+				84296352360E3079B85B1B64 /* [CP] Embed Pods Frameworks */,
+				DE69B836B35D64B31FF3174A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1061,7 +1080,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				18E255731DDDB72600255C09 /* article_story.storyboard in Resources */,
-				BEE9B3131E6E83FF00AD83C6 /* splash_logo.png in Resources */,
 				9A9555751DDADE0700A5FBC5 /* articles_CELL.xib in Resources */,
 				18A3A7C11DEC309F008D4CD4 /* Editorial_BRD_cell.xib in Resources */,
 				18A3A7B51DEC26E8008D4CD4 /* About_US_VC.xib in Resources */,
@@ -1110,6 +1128,7 @@
 				18EE8C601E0155F700E65B5E /* Interview_DETAIL.xib in Resources */,
 				182D59E61DDC272F0050DF37 /* NEWS_SMALL_CELL.xib in Resources */,
 				BEE665711E5D5CDC00DF9235 /* Internet_Error.xib in Resources */,
+				BE2DC75A1F6FC54E0097443E /* splash_logo.png in Resources */,
 				18A3A7AA1DEC1E01008D4CD4 /* phone.png in Resources */,
 				180B35C61E02B7C80082E184 /* E_magazine_VC.xib in Resources */,
 				18BBCA091E07A7B600CC437D /* Magazine_DETAIL.xib in Resources */,
@@ -1117,13 +1136,61 @@
 				18F17D261E0BABB4005180DC /* Default.jpg in Resources */,
 				772F97171DC31ADF001BCF7E /* Assets.xcassets in Resources */,
 				18A3A7C51DEC5CC2008D4CD4 /* envelope.png in Resources */,
+				BE2DC7581F6FC4950097443E /* Logo_NEW.jpg in Resources */,
 				18D9858F1DE2E3A800ECADF1 /* videoS.storyboard in Resources */,
-				BE62C85F1E48A53C000E2397 /* Logo_NEW.jpg in Resources */,
 				18CEEC891DFEE475001C7811 /* News_COL_CELL.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0AF072F672F1EFFA61BA6B22 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		84296352360E3079B85B1B64 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Estad/Pods-Estad-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DE69B836B35D64B31FF3174A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Estad/Pods-Estad-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		772F97031DC31ADE001BCF7E /* Sources */ = {
@@ -1246,8 +1313,8 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_ENTITLEMENTS = Estad/Estad.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Aspire Printing Press (3W4Z78RZ75)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Aspire Printing Press (3W4Z78RZ75)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Mohamed Hashim (DETPKX426M)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Mohamed Hashim (DETPKX426M)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = 3W4Z78RZ75;
@@ -1271,7 +1338,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "3cbc14b4-30bf-45ec-af8f-36d527f73ee4";
+				PROVISIONING_PROFILE = "9f19f257-d24e-4a3a-812c-7bd759ec07cd";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1299,8 +1366,8 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_ENTITLEMENTS = Estad/Estad.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Aspire Printing Press (3W4Z78RZ75)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Aspire Printing Press (3W4Z78RZ75)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Mohamed Hashim (DETPKX426M)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Mohamed Hashim (DETPKX426M)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 3W4Z78RZ75;
@@ -1317,7 +1384,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "3cbc14b4-30bf-45ec-af8f-36d527f73ee4";
+				PROVISIONING_PROFILE = "9f19f257-d24e-4a3a-812c-7bd759ec07cd";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1327,13 +1394,15 @@
 		};
 		772F971F1DC31ADF001BCF7E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3C9BAB13B3F865A3736B89B5 /* Pods-Estad.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Estad/Estad.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Aspire Printing Press (3W4Z78RZ75)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Aspire Printing Press (3W4Z78RZ75)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Mohamed Hashim (DETPKX426M)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Mohamed Hashim (DETPKX426M)";
 				DEVELOPMENT_TEAM = 3W4Z78RZ75;
 				ENABLE_BITCODE = NO;
+				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Estad",
@@ -1346,21 +1415,25 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.goodbarber.estadaldoha;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3cbc14b4-30bf-45ec-af8f-36d527f73ee4";
-				PROVISIONING_PROFILE_SPECIFIER = estadaldoha;
+				PROVISIONING_PROFILE = "9f19f257-d24e-4a3a-812c-7bd759ec07cd";
+				PROVISIONING_PROFILE_SPECIFIER = "Estad Dev Latest";
+				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Debug;
 		};
 		772F97201DC31ADF001BCF7E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F2EE9AAE52C82110D3CE8CA /* Pods-Estad.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Estad/Estad.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Aspire Printing Press (3W4Z78RZ75)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Aspire Printing Press (3W4Z78RZ75)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Mohamed Hashim (DETPKX426M)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Mohamed Hashim (DETPKX426M)";
 				DEVELOPMENT_TEAM = 3W4Z78RZ75;
 				ENABLE_BITCODE = NO;
+				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Estad",
@@ -1373,9 +1446,11 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.goodbarber.estadaldoha;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3cbc14b4-30bf-45ec-af8f-36d527f73ee4";
-				PROVISIONING_PROFILE_SPECIFIER = estadaldoha;
+				PROVISIONING_PROFILE = "9f19f257-d24e-4a3a-812c-7bd759ec07cd";
+				PROVISIONING_PROFILE_SPECIFIER = "Estad Dev Latest";
+				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
