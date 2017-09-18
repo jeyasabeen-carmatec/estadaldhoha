@@ -45,6 +45,7 @@
     
     [_splashView.layer addAnimation:TransformAnim forKey:nil];
     
+
     [self animate_VC];
 
 }

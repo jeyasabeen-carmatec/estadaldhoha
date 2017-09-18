@@ -131,6 +131,7 @@
 		9AEAACD91DDAD4D70075EAF2 /* News_CELL.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AEAACD71DDAD4D70075EAF2 /* News_CELL.xib */; };
 		BE2DC7581F6FC4950097443E /* Logo_NEW.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE2DC7571F6FC4950097443E /* Logo_NEW.jpg */; };
 		BE2DC75A1F6FC54E0097443E /* splash_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = BE2DC7591F6FC54E0097443E /* splash_logo.png */; };
+		BE2DC7601F6FE4130097443E /* SplashScreen_final.png in Resources */ = {isa = PBXBuildFile; fileRef = BE2DC75F1F6FE4130097443E /* SplashScreen_final.png */; };
 		BE62C8691E4C827B000E2397 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE62C8681E4C827A000E2397 /* QuartzCore.framework */; };
 		BEA45CDE1F3C911100316D7E /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEA45CDD1F3C911100316D7E /* GoogleMobileAds.framework */; };
 		BEE665701E5D5CDC00DF9235 /* Internet_Error.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE6656E1E5D5CDC00DF9235 /* Internet_Error.m */; };
@@ -346,6 +347,7 @@
 		A643AB20DBB1255EFB9F90C1 /* libPods-Estad.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Estad.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE2DC7571F6FC4950097443E /* Logo_NEW.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Logo_NEW.jpg; sourceTree = "<group>"; };
 		BE2DC7591F6FC54E0097443E /* splash_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash_logo.png; sourceTree = "<group>"; };
+		BE2DC75F1F6FE4130097443E /* SplashScreen_final.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SplashScreen_final.png; sourceTree = "<group>"; };
 		BE62C8681E4C827A000E2397 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		BEA45CDD1F3C911100316D7E /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
 		BEE664F91E56E16D00DF9235 /* Estad.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Estad.entitlements; sourceTree = "<group>"; };
@@ -672,6 +674,7 @@
 		18CEEC641DFEB095001C7811 /* Splash_SCRN */ = {
 			isa = PBXGroup;
 			children = (
+				BE2DC75F1F6FE4130097443E /* SplashScreen_final.png */,
 				18CEEC801DFEBBA1001C7811 /* Splash_SCREEN.h */,
 				18CEEC811DFEBBA1001C7811 /* Splash_SCREEN.m */,
 				18CEEC821DFEBBA1001C7811 /* Splash_SCREEN.xib */,
@@ -1090,6 +1093,7 @@
 				18A3A7A61DEC1E01008D4CD4 /* email.png in Resources */,
 				18E255681DDD79C400255C09 /* Article_VC.xib in Resources */,
 				18BBCA211E08285B00CC437D /* Poll_VC.xib in Resources */,
+				BE2DC7601F6FE4130097443E /* SplashScreen_final.png in Resources */,
 				18EE8C721E016E6500E65B5E /* Report_DETAIL_VC.xib in Resources */,
 				9A95557A1DDAE0E400A5FBC5 /* media_CELL.xib in Resources */,
 				18E4C3871E2C893D00B40BFF /* sEttings_VC.xib in Resources */,

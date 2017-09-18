@@ -11,6 +11,7 @@
 @interface Splash_SCREEN : UIViewController
 
 @property (nonatomic, strong) IBOutlet UIImageView *splashView;
+//@property (nonatomic, strong) IBOutlet UIImageView *IMG_1;
 
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityindicator;
 @property (strong, nonatomic) IBOutlet UIView *VW_activity;
