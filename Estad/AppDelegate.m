@@ -184,7 +184,7 @@
         [[NSUserDefaults standardUserDefaults]setObject:token forKey:@"DEV_TOK"];
         [[NSUserDefaults standardUserDefaults]synchronize];
         
-        NSNotification *notif = [NSNotification notificationWithName:@"NEW_TOKEN_AVAILABLE" object:token];
+         NSNotification *notif = [NSNotification notificationWithName:@"NEW_TOKEN_AVAILABLE" object:token];
         [[NSNotificationCenter defaultCenter] postNotification:notif];
     }
     

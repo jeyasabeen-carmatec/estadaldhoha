@@ -1317,8 +1317,8 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_ENTITLEMENTS = Estad/Estad.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Mohamed Hashim (DETPKX426M)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Mohamed Hashim (DETPKX426M)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Aspire Printing Press (3W4Z78RZ75)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Aspire Printing Press (3W4Z78RZ75)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = 3W4Z78RZ75;
@@ -1342,7 +1342,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "9f19f257-d24e-4a3a-812c-7bd759ec07cd";
+				PROVISIONING_PROFILE = "3cbc14b4-30bf-45ec-af8f-36d527f73ee4";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1370,8 +1370,8 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_ENTITLEMENTS = Estad/Estad.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Mohamed Hashim (DETPKX426M)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Mohamed Hashim (DETPKX426M)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Aspire Printing Press (3W4Z78RZ75)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Aspire Printing Press (3W4Z78RZ75)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 3W4Z78RZ75;
@@ -1388,7 +1388,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "9f19f257-d24e-4a3a-812c-7bd759ec07cd";
+				PROVISIONING_PROFILE = "3cbc14b4-30bf-45ec-af8f-36d527f73ee4";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1402,8 +1402,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Estad/Estad.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Mohamed Hashim (DETPKX426M)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Mohamed Hashim (DETPKX426M)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Aspire Printing Press (3W4Z78RZ75)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Aspire Printing Press (3W4Z78RZ75)";
 				DEVELOPMENT_TEAM = 3W4Z78RZ75;
 				ENABLE_BITCODE = NO;
 				ENABLE_TESTABILITY = YES;
@@ -1419,8 +1419,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.goodbarber.estadaldoha;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9f19f257-d24e-4a3a-812c-7bd759ec07cd";
-				PROVISIONING_PROFILE_SPECIFIER = "Estad Dev Latest";
+				PROVISIONING_PROFILE = "3cbc14b4-30bf-45ec-af8f-36d527f73ee4";
+				PROVISIONING_PROFILE_SPECIFIER = estadaldoha;
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -1433,8 +1433,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Estad/Estad.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Mohamed Hashim (DETPKX426M)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Mohamed Hashim (DETPKX426M)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Aspire Printing Press (3W4Z78RZ75)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Aspire Printing Press (3W4Z78RZ75)";
 				DEVELOPMENT_TEAM = 3W4Z78RZ75;
 				ENABLE_BITCODE = NO;
 				ENABLE_TESTABILITY = YES;
@@ -1450,8 +1450,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.goodbarber.estadaldoha;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9f19f257-d24e-4a3a-812c-7bd759ec07cd";
-				PROVISIONING_PROFILE_SPECIFIER = "Estad Dev Latest";
+				PROVISIONING_PROFILE = "3cbc14b4-30bf-45ec-af8f-36d527f73ee4";
+				PROVISIONING_PROFILE_SPECIFIER = estadaldoha;
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
