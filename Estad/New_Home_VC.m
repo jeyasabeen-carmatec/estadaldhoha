@@ -989,6 +989,8 @@
     }
     else if (tableView == _list_NEWS)
     {
+        NSString *str_url = [[NSUserDefaults standardUserDefaults] valueForKey:@"aws_url"];
+
         if (indexPath.row == 0)
         {
             static NSString *simpleTableIdentifier = @"SimpleTableCell";
@@ -1004,7 +1006,9 @@
             //        cell.lbl_NME.text = [searchResults objectAtIndex:indexPath.row];
             //        cell.lbl_NME.numberOfLines = 2;
             
-            NSString *url_STR = [NSString stringWithFormat:@"%@news/%@",IMAGE_URL,[dict_VAL valueForKey:@"image"]];
+
+            
+            NSString *url_STR = [NSString stringWithFormat:@"%@files/news/%@",str_url,[dict_VAL valueForKey:@"image"]];
             
             [cell.image_CNT sd_setImageWithURL:[NSURL URLWithString:url_STR]
                             placeholderImage:[UIImage imageNamed:@"Default.jpg"]];
@@ -1034,7 +1038,7 @@
             //        cell.lbl_NME.text = [searchResults objectAtIndex:indexPath.row];
             //        cell.lbl_NME.numberOfLines = 2;
             
-            NSString *url_STR = [NSString stringWithFormat:@"%@news/%@",IMAGE_URL,[dict_VAL valueForKey:@"image"]];
+            NSString *url_STR = [NSString stringWithFormat:@"%@files/news/%@",str_url,[dict_VAL valueForKey:@"image"]];
             
             [cell.image_CNT sd_setImageWithURL:[NSURL URLWithString:url_STR]
                               placeholderImage:[UIImage imageNamed:@"Default.jpg"]];
@@ -1053,6 +1057,8 @@
     }
     else if (tableView == _list_arbNWS)
     {
+        NSString *str_url = [[NSUserDefaults standardUserDefaults] valueForKey:@"aws_url"];
+
         static NSString *simpleTableIdentifier = @"SimpleTableCell";
         BIG_CELL_NEWS *cell = (BIG_CELL_NEWS *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
         if (cell == nil)
@@ -1067,7 +1073,7 @@
         //        cell.lbl_NME.text = [searchResults objectAtIndex:indexPath.row];
         //        cell.lbl_NME.numberOfLines = 2;
         
-        NSString *url_STR = [NSString stringWithFormat:@"%@news/%@",IMAGE_URL,[dict_VAL valueForKey:@"image"]];
+        NSString *url_STR = [NSString stringWithFormat:@"%@files/news/%@",str_url,[dict_VAL valueForKey:@"image"]];
         
         [cell.image_CNT sd_setImageWithURL:[NSURL URLWithString:url_STR]
                           placeholderImage:[UIImage imageNamed:@"Default.jpg"]];
@@ -1086,6 +1092,8 @@
     }
     else if (tableView == _list_localNWS)
     {
+        NSString *str_url = [[NSUserDefaults standardUserDefaults] valueForKey:@"aws_url"];
+
         if ([localNews count] == 1)
         {
             static NSString *simpleTableIdentifier = @"SimpleTableCell";
@@ -1102,7 +1110,7 @@
             //        cell.lbl_NME.text = [searchResults objectAtIndex:indexPath.row];
             //        cell.lbl_NME.numberOfLines = 2;
             
-            NSString *url_STR = [NSString stringWithFormat:@"%@news/%@",IMAGE_URL,[dict_VAL valueForKey:@"image"]];
+            NSString *url_STR = [NSString stringWithFormat:@"%@files/news/%@",str_url,[dict_VAL valueForKey:@"image"]];
             
             [cell.image_CNT sd_setImageWithURL:[NSURL URLWithString:url_STR]
                               placeholderImage:[UIImage imageNamed:@"Default.jpg"]];
@@ -1133,7 +1141,7 @@
             //        cell.lbl_NME.text = [searchResults objectAtIndex:indexPath.row];
             //        cell.lbl_NME.numberOfLines = 2;
             
-            NSString *url_STR = [NSString stringWithFormat:@"%@news/%@",IMAGE_URL,[dict_VAL valueForKey:@"image"]];
+            NSString *url_STR = [NSString stringWithFormat:@"%@files/news/%@",str_url,[dict_VAL valueForKey:@"image"]];
             
             [cell.image_CNT1 sd_setImageWithURL:[NSURL URLWithString:url_STR]
                               placeholderImage:[UIImage imageNamed:@"Default.jpg"]];
@@ -1151,7 +1159,7 @@
             //        cell.lbl_NME.text = [searchResults objectAtIndex:indexPath.row];
             //        cell.lbl_NME.numberOfLines = 2;
             
-            NSString *url_STR1 = [NSString stringWithFormat:@"%@news/%@",IMAGE_URL,[dict_VAL1 valueForKey:@"image"]];
+            NSString *url_STR1 = [NSString stringWithFormat:@"%@files/news/%@",str_url,[dict_VAL1 valueForKey:@"image"]];
             
             [cell.image_CNT2 sd_setImageWithURL:[NSURL URLWithString:url_STR1]
                                placeholderImage:[UIImage imageNamed:@"Default.jpg"]];
@@ -1170,6 +1178,8 @@
     }
     else if (tableView == _list_intrVW)
     {
+        NSString *str_url = [[NSUserDefaults standardUserDefaults] valueForKey:@"aws_url"];
+
         if (indexPath.row == 0)
         {
             static NSString *simpleTableIdentifier = @"SimpleTableCell";
@@ -1182,7 +1192,7 @@
             NSDictionary *temp_DICTN = [interview objectAtIndex:indexPath.row];
             NSDictionary *dict_VAL = [temp_DICTN valueForKey:@"Interview"];
             
-            NSString *url_STR = [NSString stringWithFormat:@"%@interview/%@",IMAGE_URL,[dict_VAL valueForKey:@"image"]];
+            NSString *url_STR = [NSString stringWithFormat:@"%@files/interview/%@",str_url,[dict_VAL valueForKey:@"image"]];
             
             [cell.image_CNT sd_setImageWithURL:[NSURL URLWithString:url_STR]
                               placeholderImage:[UIImage imageNamed:@"Default.jpg"]];
@@ -1213,7 +1223,7 @@
             //        cell.lbl_NME.text = [searchResults objectAtIndex:indexPath.row];
             //        cell.lbl_NME.numberOfLines = 2;
             
-            NSString *url_STR = [NSString stringWithFormat:@"%@interview/%@",IMAGE_URL,[dict_VAL valueForKey:@"image"]];
+            NSString *url_STR = [NSString stringWithFormat:@"%@files/interview/%@",str_url,[dict_VAL valueForKey:@"image"]];
             
             [cell.image_CNT sd_setImageWithURL:[NSURL URLWithString:url_STR]
                               placeholderImage:[UIImage imageNamed:@"Default.jpg"]];
@@ -1231,6 +1241,8 @@
     }
     else if (tableView == _list_reports)
     {
+        NSString *str_url = [[NSUserDefaults standardUserDefaults] valueForKey:@"aws_url"];
+
         if (indexPath.row == 0)
         {
             static NSString *simpleTableIdentifier = @"SimpleTableCell";
@@ -1243,7 +1255,7 @@
             NSDictionary *temp_DICTN = [reports objectAtIndex:indexPath.row];
             NSDictionary *dict_VAL = [temp_DICTN valueForKey:@"Report"];
             
-            NSString *url_STR = [NSString stringWithFormat:@"%@report/%@",IMAGE_URL,[dict_VAL valueForKey:@"image"]];
+            NSString *url_STR = [NSString stringWithFormat:@"%@files/report/%@",str_url,[dict_VAL valueForKey:@"image"]];
             
             [cell.image_CNT sd_setImageWithURL:[NSURL URLWithString:url_STR]
                               placeholderImage:[UIImage imageNamed:@"Default.jpg"]];
@@ -1274,7 +1286,7 @@
             //        cell.lbl_NME.text = [searchResults objectAtIndex:indexPath.row];
             //        cell.lbl_NME.numberOfLines = 2;
             
-            NSString *url_STR = [NSString stringWithFormat:@"%@report/%@",IMAGE_URL,[dict_VAL valueForKey:@"image"]];
+            NSString *url_STR = [NSString stringWithFormat:@"%@files/report/%@",str_url,[dict_VAL valueForKey:@"image"]];
             
             [cell.image_CNT1 sd_setImageWithURL:[NSURL URLWithString:url_STR]
                                placeholderImage:[UIImage imageNamed:@"Default.jpg"]];
@@ -1291,7 +1303,7 @@
             //        cell.lbl_NME.text = [searchResults objectAtIndex:indexPath.row];
             //        cell.lbl_NME.numberOfLines = 2;
             
-            NSString *url_STR1 = [NSString stringWithFormat:@"%@report/%@",IMAGE_URL,[dict_VAL1 valueForKey:@"image"]];
+            NSString *url_STR1 = [NSString stringWithFormat:@"%@files/report/%@",str_url,[dict_VAL1 valueForKey:@"image"]];
             
             [cell.image_CNT2 sd_setImageWithURL:[NSURL URLWithString:url_STR1]
                                placeholderImage:[UIImage imageNamed:@"Default.jpg"]];
@@ -1322,7 +1334,7 @@
             NSDictionary *temp_DICTN = [reports objectAtIndex:indexPath.row];
             NSDictionary *dict_VAL = [temp_DICTN valueForKey:@"Report"];
             
-            NSString *url_STR = [NSString stringWithFormat:@"%@report/%@",IMAGE_URL,[dict_VAL valueForKey:@"image"]];
+            NSString *url_STR = [NSString stringWithFormat:@"%@files/report/%@",str_url,[dict_VAL valueForKey:@"image"]];
             
             [cell.image_CNT sd_setImageWithURL:[NSURL URLWithString:url_STR]
                               placeholderImage:[UIImage imageNamed:@"Default.jpg"]];

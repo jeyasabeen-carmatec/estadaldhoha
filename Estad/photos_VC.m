@@ -118,11 +118,13 @@
         NSDictionary *temp_data = [[json_RESULT objectAtIndex:indexPath.row] valueForKey:@"data"];
     
         NSString *pict_path = [temp_data valueForKey:@"path"];
-        
-        
-        
-        
-        NSString *url_STR = [NSString stringWithFormat:@"%@%@%@",FILE_URL,pict_path,[temp_data valueForKey:@"image"]];
+    
+    NSString *str_url = [[NSUserDefaults standardUserDefaults] valueForKey:@"aws_url"];
+
+    
+
+    
+        NSString *url_STR = [NSString stringWithFormat:@"%@%@%@",str_url,pict_path,[temp_data valueForKey:@"image"]];
     
         
      [cell.bg_IMG sd_setImageWithURL:[NSURL URLWithString:url_STR]
@@ -153,7 +155,9 @@
 //    [indicator setCenter:_view_IMAGE.center];
 //    [_view_IMAGE addSubview:indicator];
     
-    NSString *url_STR = [NSString stringWithFormat:@"%@%@%@",FILE_URL,pict_path,[temp_data valueForKey:@"image"]];
+    NSString *str_url = [[NSUserDefaults standardUserDefaults] valueForKey:@"aws_url"];
+
+    NSString *url_STR = [NSString stringWithFormat:@"%@%@%@",str_url,pict_path,[temp_data valueForKey:@"image"]];
     _pict_DETAIL.text = [NSString stringWithFormat:@"%@",[temp_data valueForKey:@"title"]];
     
 //    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
@@ -421,8 +425,9 @@
             [indicator startAnimating];
             [indicator setCenter:_view_IMAGE.center];
             [_view_IMAGE addSubview:indicator];
-            
-            NSString *url_STR = [NSString stringWithFormat:@"%@%@%@",FILE_URL,pict_path,[temp_data valueForKey:@"image"]];
+            NSString *str_url = [[NSUserDefaults standardUserDefaults] valueForKey:@"aws_url"];
+
+            NSString *url_STR = [NSString stringWithFormat:@"%@%@%@",str_url,pict_path,[temp_data valueForKey:@"image"]];
             _pict_DETAIL.text = [NSString stringWithFormat:@"%@",[temp_data valueForKey:@"title"]];
             
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
@@ -457,8 +462,9 @@
             [indicator startAnimating];
             [indicator setCenter:_view_IMAGE.center];
             [_view_IMAGE addSubview:indicator];
-            
-            NSString *url_STR = [NSString stringWithFormat:@"%@%@%@",FILE_URL,pict_path,[temp_data valueForKey:@"image"]];
+            NSString *str_url = [[NSUserDefaults standardUserDefaults] valueForKey:@"aws_url"];
+
+            NSString *url_STR = [NSString stringWithFormat:@"%@%@%@",str_url,pict_path,[temp_data valueForKey:@"image"]];
             _pict_DETAIL.text = [NSString stringWithFormat:@"%@",[temp_data valueForKey:@"title"]];
             
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
@@ -508,7 +514,10 @@
 //    [indicator setCenter:_view_IMAGE.center];
 //    [_view_IMAGE addSubview:indicator];
     
-    NSString *url_STR = [NSString stringWithFormat:@"%@%@%@",FILE_URL,pict_path,[temp_data valueForKey:@"image"]];
+    NSString *str_url = [[NSUserDefaults standardUserDefaults] valueForKey:@"aws_url"];
+
+    
+    NSString *url_STR = [NSString stringWithFormat:@"%@%@%@",str_url,pict_path,[temp_data valueForKey:@"image"]];
     _pict_DETAIL.text = [NSString stringWithFormat:@"%@",[temp_data valueForKey:@"title"]];
     
 //    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
@@ -550,8 +559,9 @@
 //    [indicator startAnimating];
 //    [indicator setCenter:_view_IMAGE.center];
 //    [_view_IMAGE addSubview:indicator];
-    
-    NSString *url_STR = [NSString stringWithFormat:@"%@%@%@",FILE_URL,pict_path,[temp_data valueForKey:@"image"]];
+    NSString *str_url = [[NSUserDefaults standardUserDefaults] valueForKey:@"aws_url"];
+
+    NSString *url_STR = [NSString stringWithFormat:@"%@%@%@",str_url,pict_path,[temp_data valueForKey:@"image"]];
     _pict_DETAIL.text = [NSString stringWithFormat:@"%@",[temp_data valueForKey:@"title"]];
     
 //    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{

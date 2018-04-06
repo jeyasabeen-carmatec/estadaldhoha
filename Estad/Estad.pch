@@ -35,8 +35,8 @@
 //#define FILE_URL @"http://192.168.0.116/estad/"
 
 #define MAIN_URL @"http://www.estadaldoha.com/Apis/"
-#define FILE_URL @"http://www.estadaldoha.com/"
-#define IMAGE_URL @"http://www.estadaldoha.com/files/"
+//#define FILE_URL @"http://www.estadaldoha.com/"
+//#define IMAGE_URL @"http://www.estadaldoha.com/files/"
 
 // NSString *URL_STR = [NSString stringWithFormat:@"http://192.168.0.116/estad/Apis/registerPush"];
 

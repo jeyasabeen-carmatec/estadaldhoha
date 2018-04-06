@@ -116,8 +116,11 @@
     [indicator startAnimating];
     [indicator setCenter:_big_IMAGE.center];
     [_profile_VW addSubview:indicator];
+    NSString *str_url = [[NSUserDefaults standardUserDefaults] valueForKey:@"aws_url"];
+
     
-    NSString *url_STR = [NSString stringWithFormat:@"%@writer/%@",IMAGE_URL,image_url];
+    
+    NSString *url_STR = [NSString stringWithFormat:@"%@files/writer/%@",str_url,image_url];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
         
@@ -499,7 +502,10 @@
 -(IBAction)whatsAPP_Action:(id)sender
 {
 //    NSString *str_URL = [NSString stringWithFormat:@"%@articleContent/%@",MAIN_URL,get_ID];
-    NSString *str_URL = [NSString stringWithFormat:@"%@articles/details/%@",FILE_URL,get_ID];
+    
+    NSString *str_url = [[NSUserDefaults standardUserDefaults] valueForKey:@"aws_url"];
+
+    NSString *str_URL = [NSString stringWithFormat:@"%@articles/details/%@",str_url,get_ID];
     if ([WhatsAppKit isWhatsAppInstalled]) {
         [WhatsAppKit launchWhatsAppWithMessage:str_URL];
     }
@@ -523,7 +529,10 @@
 //    
 //    _overlay_VIW.hidden = YES;
     
-    NSString *str_URL = [NSString stringWithFormat:@"%@articles/details/%@",FILE_URL,get_ID];
+    NSString *str_url = [[NSUserDefaults standardUserDefaults] valueForKey:@"aws_url"];
+
+    
+    NSString *str_URL = [NSString stringWithFormat:@"%@articles/details/%@",str_url,get_ID];
     NSDictionary *temp_dictin = [json_DATA valueForKey:@"result"];
     NSDictionary *news = [temp_dictin valueForKey:@"News"];
     NSString *title = [news valueForKey:@"title"];
@@ -548,7 +557,9 @@
 -(IBAction)Tweet_BTN:(id)sender
 {
 //    NSString *str_URL = [NSString stringWithFormat:@"%@articleContent/%@",MAIN_URL,get_ID];
-    NSString *str_URL = [NSString stringWithFormat:@"%@articles/details/%@",FILE_URL,get_ID];
+    NSString *str_url = [[NSUserDefaults standardUserDefaults] valueForKey:@"aws_url"];
+
+    NSString *str_URL = [NSString stringWithFormat:@"%@articles/details/%@",str_url,get_ID];
     NSDictionary *temp_dictin = [json_DATA valueForKey:@"result"];
     NSDictionary *news = [temp_dictin valueForKey:@"News"];
     NSString *title = [news valueForKey:@"title"];
@@ -573,7 +584,10 @@
 -(IBAction)GooglPLS:(id)sender
 {
 //    NSString *str_URL = [NSString stringWithFormat:@"%@articleContent/%@",MAIN_URL,get_ID];
-    NSString *str_URL = [NSString stringWithFormat:@"%@articles/details/%@",FILE_URL,get_ID];
+    
+    NSString *str_url = [[NSUserDefaults standardUserDefaults] valueForKey:@"aws_url"];
+
+    NSString *str_URL = [NSString stringWithFormat:@"%@articles/details/%@",str_url,get_ID];
     NSURL *share = [NSURL URLWithString:str_URL];
     NSURLComponents* urlComponents = [[NSURLComponents alloc]
                                       initWithString:@"https://plus.google.com/share"];

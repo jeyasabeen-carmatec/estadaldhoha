@@ -697,14 +697,16 @@
 //                [indicator setCenter:cell.image_VW.center];
 //                [cell.contentView addSubview:indicator];
                 
-                NSString *url_STR = [NSString stringWithFormat:@"%@news/%@",IMAGE_URL,[tmp_NEWS valueForKey:@"image"]];
+                NSString *str_url = [[NSUserDefaults standardUserDefaults] valueForKey:@"aws_url"];
+                
+                NSString *url_STR = [NSString stringWithFormat:@"%@files/news/%@",str_url,[tmp_NEWS valueForKey:@"image"]];
                 if ([url_STR isEqualToString:@"<null>"]||[url_STR isEqualToString:@"(null)"]||[url_STR isEqualToString:@""])
                 {
                     
                 }
                 else
                 {
-                    NSString *url_STR = [NSString stringWithFormat:@"%@news/%@",IMAGE_URL,[tmp_NEWS valueForKey:@"image"]];
+                    NSString *url_STR = [NSString stringWithFormat:@"%@files/news/%@",str_url,[tmp_NEWS valueForKey:@"image"]];
                     [cell.image_VW sd_setImageWithURL:[NSURL URLWithString:url_STR]
                                    placeholderImage:[UIImage imageNamed:@"Default.jpg"]];
                     
@@ -792,15 +794,16 @@
 //                [indicator startAnimating];
 //                [indicator setCenter:cell.image_VW.center];
 //                [cell.contentView addSubview:indicator];
-                
-                NSString *url_STR = [NSString stringWithFormat:@"%@news/%@",IMAGE_URL,[tmp_NEWS valueForKey:@"image"]];
+                NSString *str_url = [[NSUserDefaults standardUserDefaults] valueForKey:@"aws_url"];
+
+                NSString *url_STR = [NSString stringWithFormat:@"%@files/news/%@",str_url,[tmp_NEWS valueForKey:@"image"]];
                 if ([url_STR isEqualToString:@"<null>"]||[url_STR isEqualToString:@"(null)"]||[url_STR isEqualToString:@""])
                 {
                     
                 }
                 else
                 {
-                    NSString *url_STR = [NSString stringWithFormat:@"%@news/%@",IMAGE_URL,[tmp_NEWS valueForKey:@"image"]];
+                    NSString *url_STR = [NSString stringWithFormat:@"%@files/news/%@",str_url,[tmp_NEWS valueForKey:@"image"]];
                     [cell.image_VW sd_setImageWithURL:[NSURL URLWithString:url_STR]
                                      placeholderImage:[UIImage imageNamed:@"Default.jpg"]];
                     

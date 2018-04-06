@@ -75,6 +75,7 @@
 -(void) viewWillAppear:(BOOL)animated
 {
     //    self.navigationController.navigationBar.hidden = YES;
+    
 }
 
 - (void)viewDidLoad {
@@ -877,10 +878,11 @@
     
     [_widget_VW1 loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://widgets.datasportsgroup.com/carmatec/comp_carmatec.php"]]];
     _widget_VW1.scalesPageToFit = YES;
-    
+    NSString *str_url = [[NSUserDefaults standardUserDefaults] valueForKey:@"aws_url"];
+
     if (contents) {
         NSArray *News = [localNews valueForKey:@"News"];
-        _IMG_local_FOOTBALL.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@news/%@",IMAGE_URL,[News valueForKey:@"image"]]]]];
+        _IMG_local_FOOTBALL.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@files/news/%@",str_url,[News valueForKey:@"image"]]]]];
         _lbl_local_FOOTBALL.text = [NSString stringWithFormat:@"%@",[News valueForKey:@"title"]];
         ft_BAL_ID = [News valueForKey:@"id"];
         _lbl_local_FOOTBALL.numberOfLines = 0;
@@ -890,7 +892,7 @@
         
         
         @try {
-            _IMG_arb_FTBALL.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@news/%@",IMAGE_URL,[arb_news valueForKey:@"image"]]]]];
+            _IMG_arb_FTBALL.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@files/news/%@",str_url,[arb_news valueForKey:@"image"]]]]];
         } @catch (NSException *exception) {
             _IMG_arb_FTBALL.image = nil;
         }
@@ -928,7 +930,7 @@
         
         
         @try {
-            _IMG_INTR_FTBALL.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@news/%@",IMAGE_URL,[Intr_ftBL_nws valueForKey:@"image"]]]]];
+            _IMG_INTR_FTBALL.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@files/news/%@",str_url,[Intr_ftBL_nws valueForKey:@"image"]]]]];
         } @catch (NSException *exception) {
             _IMG_INTR_FTBALL.image = nil;
         }
@@ -952,7 +954,7 @@
         NSArray *other_SPRT = [contents valueForKey:@"othersnews"];
         NSArray *other_NWS = [other_SPRT valueForKey:@"News"];
         
-        _IMG_OTHR_SPT.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@news/%@",IMAGE_URL,[other_NWS valueForKey:@"image"]]]]];
+        _IMG_OTHR_SPT.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@files/news/%@",str_url,[other_NWS valueForKey:@"image"]]]]];
         _lbl_OTHR_SPT.text = [NSString stringWithFormat:@"%@",[other_NWS valueForKey:@"title"]];
         STR_other_NS = [other_NWS valueForKey:@"id"];
         _lbl_OTHR_SPT.numberOfLines = 0;
@@ -989,25 +991,25 @@
         {
             //        picture
             NSArray *temp = [[gallery objectAtIndex:0] valueForKey:@"Gallery"];
-            _gallery1.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@picture/%@",IMAGE_URL,[temp valueForKey:@"image"]]]]];
+            _gallery1.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@files/picture/%@",str_url,[temp valueForKey:@"image"]]]]];
         }
         
         if ([gallery count] > 1)
         {
             NSArray *temp = [[gallery objectAtIndex:1] valueForKey:@"Gallery"];
-            _gallery2.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@picture/%@",IMAGE_URL,[temp valueForKey:@"image"]]]]];
+            _gallery2.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@files/picture/%@",str_url,[temp valueForKey:@"image"]]]]];
         }
         
         if ([gallery count] > 2)
         {
             NSArray *temp = [[gallery objectAtIndex:2] valueForKey:@"Gallery"];
-            _gallery3.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@picture/%@",IMAGE_URL,[temp valueForKey:@"image"]]]]];
+            _gallery3.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@files/picture/%@",str_url,[temp valueForKey:@"image"]]]]];
         }
         
         if ([gallery count] > 3)
         {
             NSArray *temp = [[gallery objectAtIndex:3] valueForKey:@"Gallery"];
-            _gallery4.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@picture/%@",IMAGE_URL,[temp valueForKey:@"image"]]]]];
+            _gallery4.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@files/picture/%@",str_url,[temp valueForKey:@"image"]]]]];
         }
     }
     
@@ -1057,7 +1059,8 @@
     
     if (collectionView == _collec_1) {
         
-        
+        NSString *str_url = [[NSUserDefaults standardUserDefaults] valueForKey:@"aws_url"];
+
         COLL_CELL_1 *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MyCell" forIndexPath:indexPath];
         
         
@@ -1067,7 +1070,7 @@
 //        [indicator setCenter:cell.bg_IMG.center];
 //        [cell.contentView addSubview:indicator];
         
-        NSString *url_STR = [NSString stringWithFormat:@"%@news/%@",IMAGE_URL,[News_IMG objectAtIndex:indexPath.row]];
+        NSString *url_STR = [NSString stringWithFormat:@"%@files/news/%@",str_url,[News_IMG objectAtIndex:indexPath.row]];
         
 
                         
@@ -1082,6 +1085,8 @@
     }
     else if (collectionView == _collec_NEWS)
     {
+        NSString *str_url = [[NSUserDefaults standardUserDefaults] valueForKey:@"aws_url"];
+
         News_COL_CELL *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"NewsCell" forIndexPath:indexPath];
 //
 //        UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
@@ -1089,7 +1094,7 @@
 //        [indicator setCenter:cell.bg_IMG.center];
 //        [cell.contentView addSubview:indicator];
         
-        NSString *url_STR = [NSString stringWithFormat:@"%@news/%@",IMAGE_URL,[page_IMG_NWS objectAtIndex:indexPath.row]];
+        NSString *url_STR = [NSString stringWithFormat:@"%@files/news/%@",str_url,[page_IMG_NWS objectAtIndex:indexPath.row]];
         
         [cell.bg_IMG sd_setImageWithURL:[NSURL URLWithString:url_STR]
                        placeholderImage:[UIImage imageNamed:@"Default.jpg"]];
@@ -1101,6 +1106,8 @@
     }
     else if (collectionView == _collec_Interview)
     {
+        NSString *str_url = [[NSUserDefaults standardUserDefaults] valueForKey:@"aws_url"];
+
         Intr_COL_Cell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"InterviewCELL" forIndexPath:indexPath];
         
 //        UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
@@ -1108,7 +1115,7 @@
 //        [indicator setCenter:cell.bg_IMG.center];
 //        [cell.contentView addSubview:indicator];
         
-        NSString *url_STR = [NSString stringWithFormat:@"%@interview/%@",IMAGE_URL,[IMG_inter objectAtIndex:indexPath.row]];
+        NSString *url_STR = [NSString stringWithFormat:@"%@files/interview/%@",str_url,[IMG_inter objectAtIndex:indexPath.row]];
         
         [cell.bg_IMG sd_setImageWithURL:[NSURL URLWithString:url_STR]
                        placeholderImage:[UIImage imageNamed:@"Default.jpg"]];
@@ -1120,6 +1127,8 @@
     }
     else if (collectionView == _collec_Report)
     {
+        NSString *str_url = [[NSUserDefaults standardUserDefaults] valueForKey:@"aws_url"];
+
         report_Col_CELL *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"reportCollectionCell" forIndexPath:indexPath];
         
 //        UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
@@ -1127,7 +1136,7 @@
 //        [indicator setCenter:cell.bg_IMG.center];
 //        [cell.contentView addSubview:indicator];
         
-        NSString *url_STR = [NSString stringWithFormat:@"%@report/%@",IMAGE_URL,[IMG_Report objectAtIndex:indexPath.row]];
+        NSString *url_STR = [NSString stringWithFormat:@"%@files/report/%@",str_url,[IMG_Report objectAtIndex:indexPath.row]];
         
         [cell.bg_IMG sd_setImageWithURL:[NSURL URLWithString:url_STR]
                        placeholderImage:[UIImage imageNamed:@"Default.jpg"]];
@@ -1145,8 +1154,10 @@
 //        [indicator startAnimating];
 //        [indicator setCenter:cell.bg_IMG.center];
 //        [cell.contentView addSubview:indicator];
+        NSString *str_url = [[NSUserDefaults standardUserDefaults] valueForKey:@"aws_url"];
+
         
-        NSString *url_STR = [NSString stringWithFormat:@"%@writer/%@",IMAGE_URL,[IMG_writer objectAtIndex:indexPath.row]];
+        NSString *url_STR = [NSString stringWithFormat:@"%@files/writer/%@",str_url,[IMG_writer objectAtIndex:indexPath.row]];
         
         [cell.bg_IMG sd_setImageWithURL:[NSURL URLWithString:url_STR]
                        placeholderImage:[UIImage imageNamed:@"Default.jpg"]];
@@ -1464,13 +1475,14 @@
     
     index_PHOT = 0;
     
-    
+    NSString *str_url = [[NSUserDefaults standardUserDefaults] valueForKey:@"aws_url"];
+
     UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     [indicator startAnimating];
     [indicator setCenter:_view_IMAGE.center];
     [_view_IMAGE addSubview:indicator];
     
-    NSString *url_STR = [NSString stringWithFormat:@"%@picture/%@",IMAGE_URL,[IMG_GAL objectAtIndex:index_PHOT]];
+    NSString *url_STR = [NSString stringWithFormat:@"%@files/picture/%@",str_url,[IMG_GAL objectAtIndex:index_PHOT]];
     _pict_DETAIL.text = [NSString stringWithFormat:@"%@",[titl_GAL objectAtIndex:index_PHOT]];
     
     NSURLSessionTask *task = [[NSURLSession sharedSession] dataTaskWithURL:[NSURL URLWithString:url_STR] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
@@ -1499,8 +1511,9 @@
     [indicator startAnimating];
     [indicator setCenter:_view_IMAGE.center];
     [_view_IMAGE addSubview:indicator];
-    
-    NSString *url_STR = [NSString stringWithFormat:@"%@picture/%@",IMAGE_URL,[IMG_GAL objectAtIndex:index_PHOT]];
+    NSString *str_url = [[NSUserDefaults standardUserDefaults] valueForKey:@"aws_url"];
+
+    NSString *url_STR = [NSString stringWithFormat:@"%@files/picture/%@",str_url,[IMG_GAL objectAtIndex:index_PHOT]];
     _pict_DETAIL.text = [NSString stringWithFormat:@"%@",[titl_GAL objectAtIndex:index_PHOT]];
     
     NSURLSessionTask *task = [[NSURLSession sharedSession] dataTaskWithURL:[NSURL URLWithString:url_STR] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
@@ -1529,8 +1542,10 @@
     [indicator startAnimating];
     [indicator setCenter:_view_IMAGE.center];
     [_view_IMAGE addSubview:indicator];
+    NSString *str_url = [[NSUserDefaults standardUserDefaults] valueForKey:@"aws_url"];
+
     
-    NSString *url_STR = [NSString stringWithFormat:@"%@picture/%@",IMAGE_URL,[IMG_GAL objectAtIndex:index_PHOT]];
+    NSString *url_STR = [NSString stringWithFormat:@"%@files/picture/%@",str_url,[IMG_GAL objectAtIndex:index_PHOT]];
     _pict_DETAIL.text = [NSString stringWithFormat:@"%@",[titl_GAL objectAtIndex:index_PHOT]];
     
     NSURLSessionTask *task = [[NSURLSession sharedSession] dataTaskWithURL:[NSURL URLWithString:url_STR] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
@@ -1560,7 +1575,10 @@
     [indicator setCenter:_view_IMAGE.center];
     [_view_IMAGE addSubview:indicator];
     
-    NSString *url_STR = [NSString stringWithFormat:@"%@picture/%@",IMAGE_URL,[IMG_GAL objectAtIndex:index_PHOT]];
+    NSString *str_url = [[NSUserDefaults standardUserDefaults] valueForKey:@"aws_url"];
+
+    
+    NSString *url_STR = [NSString stringWithFormat:@"%@files/picture/%@",str_url,[IMG_GAL objectAtIndex:index_PHOT]];
     _pict_DETAIL.text = [NSString stringWithFormat:@"%@",[titl_GAL objectAtIndex:index_PHOT]];
     
     NSURLSessionTask *task = [[NSURLSession sharedSession] dataTaskWithURL:[NSURL URLWithString:url_STR] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
@@ -1596,8 +1614,10 @@
             [indicator startAnimating];
             [indicator setCenter:_view_IMAGE.center];
             [_view_IMAGE addSubview:indicator];
+            NSString *str_url = [[NSUserDefaults standardUserDefaults] valueForKey:@"aws_url"];
+
             
-            NSString *url_STR = [NSString stringWithFormat:@"%@picture/%@",IMAGE_URL,[IMG_GAL objectAtIndex:index_PHOT]];
+            NSString *url_STR = [NSString stringWithFormat:@"%@files/picture/%@",str_url,[IMG_GAL objectAtIndex:index_PHOT]];
             _pict_DETAIL.text = [NSString stringWithFormat:@"%@",[titl_GAL objectAtIndex:index_PHOT]];
             
             NSURLSessionTask *task = [[NSURLSession sharedSession] dataTaskWithURL:[NSURL URLWithString:url_STR] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
@@ -1628,8 +1648,10 @@
             [indicator startAnimating];
             [indicator setCenter:_view_IMAGE.center];
             [_view_IMAGE addSubview:indicator];
+            NSString *str_url = [[NSUserDefaults standardUserDefaults] valueForKey:@"aws_url"];
+
             
-            NSString *url_STR = [NSString stringWithFormat:@"%@picture/%@",IMAGE_URL,[IMG_GAL objectAtIndex:index_PHOT]];
+            NSString *url_STR = [NSString stringWithFormat:@"%@files/picture/%@",str_url,[IMG_GAL objectAtIndex:index_PHOT]];
             _pict_DETAIL.text = [NSString stringWithFormat:@"%@",[titl_GAL objectAtIndex:index_PHOT]];
             
             NSURLSessionTask *task = [[NSURLSession sharedSession] dataTaskWithURL:[NSURL URLWithString:url_STR] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
@@ -1674,7 +1696,10 @@
     [indicator setCenter:_view_IMAGE.center];
     [_view_IMAGE addSubview:indicator];
     
-    NSString *url_STR = [NSString stringWithFormat:@"%@picture/%@",IMAGE_URL,[IMG_GAL objectAtIndex:index_PHOT]];
+    NSString *str_url = [[NSUserDefaults standardUserDefaults] valueForKey:@"aws_url"];
+
+    
+    NSString *url_STR = [NSString stringWithFormat:@"%@files/picture/%@",str_url,[IMG_GAL objectAtIndex:index_PHOT]];
     _pict_DETAIL.text = [NSString stringWithFormat:@"%@",[titl_GAL objectAtIndex:index_PHOT]];
     
     NSURLSessionTask *task = [[NSURLSession sharedSession] dataTaskWithURL:[NSURL URLWithString:url_STR] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
@@ -1708,8 +1733,9 @@
     [indicator startAnimating];
     [indicator setCenter:_view_IMAGE.center];
     [_view_IMAGE addSubview:indicator];
-    
-    NSString *url_STR = [NSString stringWithFormat:@"%@picture/%@",IMAGE_URL,[IMG_GAL objectAtIndex:index_PHOT]];
+    NSString *str_url = [[NSUserDefaults standardUserDefaults] valueForKey:@"aws_url"];
+
+    NSString *url_STR = [NSString stringWithFormat:@"%@files/picture/%@",str_url,[IMG_GAL objectAtIndex:index_PHOT]];
     _pict_DETAIL.text = [NSString stringWithFormat:@"%@",[titl_GAL objectAtIndex:index_PHOT]];
     
     NSURLSessionTask *task = [[NSURLSession sharedSession] dataTaskWithURL:[NSURL URLWithString:url_STR] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
@@ -1826,6 +1852,8 @@
     Poll_VC *controller = [[Poll_VC alloc] initWithNibName:@"Poll_VC" bundle:nil];
     [self.navigationController pushViewController:controller animated:YES];
 }
+
+
 
 @end
 

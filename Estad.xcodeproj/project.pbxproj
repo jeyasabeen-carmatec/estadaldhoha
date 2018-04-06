@@ -1046,8 +1046,7 @@
 				TargetAttributes = {
 					772F97061DC31ADE001BCF7E = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = 3W4Z78RZ75;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -1403,8 +1402,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Estad/Estad.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Aspire Printing Press (3W4Z78RZ75)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Aspire Printing Press (3W4Z78RZ75)";
-				DEVELOPMENT_TEAM = 3W4Z78RZ75;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1417,10 +1416,10 @@
 				INFOPLIST_FILE = Estad/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.goodbarber.estadaldoha;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gardrobe.estadaldoha;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3cbc14b4-30bf-45ec-af8f-36d527f73ee4";
-				PROVISIONING_PROFILE_SPECIFIER = estadaldoha;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -1434,8 +1433,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Estad/Estad.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Aspire Printing Press (3W4Z78RZ75)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Aspire Printing Press (3W4Z78RZ75)";
-				DEVELOPMENT_TEAM = 3W4Z78RZ75;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1448,10 +1447,10 @@
 				INFOPLIST_FILE = Estad/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.goodbarber.estadaldoha;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gardrobe.estadaldoha;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3cbc14b4-30bf-45ec-af8f-36d527f73ee4";
-				PROVISIONING_PROFILE_SPECIFIER = estadaldoha;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;

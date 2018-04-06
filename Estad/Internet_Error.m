@@ -90,7 +90,9 @@
 
 -(void) retry_btn
 {
-    NSData *aData = [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",FILE_URL]]];
+    NSString *str_url = [[NSUserDefaults standardUserDefaults] valueForKey:@"aws_url"];
+
+    NSData *aData = [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",str_url]]];
     if (aData)
     {
         [self.navigationController popViewControllerAnimated:YES];

@@ -177,8 +177,10 @@
 //        [indicator startAnimating];
 //        [indicator setCenter:cell.bg_IMG.center];
 //        [cell.contentView addSubview:indicator];
-        
-        NSString *url_STR = [NSString stringWithFormat:@"%@writer/%@",IMAGE_URL,[temp_writer valueForKey:@"photo"]];
+         NSString *str_url = [[NSUserDefaults standardUserDefaults] valueForKey:@"aws_url"];
+
+    
+        NSString *url_STR = [NSString stringWithFormat:@"%@files/writer/%@",str_url,[temp_writer valueForKey:@"photo"]];
         
         [cell.bg_IMG sd_setImageWithURL:[NSURL URLWithString:url_STR]
                          placeholderImage:[UIImage imageNamed:@"Default.jpg"]];

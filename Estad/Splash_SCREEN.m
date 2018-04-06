@@ -108,9 +108,36 @@
 //    HomeController *controller = [[HomeController alloc] initWithNibName:@"HomeController" bundle:nil];
     New_Home_VC *controller = [[New_Home_VC alloc] initWithNibName:@"New_Home_VC" bundle:nil];
     [self.navigationController pushViewController:controller animated:NO];
-    
+    [self Image_API];
     [_activityindicator stopAnimating];
     _VW_activity.hidden = YES;
 }
+
+#pragma mark - Image AWS api calling
+
+-(void) Image_API
+{
+    // NSString *token = [[NSUserDefaults standardUserDefaults]valueForKey:@"DEV_TOK"];
+    //   NSLog(@"new token available : %@", token);
+    NSError *error;
+    NSString *urlGetuser = [NSString stringWithFormat:@"http://staging.estadaldoha.com/apis/aws_url"];
+    
+    NSHTTPURLResponse *response = nil;
+    NSURL *urlProducts=[NSURL URLWithString:urlGetuser];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    [request setURL:urlProducts];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPShouldHandleCookies:NO];
+    NSData *aData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    if(aData)
+    {
+        NSDictionary  *aws_url  = (NSDictionary *)[NSJSONSerialization JSONObjectWithData:aData options:NSASCIIStringEncoding error:&error];
+        [[NSUserDefaults standardUserDefaults] setObject:[aws_url valueForKey:@"url"] forKey:@"aws_url"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+    }
+   }
+
 
 @end

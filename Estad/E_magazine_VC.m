@@ -906,8 +906,9 @@
 //        [indicator startAnimating];
 //        [indicator setCenter:cell.Img_PIC.center];
 //        [cell.contentView addSubview:indicator];
-    
-        NSString *url_STR = [NSString stringWithFormat:@"%@emagazine/coverphoto/%@",IMAGE_URL,[IMG_S objectAtIndex:indexPath.row]];
+       NSString *str_url = [[NSUserDefaults standardUserDefaults] valueForKey:@"aws_url"];
+
+        NSString *url_STR = [NSString stringWithFormat:@"%@files/emagazine/coverphoto/%@",str_url,[IMG_S objectAtIndex:indexPath.row]];
         
         [cell.Img_PIC sd_setImageWithURL:[NSURL URLWithString:url_STR]
                    placeholderImage:[UIImage imageNamed:@"Default.jpg"]];
@@ -919,7 +920,9 @@
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *post_URL = [NSString stringWithFormat:@"%@Emagazines/w_download/%@",FILE_URL,[PDF_file objectAtIndex:indexPath.row]];
+    NSString *str_url = [[NSUserDefaults standardUserDefaults] valueForKey:@"aws_url"];
+
+    NSString *post_URL = [NSString stringWithFormat:@"%@files/emagazine/magazine/%@",str_url,[PDF_file objectAtIndex:indexPath.row]];
     Magazine_DETAIL *controller = [[Magazine_DETAIL alloc] initWithNibName:@"Magazine_DETAIL" bundle:nil];
     controller.get_URL = post_URL;
     [self.navigationController pushViewController:controller animated:YES];

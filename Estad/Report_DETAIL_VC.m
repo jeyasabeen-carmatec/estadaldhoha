@@ -117,8 +117,10 @@
     [indicator startAnimating];
     [indicator setCenter:_big_IMAGE.center];
     [_profile_VW addSubview:indicator];
+    NSString *str_url = [[NSUserDefaults standardUserDefaults] valueForKey:@"aws_url"];
+
     
-    NSString *url_STR = [NSString stringWithFormat:@"%@report/%@",IMAGE_URL,image_url];
+    NSString *url_STR = [NSString stringWithFormat:@"%@files/report/%@",str_url,image_url];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
         
@@ -563,7 +565,9 @@
 -(IBAction)whatsAPP_Action:(id)sender
 {
 //    NSString *str_URL = [NSString stringWithFormat:@"%@reportsDetail/%@",MAIN_URL,get_ID];
-    NSString *str_URL = [NSString stringWithFormat:@"%@reports/details/%@",FILE_URL,get_ID];
+    NSString *str_url = [[NSUserDefaults standardUserDefaults] valueForKey:@"aws_url"];
+
+    NSString *str_URL = [NSString stringWithFormat:@"%@reports/details/%@",str_url,get_ID];
     
     if ([WhatsAppKit isWhatsAppInstalled]) {
         [WhatsAppKit launchWhatsAppWithMessage:str_URL];
@@ -577,8 +581,10 @@
 }
 -(IBAction)FB_SHARE:(id)sender
 {
+    NSString *str_url = [[NSUserDefaults standardUserDefaults] valueForKey:@"aws_url"];
+
 //    NSString *str_URL = [NSString stringWithFormat:@"%@reportsDetail/%@",MAIN_URL,get_ID];
-    NSString *str_URL = [NSString stringWithFormat:@"%@reports/details/%@",FILE_URL,get_ID];
+    NSString *str_URL = [NSString stringWithFormat:@"%@reports/details/%@",str_url,get_ID];
     
     SLComposeViewController *controller = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
     [controller setInitialText:str_URL];
@@ -589,7 +595,10 @@
 -(IBAction)Tweet_BTN:(id)sender
 {
 //    NSString *str_URL = [NSString stringWithFormat:@"%@reportsDetail/%@",MAIN_URL,get_ID];
-    NSString *str_URL = [NSString stringWithFormat:@"%@reports/details/%@",FILE_URL,get_ID];
+    
+    NSString *str_url = [[NSUserDefaults standardUserDefaults] valueForKey:@"aws_url"];
+
+    NSString *str_URL = [NSString stringWithFormat:@"%@reports/details/%@",str_url,get_ID];
     
     SLComposeViewController *controller = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
     [controller setInitialText:str_URL];
@@ -601,7 +610,9 @@
 {
     // Construct the Google+ share URL
 //    NSString *str_URL = [NSString stringWithFormat:@"%@reportsDetail/%@",MAIN_URL,get_ID];
-    NSString *str_URL = [NSString stringWithFormat:@"%@reports/details/%@",FILE_URL,get_ID];
+    NSString *str_url = [[NSUserDefaults standardUserDefaults] valueForKey:@"aws_url"];
+
+    NSString *str_URL = [NSString stringWithFormat:@"%@reports/details/%@",str_url,get_ID];
     NSURL *share = [NSURL URLWithString:str_URL];
     NSURLComponents* urlComponents = [[NSURLComponents alloc]
                                       initWithString:@"https://plus.google.com/share"];
